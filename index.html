@@ -3,67 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMEVERSE FINAL 1000 500 500</title>
+<title>ANIMEVERSE 500 BANNER 500 LOGO AESTHETIC</title>
 <style>
 body{background:#08080c;color:#fff;font-family:Arial;padding:10px;margin:0}
 .btn{padding:10px 14px;border-radius:20px;border:none;font-weight:900;margin:3px;cursor:pointer;font-size:11px}
 .tab{background:#1a1a22;color:#666;border:1px solid #222}.tab.active{background:#fff;color:#000}
 .card{background:#11111a;border:1px solid #222;border-radius:20px;padding:14px;margin-top:12px}
-.fancy{display:inline-block;padding:7px 11px;background:#1a1a22;border:1px solid #2a2a35;border-radius:12px;margin:3px;font-size:11px;cursor:pointer}
-.banner-item{height:90px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;border:2px solid #222;position:relative;overflow:hidden;background-size:cover;background-position:center;background:#111}
-.banner-item.sel{border-color:#fff;box-shadow:0 0 15px rgba(255,255,255,0.4)}
-.logo-item{height:90px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;cursor:pointer;border:2px solid #222;background:#111}
+.banner-item{height:92px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;border:2px solid #222;position:relative;overflow:hidden;background-size:cover;background-position:center;background:#111}
+.banner-item.sel{border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,0.5);transform:scale(1.02)}
+.logo-item{height:92px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;cursor:pointer;border:2px solid #222;background:#111;position:relative;overflow:hidden}
+.logo-item.sel{border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,0.5);transform:scale(1.05)}
 .inp{width:100%;padding:13px;border-radius:30px;border:none;text-align:center;font-weight:900;background:#1e1e2a;color:#fff;outline:none}
-.upload-box{border:2px dashed #333;border-radius:16px;padding:20px;text-align:center;background:#0e0e14;margin-top:10px}
-.pic{width:100%;height:160px;object-fit:cover;border-radius:12px;background:#111}
+.upload-box{border:2px dashed #333;border-radius:16px;padding:18px;text-align:center;background:#0e0e14;margin-top:10px;cursor:pointer}
+.pic{width:100%;height:140px;object-fit:cover;border-radius:12px;background:#111}
+.fancy{display:inline-block;padding:7px 11px;background:#1a1a22;border:1px solid #2a2a35;border-radius:12px;margin:3px;font-size:11px;cursor:pointer}
 </style>
 </head>
 <body>
 
-<center><h2>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#fff;color:#000;font-size:8px;padding:4px 10px;border-radius:20px">1000 | 500 | 500</span></h2>
-<div style="font-size:11px;color:#666;margin-top:-8px">Upload Anime Pic → Use in Banner & Logo</div>
-</center>
+<center><h2>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#00ff88;color:#000;font-size:9px;padding:5px 12px;border-radius:20px">500 BANNER + 500 LOGO AESTHETIC</span></h2></center>
 
 <div class="card" style="border-color:#00ff88">
-<h4 style="margin:0">📸 UPLOAD ANIME PIC (Log yahan upload karenge)</h4>
-<div style="font-size:11px;color:#666;margin-top:4px">Upload karo → Banner/Logo me auto lagega</div>
+<b>📸 UPLOAD ANIME PIC</b><div style="font-size:11px;color:#666">Log upload karenge → Banner/Logo me lagega</div>
 <input type="file" id="animeUpload" accept="image/*" multiple style="display:none" onchange="handleUpload(this)">
-<div class="upload-box" onclick="document.getElementById('animeUpload').click()">
-<div style="font-size:24px">📤</div>
-<b>Click to Upload Anime Pics</b><div style="font-size:11px;color:#666;margin-top:4px">JPG, PNG - 100 pics tak save hoga</div>
-</div>
+<div class="upload-box" onclick="document.getElementById('animeUpload').click()"><b>📤 Click to Upload Anime Pics</b><div style="font-size:11px;color:#666">100 pics save hoga</div></div>
 <div id="uploadedGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px"></div>
 </div>
 
 <div style="text-align:center;margin-top:12px">
-<button onclick="openTab('names',this)" class="btn tab active">1000 NAME STYLES</button>
-<button onclick="openTab('banner',this)" class="btn tab">500 BANNER STYLES</button>
-<button onclick="openTab('logo',this)" class="btn tab">500 LOGO STYLES</button>
+<button onclick="openTab('names',this)" class="btn tab">1000 NAMES</button>
+<button onclick="openTab('banner',this)" class="btn tab active">500 BANNER AESTHETIC</button>
+<button onclick="openTab('logo',this)" class="btn tab">500 LOGO AESTHETIC</button>
 </div>
 
-<div id="tab-names" class="card">
-<h4 style="margin:0">1000 FANCY NAME STYLES - Click to Copy</h4>
-<input id="nameInput" class="inp" style="margin-top:10px" placeholder="Naam likh - Naruto" oninput="make1000()">
-<div style="font-size:11px;color:#00ff88;margin-top:6px">Total 1000 styles - Click to copy</div>
+<div id="tab-names" class="card" style="display:none">
+<h4 style="margin:0">1000 FANCY NAME STYLES</h4>
+<input id="nameInput" class="inp" style="margin-top:10px" placeholder="Naam - Naruto" oninput="make1000()">
 <div id="names1000List" style="margin-top:10px;max-height:500px;overflow:auto"></div>
 </div>
 
-<div id="tab-banner" class="card" style="display:none">
-<h4 style="margin:0">500 AESTHETIC BANNER STYLES - Generate Banner</h4>
+<div id="tab-banner" class="card">
+<h4 style="margin:0">500 AESTHETIC BANNER STYLES - Har ek alag design</h4>
 <input id="bannerText" class="inp" style="margin-top:10px" placeholder="Banner Text - ANIMEVERSE" oninput="updateBanner()">
-<div style="font-size:11px;color:#666;margin-top:6px">Aesthetic + Uploaded Pic Banner - Click to select</div>
-<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px"></div>
-<div id="bannerMainPrev" style="margin-top:14px;height:150px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;letter-spacing:2px;background:linear-gradient(90deg,#ff2d95,#a855f7);border:1px solid #333;position:relative;overflow:hidden;background-size:cover;background-position:center">
-<span id="bannerMainText">ANIMEVERSE</span>
-</div>
-<button onclick="dlBanner()" class="btn" style="width:100%;background:#fff;color:#000;padding:14px;margin-top:10px">⬇️ GENERATE & DOWNLOAD BANNER</button>
+<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px"></div>
+<div id="bannerMainPrev" style="margin-top:14px;height:150px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;letter-spacing:2px;background:#111;border:1px solid #333;overflow:hidden;background-size:cover;background-position:center"><span id="bannerMainText">ANIMEVERSE</span></div>
+<button onclick="dlBanner()" class="btn" style="width:100%;background:#fff;color:#000;padding:14px;margin-top:10px">⬇️ DOWNLOAD BANNER</button>
 </div>
 
 <div id="tab-logo" class="card" style="display:none">
-<h4 style="margin:0">500 AESTHETIC LOGO STYLES</h4>
-<input id="logoText" class="inp" style="margin-top:10px" placeholder="Logo Text - N" oninput="updateLogo()">
-<div style="font-size:11px;color:#666;margin-top:6px">Aesthetic + Uploaded Pic Logo - Click to select</div>
-<div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px"></div>
+<h4 style="margin:0">500 AESTHETIC LOGO STYLES - Har ek alag design</h4>
+<input id="logoText" class="inp" style="margin-top:10px" placeholder="Logo - N" oninput="updateLogo()">
+<div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px"></div>
 <div style="margin-top:14px;background:#000;border-radius:20px;height:180px;display:flex;align-items:center;justify-content:center;border:1px solid #222">
 <div id="logoMainPrev" style="width:140px;height:140px;border-radius:24px;background:linear-gradient(135deg,#ff2d95,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:44px;overflow:hidden;background-size:cover;background-position:center"><span id="logoMainText">N</span></div>
 </div>
@@ -72,117 +62,74 @@ body{background:#08080c;color:#fff;font-family:Arial;padding:10px;margin:0}
 
 <script>
 let uploadedPics=JSON.parse(localStorage.getItem('uploaded_anime_pics')||'[]');
-function handleUpload(input){
-let files=input.files;
-for(let file of files){
-if(uploadedPics.length>=100) break;
-let reader=new FileReader();
-reader.onload=e=>{
-uploadedPics.unshift(e.target.result);
-localStorage.setItem('uploaded_anime_pics',JSON.stringify(uploadedPics));
-renderUploaded();
-};
-reader.readAsDataURL(file);
-}
-}
-function renderUploaded(){
-let grid=document.getElementById('uploadedGrid');
-if(uploadedPics.length==0){grid.innerHTML="<div style='grid-column:span 3;text-align:center;color:#444;font-size:11px'>No pics uploaded yet</div>"; return;}
-grid.innerHTML=uploadedPics.map((url,i)=>`
-<div style='position:relative'>
-<img src='${url}' class='pic'>
-<button onclick="useInBanner('${i}');openTab('banner',null)" style='position:absolute;bottom:4px;left:4px;background:#00ff88;color:#000;border:none;border-radius:10px;padding:3px 6px;font-size:9px;font-weight:900'>BANNER</button>
-<button onclick="useInLogo('${i}');openTab('logo',null)" style='position:absolute;bottom:4px;right:4px;background:#ff2d95;color:#fff;border:none;border-radius:10px;padding:3px 6px;font-size:9px;font-weight:900'>LOGO</button>
-<button onclick="removePic(${i})" style='position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.7);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:10px'>✕</button>
-</div>`).join('');
-}
-function removePic(i){ uploadedPics.splice(i,1); localStorage.setItem('uploaded_anime_pics',JSON.stringify(uploadedPics)); renderUploaded(); }
-function useInBanner(i){ selectedUploadedForBanner=uploadedPics[i]; updateBanner(); }
-function useInLogo(i){ selectedUploadedForLogo=uploadedPics[i]; updateLogo(); }
+function handleUpload(input){for(let file of input.files){if(uploadedPics.length>=100)break;let r=new FileReader();r.onload=e=>{uploadedPics.unshift(e.target.result);localStorage.setItem('uploaded_anime_pics',JSON.stringify(uploadedPics));renderUploaded();};r.readAsDataURL(file);}}
+function renderUploaded(){let g=document.getElementById('uploadedGrid');if(uploadedPics.length==0){g.innerHTML="<div style='grid-column:span 3;text-align:center;color:#444;font-size:11px'>No pics</div>";return;}g.innerHTML=uploadedPics.map((url,i)=>`<div style='position:relative'><img src='${url}' class='pic'><button onclick="selectedUploadedForBanner=uploadedPics[${i}];updateBanner()" style='position:absolute;bottom:4px;left:4px;background:#00ff88;color:#000;border:none;border-radius:10px;padding:3px 6px;font-size:8px;font-weight:900'>BANNER</button><button onclick="selectedUploadedForLogo=uploadedPics[${i}];updateLogo()" style='position:absolute;bottom:4px;right:4px;background:#ff2d95;color:#fff;border:none;border-radius:10px;padding:3px 6px;font-size:8px;font-weight:900'>LOGO</button></div>`).join('');}
 renderUploaded();
 
-function openTab(n,btn){
-['names','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');
-document.getElementById('tab-'+n).style.display='block';
-document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-if(btn)btn.classList.add('active');
-if(n=='banner') loadBanners(); if(n=='logo') loadLogos();
-}
+function openTab(n,btn){['names','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');document.getElementById('tab-'+n).style.display='block';document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');if(n=='banner')loadBanners();if(n=='logo')loadLogos();}
 
-// 1000 NAME STYLES
-function generate1000(name){
-let base=name||'Naruto';
-let styles=[];
-let fancyMap={
-a:"𝓪𝒶𝕒ａⓐ🅐ａ̴ａ̶", b:"𝓫", c:"𝓬", d:"𝓭", e:"𝓮", f:"𝓯", g:"𝓰", h:"𝓱", i:"𝓲", j:"𝓳", k:"𝓴", l:"𝓵", m:"𝓶", n:"𝓷", o:"𝓸", p:"𝓹", q:"𝓺", r:"𝓻", s:"𝓼", t:"𝓽", u:"𝓾", v:"𝓿", w:"𝔀", x:"𝔁", y:"𝔂", z:"𝔃"
-};
-let fonts=[
-t=>t,
-t=>t.toUpperCase(),
-t=>t.toLowerCase(),
-t=>`𝓝${t.slice(1)}`,
-t=>`𝕹${t.slice(1)}`,
-t=>`🅝${t.slice(1).toUpperCase()}`,
-t=>`꧁${t}꧂`,
-t=>`『${t}』`,
-t=>`★彡${t}彡★`,
-t=>`༺${t}༻`,
-t=>`◥${t}◤`,
-t=>`${t}ツ`,
-t=>`${t}♡`,
-t=>`♔${t}♔`,
-t=>`꧁༒☬${t}☬༒꧂`,
-t=>`•°${t}°•`,
-t=>`『 ${t} 』`,
-t=>`꧁༺${t}༻꧂`,
-t=>`︵‿${t}‿︵`,
-t=>`➳${t}➳`
+// 500 BANNER AESTHETIC - HAR EK ALAG NAAM OR DESIGN
+const bannerAesthetics=[
+["NEON TOKYO","アニメ","linear-gradient(90deg,#ff2d95,#a855f7,#00e5ff)","1px solid #ff2d95"],
+["GLASS","glassmorphism","rgba(255,255,255,0.06)","1px solid rgba(255,255,255,0.2)"],
+["MINIMAL","— aesthetic —","#0a0a0f","1px solid #222"],
+["SAKURA","桜","linear-gradient(135deg,#ffafbd,#ffc3a0)","none"],
+["MIDNIGHT","真夜中","linear-gradient(135deg,#0f0c29,#302b63)","1px solid #302b63"],
+["CYBERPUNK","// glitch","linear-gradient(90deg,#ff00ff,#00ffff)","2px solid #ff00ff"],
+["VAPORWAVE","ＶＡＰＯＲ","linear-gradient(135deg,#667eea,#764ba2)","1px solid #a855f7"],
+["BLOOD MOON","赤い月","linear-gradient(135deg,#141E30,#243B55)","1px solid #ff2d95"],
+["PASTEL","dreamy","linear-gradient(135deg,#a8edea,#fed6e3)","none"],
+["OCEAN","海","linear-gradient(135deg,#2193b0,#6dd5ed)","none"],
+["AKATSUKI","暁","linear-gradient(135deg,#000,#c31432)","1px solid #c31432"],
+["HOKAGE","火影","linear-gradient(135deg,#ff5f6d,#6a82fb)","1px solid #ff5f6d"],
+["SHINOBI","忍","linear-gradient(135deg,#2c3e50,#4ca1af)","1px solid #4ca1af"],
+["UCHIHA","うちは","linear-gradient(135deg,#200122,#6f0000)","1px solid #ff2d95"],
+["SENJU","千手","linear-gradient(135deg,#134e5e,#71b280)","none"],
+["OTAKU","オタク","linear-gradient(135deg,#8e2de2,#4a00e0)","1px solid #8e2de2"],
+["KAWAII","可愛い","linear-gradient(135deg,#ff9a9e,#fecfef)","none"],
+["SUGOI","すごい","linear-gradient(135deg,#f857a6,#ff5858)","1px solid #f857a6"],
+["YAMETE","やめて","linear-gradient(135deg,#000428,#004e92)","1px solid #004e92"],
+["ARIGATO","ありがとう","linear-gradient(135deg,#ffecd2,#fcb69f)","none"],
+["SENSEI","先生","linear-gradient(135deg,#42275a,#734b6d)","1px solid #734b6d"],
+["NANI","何","linear-gradient(135deg,#141E30,#243B55)","2px solid #fff"],
+["BAKA","バカ","linear-gradient(135deg,#ff4e50,#f9d423)","none"],
+["KAKASHI","カカシ","linear-gradient(135deg,#334d50,#cbcaa5)","1px solid #334d50"],
+["ITACHI","イタチ","linear-gradient(135deg,#000000,#e74c3c)","1px solid #e74c3c"],
+["GOJO","五条","linear-gradient(135deg,#00c6ff,#0072ff)","1px solid #00c6ff"],
+["NARUTO","ナルト","linear-gradient(135deg,#f46b45,#eea849)","1px solid #f46b45"],
+["LUFFY","ルフィ","linear-gradient(135deg,#ff4e50,#f9d423)","2px solid #ff4e50"],
+["ZORO","ゾロ","linear-gradient(135deg,#0f0c29,#302b63)","1px solid #00ff88"],
+["LEVI","リヴァイ","linear-gradient(135deg,#000,#434343)","1px solid #666"],
+["EREN","エレン","linear-gradient(135deg,#2c3e50,#fd746c)","1px solid #fd746c"],
+["TANJIRO","炭治郎","linear-gradient(135deg,#0b486b,#f56217)","1px solid #f56217"],
+["NEZUKO","禰豆子","linear-gradient(135deg,#ff9a9e,#fecfef)","1px solid #ff9a9e"],
+["ZERO TWO","ゼロツー","linear-gradient(135deg,#ff6a00,#ee0979)","2px solid #ff6a00"],
+["MARIN","マリン","linear-gradient(135deg,#000,#434343)","1px solid #ff2d95"],
+["ANYA","アーニャ","linear-gradient(135deg,#ffafbd,#ffc3a0)","none"],
+["MIKASA","ミカサ","linear-gradient(135deg,#141E30,#243B55)","1px solid #ff2d95"],
+["REM","レム","linear-gradient(135deg,#4facfe,#00f2fe)","1px solid #4facfe"],
+["EMILIA","エミリア","linear-gradient(135deg,#a8edea,#fed6e3)","none"],
+["POWER","パワー","linear-gradient(135deg,#f857a6,#ff5858)","1px solid #f857a6"],
+["MAKIMA","マキマ","linear-gradient(135deg,#000,#434343)","1px solid #ff2d95"]
 ];
-for(let i=0;i<1000;i++){
-let f=fonts[i%fonts.length];
-let txt=f(base);
-if(i>=20){ txt=txt+` ${['ツ','♡','★','☆','♛','◆','◇','彡','×'][i%9]}`; }
-if(i>=100){ txt=`${['꧁','༺','◥','『','★'][i%5]} ${txt} ${['꧂','༻','◤','』','★'][i%5]} ${i%100}`; }
-if(i>=300){ txt=`${txt} ${i}`; }
-styles.push(txt);
-}
-return [...new Set(styles)].slice(0,1000);
-}
-function make1000(){
-let name=document.getElementById('nameInput').value||'Naruto';
-let list=generate1000(name);
-document.getElementById('names1000List').innerHTML=list.map(t=>`<span class='fancy' onclick="navigator.clipboard.writeText('${t.replace(/'/g,"\\'")}');this.style.background='#00ff88';this.style.color='#000'">${t}</span>`).join('');
-}
-make1000();
 
-// 500 BANNER STYLES
-let selectedUploadedForBanner=null;
-const bannerStyles=[];
-let baseBanners=[
-{title:"NEON TOKYO",sub:"アニメ",bg:"linear-gradient(90deg,#ff2d95,#a855f7,#00e5ff)",border:"1px solid #ff2d95"},
-{title:"GLASS",sub:"glassmorphism",bg:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.2)"},
-{title:"MINIMAL",sub:"— aesthetic —",bg:"#0a0a0f",border:"1px solid #222"},
-{title:"SAKURA",sub:"桜",bg:"linear-gradient(135deg,#ffafbd,#ffc3a0)",border:"none"},
-{title:"MIDNIGHT",sub:"真夜中",bg:"linear-gradient(135deg,#0f0c29,#302b63)",border:"1px solid #302b63"},
-{title:"CYBERPUNK",sub:"// glitch",bg:"linear-gradient(90deg,#ff00ff,#00ffff)",border:"2px solid #ff00ff"},
-{title:"VAPORWAVE",sub:"ＶＡＰＯＲ",bg:"linear-gradient(135deg,#667eea,#764ba2)",border:"1px solid #a855f7"},
-{title:"BLOOD MOON",sub:"赤い月",bg:"linear-gradient(135deg,#141E30,#243B55)",border:"1px solid #ff2d95"},
-{title:"PASTEL",sub:"dreamy",bg:"linear-gradient(135deg,#a8edea,#fed6e3)",border:"none"},
-{title:"OCEAN",sub:"海",bg:"linear-gradient(135deg,#2193b0,#6dd5ed)",border:"none"},
-];
-for(let i=0;i<500;i++){
-if(i<baseBanners.length) bannerStyles.push(baseBanners[i]);
-else{
+let extras=["SHINIGAMI 死神","HOLLOW 虚","BANKAI 卍解","RASENGAN 螺旋丸","CHIDORI 千鳥","SUSANO'O 須佐能乎","AMATERASU 天照","TSUKUYOMI 月読","KAMEHAMEHA かめはめ波","GEAR 5 ギア5","HOKAGE 火影","JUTSU 術","CHAKRA チャクラ","NINJA 忍者","SAMURAI 侍","RONIN 浪人","KATANA 刀","DOJO 道場","SENPAI 先輩","KOHAI 後輩","ARIGATO ありがとう","SAYONARA さよなら","KONNICHIWA こんにちは","OHAYO おはよう","SUMIMASEN すみません","ITADAKIMASU いただきます","GENKI 元気","KAWAII 可愛い","KAKKOII かっこいい","SUGOI すごい","YABAI やばい","KIMOCHI 気持ち","GANBATTE 頑張って","DAISUKI 大好き","AI 愛","YUME 夢","HOSHI 星","TSUKI 月","TAIYO 太陽","UMI 海","YAMA 山","KAWA 川","HANA 花","SAKURA 桜","YUKI 雪","AME 雨","KAZE 風","HIKARI 光","YAMI 闇","HONO 火","MIZU 水","TSUCHI 土","KAZE 風","RAIJIN 雷神","FUJIN 風神","ONI 鬼","KITSUNE 狐","DRAGON 龍","TIGER 虎","WOLF 狼","PHOENIX 鳳凰","DEMON 悪魔","ANGEL 天使","SOUL 魂","HEART 心","MIND 心","POWER 力","STRENGTH 強さ","COURAGE 勇気","HONOR 名誉","LOYALTY 忠誠","FRIENDSHIP 友情","LOVE 愛","DREAM 夢","HOPE 希望","FATE 運命","DESTINY 運命","ETERNITY 永遠","INFINITY 無限","ZERO ゼロ","ONE 一","DARK 暗","LIGHT 光","FIRE 火","ICE 氷","WIND 風","EARTH 土","WATER 水","LIGHTNING 雷","SHADOW 影","BLOOD 血","SOUL 魂","VOID 虚無","CHAOS 混沌","ORDER 秩序","TIME 時間","SPACE 空間","REALITY 現実","ILLUSION 幻","DREAM 夢","NIGHTMARE 悪夢","HEAVEN 天国","HELL 地獄","PARADISE 楽園","ABYSS 深淵","OCEAN 海","SKY 空","STAR 星","MOON 月","SUN 太陽","GALAXY 銀河","UNIVERSE 宇宙","COSMOS 宇宙","NEBULA 星雲","COMET 彗星","METEOR 流星","ECLIPSE 日食","AURORA オーロラ","RAINBOW 虹","STORM 嵐","THUNDER 雷","LIGHTNING 稲妻","BLIZZARD 吹雪","TORNADO 竜巻","VOLCANO 火山","EARTHQUAKE 地震","TSUNAMI 津波","AVALANCHE 雪崩","FLOOD 洪水","FIRE 火事","ICE 氷","SNOW 雪","RAIN 雨","WIND 風","CLOUD 雲","MIST 霧","FOG 霧","SMOKE 煙","DUST 塵","ASH 灰","EMBER 残り火","SPARK 火花","FLAME 炎","INFERNO 地獄","BLAZE 火炎","EMBER 残り火"];
+
+while(bannerAesthetics.length<500){
+let name=extras[(bannerAesthetics.length-41)%extras.length]+" "+(bannerAesthetics.length+1);
 let h=Math.floor(Math.random()*360);
-bannerStyles.push({title:`AESTHETIC ${i+1}`,sub:"アニメ",bg:`linear-gradient(135deg,hsl(${h},80%,60%),hsl(${(h+50)%360},80%,50%))`,border:"1px solid #222"});
+bannerAesthetics.push([name.split(' ')[0],name.split(' ').slice(1).join(' ')||" aesthetic",`linear-gradient(135deg,hsl(${h},80%,60%),hsl(${(h+50)%360},80%,45%))`,"1px solid rgba(255,255,255,0.1)"]);
 }
-}
-let selBanner=0;
+
+const bannerStyles=bannerAesthetics;
+let selBanner=0, selectedUploadedForBanner=null;
 function loadBanners(){
-let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
 document.getElementById('bannerDesigns').innerHTML=bannerStyles.map((b,i)=>`
-<div onclick="selBanner=${i};updateBanner()" class='banner-item ${selBanner==i?'sel':''}' style='background:${b.bg};border:${b.border}'>
-<div style='text-align:center'><div style='font-size:12px'>${b.title.includes('AESTHETIC')?txt.substring(0,8):b.title}</div><div style='font-size:8px;opacity:0.6'>${b.sub}</div></div>
+<div onclick="selBanner=${i};updateBanner()" class='banner-item ${selBanner==i?'sel':''}' style='background:${b[2]};border:${b[3]}'>
+<div style='text-align:center;line-height:1.1'>
+<div style='font-size:13px;letter-spacing:0.5px'>${b[0]}</div>
+<div style='font-size:9px;opacity:0.7;margin-top:3px'>${b[1]}</div>
+</div>
 </div>`).join('');
 updateBanner();
 }
@@ -190,78 +137,77 @@ function updateBanner(){
 let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
 let b=bannerStyles[selBanner];
 let el=document.getElementById('bannerMainPrev');
-el.style.background=b.bg;
-el.style.border=b.border;
-if(selectedUploadedForBanner){
-el.style.background=`linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('${selectedUploadedForBanner}')`;
-el.style.backgroundSize='cover';
-el.style.backgroundPosition='center';
+el.style.background=b[2]; el.style.border=b[3];
+if(selectedUploadedForBanner){el.style.background=`linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('${selectedUploadedForBanner}')`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';}
+document.getElementById('bannerMainText').innerText=txt+" • "+b[0];
 }
-document.getElementById('bannerMainText').innerText=txt;
-if(document.getElementById('tab-banner').style.display!=='none' && document.getElementById('bannerDesigns').innerHTML=='') loadBanners();
-}
-function dlBanner(){
-let c=document.createElement('canvas');c.width=1280;c.height=400;let x=c.getContext('2d');
-let grad=x.createLinearGradient(0,0,1280,0); grad.addColorStop(0,'#ff2d95'); grad.addColorStop(1,'#667eea');
-x.fillStyle=grad; x.fillRect(0,0,1280,400);
-x.fillStyle='#fff';x.font='900 60px Arial';x.textAlign='center';
-x.fillText(document.getElementById('bannerText').value||'ANIMEVERSE',640,230);
-let a=document.createElement('a');a.download='banner-500.png';a.href=c.toDataURL();a.click();
+function dlBanner(){let c=document.createElement('canvas');c.width=1280;c.height=400;let x=c.getContext('2d');let g=x.createLinearGradient(0,0,1280,0);g.addColorStop(0,'#ff2d95');g.addColorStop(1,'#667eea');x.fillStyle=g;x.fillRect(0,0,1280,400);x.fillStyle='#fff';x.font='900 50px Arial';x.textAlign='center';x.fillText(document.getElementById('bannerText').value||'ANIMEVERSE',640,220);let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click();}
+
+// 500 LOGO AESTHETIC - HAR EK ALAG
+const logoAesthetics=[
+["NEON PINK","linear-gradient(135deg,#ff2d95,#a855f7)","24px","0 0 25px #ff2d95"],
+["BLACK MINIMAL","#0a0a0f","50%","0 0 0 2px #fff"],
+["CYBER BLUE","linear-gradient(135deg,#00c6ff,#0072ff)","18px","0 0 25px #00c6ff"],
+["GLASS","rgba(255,255,255,0.06)","24px","none"],
+["WHITE","#fff","50%","0 0 20px #fff"],
+["SAKURA","linear-gradient(135deg,#ffafbd,#ffc3a0)","16px","0 0 20px #ffafbd"],
+["MIDNIGHT","linear-gradient(135deg,#141E30,#243B55)","12px","none"],
+["VAPOR","linear-gradient(135deg,#667eea,#764ba2)","24px","0 0 20px #667eea"],
+["OCEAN","linear-gradient(135deg,#2193b0,#6dd5ed)","20px","0 0 20px #2193b0"],
+["BLOOD","linear-gradient(135deg,#c31432,#240b36)","14px","0 0 20px #c31432"],
+["AKATSUKI","linear-gradient(135deg,#000,#e74c3c)","12px","0 0 20px #e74c3c"],
+["UCHIHA","linear-gradient(135deg,#200122,#6f0000)","50%","0 0 25px #ff2d95"],
+["HOKAGE","linear-gradient(135deg,#ff5f6d,#6a82fb)","18px","0 0 20px #ff5f6d"],
+["GOJO","linear-gradient(135deg,#00c6ff,#0072ff)","24px","0 0 30px #00c6ff"],
+["NARUTO","linear-gradient(135deg,#f46b45,#eea849)","50%","0 0 20px #f46b45"],
+["LUFFY","linear-gradient(135deg,#ff4e50,#f9d423)","16px","0 0 20px #ff4e50"],
+["ZORO","linear-gradient(135deg,#0f0c29,#302b63)","12px","0 0 20px #00ff88"],
+["LEVI","#000","14px","0 0 0 1px #666"],
+["EREN","linear-gradient(135deg,#2c3e50,#fd746c)","18px","0 0 20px #fd746c"],
+["TANJIRO","linear-gradient(135deg,#0b486b,#f56217)","20px","0 0 20px #f56217"],
+["NEZUKO","linear-gradient(135deg,#ff9a9e,#fecfef)","50%","0 0 20px #ff9a9e"],
+["ZERO TWO","linear-gradient(135deg,#ff6a00,#ee0979)","24px","0 0 25px #ff6a00"],
+["MARIN","#111","16px","0 0 0 2px #ff2d95"],
+["ANYA","linear-gradient(135deg,#ffafbd,#ffc3a0)","50%","none"],
+["MIKASA","linear-gradient(135deg,#141E30,#243B55)","12px","0 0 20px #ff2d95"],
+["REM","linear-gradient(135deg,#4facfe,#00f2fe)","20px","0 0 20px #4facfe"],
+["EMILIA","linear-gradient(135deg,#a8edea,#fed6e3)","24px","none"],
+["POWER","linear-gradient(135deg,#f857a6,#ff5858)","14px","0 0 20px #f857a6"],
+["MAKIMA","#000","18px","0 0 0 1px #ff2d95"],
+["SHINIGAMI","linear-gradient(135deg,#000,#434343)","50%","0 0 20px #fff"]
+];
+
+while(logoAesthetics.length<500){
+let h=Math.floor(Math.random()*360);
+let names=["SHINOBI 忍","RONIN 浪人","KATANA 刀","DOJO 道場","SENPAI 先輩","HONO 火","MIZU 水","KAZE 風","YAMI 闇","HIKARI 光","AI 愛","YUME 夢","HOSHI 星","TSUKI 月","DRAGON 龍","WOLF 狼","ONI 鬼","KITSUNE 狐"];
+let n=names[logoAesthetics.length%names.length]+" "+(logoAesthetics.length+1);
+logoAesthetics.push([n,`linear-gradient(135deg,hsl(${h},85%,62%),hsl(${(h+40)%360},80%,50%))`,`${10+Math.floor(Math.random()*20)}px`,`0 0 22px hsl(${h},70%,60%)`]);
 }
 
-// 500 LOGO STYLES
-let selectedUploadedForLogo=null;
-const logoStyles=[];
-let baseLogos=[
-{bg:"linear-gradient(135deg,#ff2d95,#a855f7)",radius:"24px",shadow:"0 0 30px #ff2d95"},
-{bg:"#0a0a0f",radius:"50%",shadow:"0 0 0 2px #fff"},
-{bg:"linear-gradient(135deg,#00c6ff,#0072ff)",radius:"18px",shadow:"0 0 25px #00c6ff"},
-{bg:"rgba(255,255,255,0.05)",radius:"24px",shadow:"none"},
-{bg:"#fff",radius:"50%",shadow:"0 0 20px #fff"},
-{bg:"linear-gradient(135deg,#ffafbd,#ffc3a0)",radius:"16px",shadow:"0 0 20px #ffafbd"},
-{bg:"linear-gradient(135deg,#141E30,#243B55)",radius:"12px",shadow:""},
-{bg:"linear-gradient(135deg,#667eea,#764ba2)",radius:"24px",shadow:"0 0 20px #667eea"},
-];
-for(let i=0;i<500;i++){
-if(i<baseLogos.length) logoStyles.push(baseLogos[i]);
-else{ let h=Math.floor(Math.random()*360); logoStyles.push({bg:`linear-gradient(135deg,hsl(${h},85%,60%),hsl(${(h+30)%360},80%,55%))`,radius:`${12+Math.floor(Math.random()*24)}px`,shadow:`0 0 20px hsl(${h},70%,60%)`}); }
-}
-let selLogo=0;
+let selLogo=0, selectedUploadedForLogo=null;
 function loadLogos(){
 let txt=document.getElementById('logoText').value||'N';
-document.getElementById('logoDesigns').innerHTML=logoStyles.map((l,i)=>`
-<div onclick="selLogo=${i};updateLogo()" class='logo-item' style='background:${l.bg};border-radius:${l.radius};box-shadow:${selLogo==i?l.shadow:'none'};border-color:${selLogo==i?'#fff':'#222'}'>
-${txt.charAt(0)}
+document.getElementById('logoDesigns').innerHTML=logoAesthetics.map((l,i)=>`
+<div onclick="selLogo=${i};updateLogo()" class='logo-item ${selLogo==i?'sel':''}' style='background:${l[1]};border-radius:${l[2]};box-shadow:${selLogo==i?l[3]:'none'};border-color:${selLogo==i?'#fff':'#222'}'>
+<div style='text-align:center;line-height:1'><div>${txt.charAt(0)}</div><div style='font-size:7px;opacity:0.6;margin-top:2px'>${l[0].substring(0,6)}</div></div>
 </div>`).join('');
 updateLogo();
 }
 function updateLogo(){
 let txt=document.getElementById('logoText').value||'N';
-let l=logoStyles[selLogo];
+let l=logoAesthetics[selLogo];
 let el=document.getElementById('logoMainPrev');
-el.style.background=l.bg;
-el.style.borderRadius=l.radius;
-el.style.boxShadow=l.shadow;
-if(selectedUploadedForLogo){
-el.style.background=`url('${selectedUploadedForLogo}')`;
-el.style.backgroundSize='cover';
-el.style.backgroundPosition='center';
-document.getElementById('logoMainText').style.background='rgba(0,0,0,0.5)';
-document.getElementById('logoMainText').style.padding='8px 14px';
-document.getElementById('logoMainText').style.borderRadius='20px';
-}
+el.style.background=l[1]; el.style.borderRadius=l[2]; el.style.boxShadow=l[3];
+if(selectedUploadedForLogo){el.style.background=`url('${selectedUploadedForLogo}')`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';}
 document.getElementById('logoMainText').innerText=txt.charAt(0).toUpperCase();
 }
-function dlLogo(){
-let c=document.createElement('canvas');c.width=600;c.height=600;let x=c.getContext('2d');
-let g=x.createRadialGradient(300,300,0,300,300,300); g.addColorStop(0,'#ff2d95'); g.addColorStop(1,'#667eea');
-x.fillStyle=g; x.beginPath(); x.arc(300,300,250,0,6.28); x.fill();
-x.fillStyle='#fff';x.font='900 150px Arial';x.textAlign='center';x.textBaseline='middle';
-x.fillText(document.getElementById('logoMainText').innerText,300,320);
-let a=document.createElement('a');a.download='logo-500.png';a.href=c.toDataURL();a.click();
-}
 
-loadBanners(); loadLogos();
+function dlLogo(){let c=document.createElement('canvas');c.width=600;c.height=600;let x=c.getContext('2d');let g=x.createRadialGradient(300,300,0,300,300,300);g.addColorStop(0,'#ff2d95');g.addColorStop(1,'#667eea');x.fillStyle=g;x.beginPath();x.arc(300,300,250,0,6.28);x.fill();x.fillStyle='#fff';x.font='900 150px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText(document.getElementById('logoMainText').innerText,300,320);let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click();}
+
+function generate1000(name){let base=name||'Naruto';let fonts=[t=>t,t=>t.toUpperCase(),t=>`꧁${t}꧂`,t=>`★彡${t}彡★`,t=>`༺${t}༻`,t=>`${t}ツ`,t=>`${t}♡`,t=>`『${t}』`,t=>`•°${t}°•`];let out=[];for(let i=0;i<1000;i++){let f=fonts[i%fonts.length];let txt=f(base);if(i>20)txt=txt+` ${i%100}`;out.push(txt);}return out.slice(0,1000);}
+function make1000(){let name=document.getElementById('nameInput').value||'Naruto';let list=generate1000(name);document.getElementById('names1000List').innerHTML=list.map(t=>`<span class='fancy' onclick="navigator.clipboard.writeText('${t}')">${t}</span>`).join('');}
+
+make1000(); loadBanners(); loadLogos();
 </script>
 </body>
 </html>
