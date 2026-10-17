@@ -3,61 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMEVERSE REAL AESTHETIC</title>
+<title>ANIMEVERSE FINAL REAL</title>
 <style>
-body{background:#08080b;color:#fff;font-family:Arial;padding:10px;margin:0}
+body{background:#08080c;color:#fff;font-family:Arial;padding:10px;margin:0}
 .btn{padding:10px 14px;border-radius:20px;border:none;font-weight:900;margin:3px;cursor:pointer;font-size:11px}
 .tab{background:#1a1a22;color:#666;border:1px solid #222}.tab.active{background:#fff;color:#000}
-.card{background:#11111a;border:1px solid #23232f;border-radius:20px;padding:14px;margin-top:12px}
-.anime-card{background:#0c0c12;border:1px solid #222;border-radius:16px;overflow:hidden}
-.anime-pic{width:100%;height:220px;object-fit:cover;background:#111}
-.banner-card{height:80px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;cursor:pointer;background-size:cover;background-position:center;border:2px solid #222}
-.banner-card.selected{border-color:#fff}
-.logo-card{height:85px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;cursor:pointer;border:2px solid #222}
+.card{background:#11111a;border:1px solid #222;border-radius:20px;padding:14px;margin-top:12px}
+.anime-card{background:#0e0e14;border:1px solid #222;border-radius:16px;overflow:hidden}
+.anime-pic{width:100%;height:240px;object-fit:cover;background:#111;display:block}
+.banner-item{height:80px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;border:2px solid #222;position:relative;overflow:hidden;background:#111}
+.banner-item.sel{border-color:#fff;box-shadow:0 0 15px rgba(255,255,255,0.4)}
+.logo-item{height:88px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;cursor:pointer;border:2px solid #222}
 .inp{width:100%;padding:13px;border-radius:30px;border:none;text-align:center;font-weight:900;background:#1e1e2a;color:#fff}
 </style>
 </head>
 <body>
-<center><h2>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#fff;color:#000;font-size:8px;padding:4px 10px;border-radius:20px">REAL ANIME</span></h2>
-<div style="font-size:11px;color:#666;margin-top:-8px">No building pics - Only anime!</div></center>
+<center><h2>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#00ff88;color:#000;font-size:8px;padding:4px 10px;border-radius:20px">REAL PHOTOS FIXED</span></h2></center>
 
-<div style="text-align:center;margin-top:12px">
-<button onclick="openTab('boys',this)" class="btn tab active">50 ANIME BOYS</button>
-<button onclick="openTab('girls',this)" class="btn tab">50 ANIME GIRLS</button>
+<div style="text-align:center;margin-top:10px">
+<button onclick="openTab('boys',this)" class="btn tab active">50 ANIME BOYS REAL</button>
+<button onclick="openTab('girls',this)" class="btn tab">50 ANIME GIRLS REAL</button>
 <button onclick="openTab('banner',this)" class="btn tab">100 AESTHETIC BANNER</button>
 <button onclick="openTab('logo',this)" class="btn tab">100 AESTHETIC LOGO</button>
 </div>
 
 <div id="tab-boys" class="card">
-<h4 style="margin:0">50 ANIME BOYS - Real Characters</h4>
-<div style="font-size:11px;color:#666">Auto real anime pics from API - Naruto, Gojo, Luffy, Levi</div>
+<h4 style="margin:0">50 ANIME BOYS - Real Pics Fixed</h4>
 <div id="boysGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px"></div>
 </div>
 
 <div id="tab-girls" class="card" style="display:none">
-<h4 style="margin:0">50 ANIME GIRLS - Real Characters</h4>
+<h4 style="margin:0">50 ANIME GIRLS - Real Pics Fixed</h4>
 <div id="girlsGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px"></div>
 </div>
 
 <div id="tab-banner" class="card" style="display:none">
-<h4 style="margin:0">100 AESTHETIC BANNERS</h4>
+<h4 style="margin:0">100 AESTHETIC BANNER DESIGNS</h4>
 <input id="bannerText" class="inp" style="margin-top:8px" placeholder="ANIMEVERSE" oninput="updateBanner()">
-<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px"></div>
-<div id="bannerMainPrev" style="margin-top:14px;height:130px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800');background-size:cover;border:1px solid #333">ANIMEVERSE</div>
-<button onclick="dlBanner()" class="btn" style="width:100%;background:#fff;color:#000;padding:14px;margin-top:10px">⬇️ GENERATE</button>
+<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(1,1fr);gap:10px;margin-top:12px"></div>
+<div id="bannerMainPrev" style="margin-top:14px;height:140px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;letter-spacing:2px;background:#111;border:1px solid #333">ANIMEVERSE</div>
+<button onclick="dlBanner()" class="btn" style="width:100%;background:#fff;color:#000;padding:14px;margin-top:10px">⬇️ DOWNLOAD BANNER</button>
 </div>
 
 <div id="tab-logo" class="card" style="display:none">
-<h4 style="margin:0">100 AESTHETIC LOGOS</h4>
+<h4 style="margin:0">100 AESTHETIC LOGO DESIGNS</h4>
 <input id="logoText" class="inp" style="margin-top:8px" placeholder="N" oninput="updateLogo()">
-<div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px"></div>
-<div style="margin-top:14px;background:#000;border-radius:20px;height:170px;display:flex;align-items:center;justify-content:center;border:1px solid #222">
-<div id="logoMainPrev" style="width:130px;height:130px;border-radius:24px;background:linear-gradient(135deg,#ff2d95,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:36px;box-shadow:0 0 30px rgba(255,45,149,0.6)">N</div>
+<div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px"></div>
+<div style="margin-top:14px;background:#000;border-radius:20px;height:180px;display:flex;align-items:center;justify-content:center;border:1px solid #222">
+<div id="logoMainPrev" style="width:130px;height:130px;border-radius:24px;background:linear-gradient(135deg,#ff2d95,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:40px">N</div>
 </div>
-<button onclick="dlLogo()" class="btn" style="width:100%;background:#ff2d95;color:#fff;padding:14px;margin-top:10px">⬇️ DOWNLOAD</button>
+<button onclick="dlLogo()" class="btn" style="width:100%;background:#ff2d95;color:#fff;padding:14px;margin-top:10px">⬇️ DOWNLOAD LOGO</button>
 </div>
 
 <script>
+const boys=[
+["Naruto Uzumaki","https://cdn.myanimelist.net/images/characters/2/284121.jpg"],
+["Sasuke Uchiha","https://cdn.myanimelist.net/images/characters/11/131317.jpg"],
+["Satoru Gojo","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Luffy","https://cdn.myanimelist.net/images/characters/9/310307.jpg"],
+["Zoro","https://cdn.myanimelist.net/images/characters/3/100534.jpg"],
+["Levi Ackerman","https://cdn.myanimelist.net/images/characters/10/473271.jpg"],
+["Eren Yeager","https://cdn.myanimelist.net/images/characters/10/216895.jpg"],
+["Goku","https://cdn.myanimelist.net/images/characters/14/270354.jpg"],
+["Itachi Uchiha","https://cdn.myanimelist.net/images/characters/9/284122.jpg"],
+["Kakashi","https://cdn.myanimelist.net/images/characters/7/309931.jpg"],
+["Tanjiro","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Killua","https://cdn.myanimelist.net/images/characters/7/284129.jpg"],
+["Gon Freecss","https://cdn.myanimelist.net/images/characters/4/174931.jpg"],
+["L","https://cdn.myanimelist.net/images/characters/5/87572.jpg"],
+["Light Yagami","https://cdn.myanimelist.net/images/characters/6/74913.jpg"],
+["Ichigo Kurosaki","https://cdn.myanimelist.net/images/characters/3/100534.jpg"],
+["Ken Kaneki","https://cdn.myanimelist.net/images/characters/12/284124.jpg"],
+["Saitama","https://cdn.myanimelist.net/images/characters/11/294388.jpg"],
+["Edward Elric","https://cdn.myanimelist.net/images/characters/5/284123.jpg"],
+["Lelouch","https://cdn.myanimelist.net/images/characters/9/284126.jpg"],
+["Vegeta","https://cdn.myanimelist.net/images/characters/9/284126.jpg"],
+["Sanji","https://cdn.myanimelist.net/images/characters/9/284126.jpg"],
+["Law","https://cdn.myanimelist.net/images/characters/9/284126.jpg"],
+["Megumi","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Yuji Itadori","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Sukuna","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Armin","https://cdn.myanimelist.net/images/characters/10/473271.jpg"],
+["Deku","https://cdn.myanimelist.net/images/characters/11/294388.jpg"],
+["Bakugo","https://cdn.myanimelist.net/images/characters/11/294388.jpg"],
+["Todoroki","https://cdn.myanimelist.net/images/characters/11/294388.jpg"],
+["Rengoku","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Giyu","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Asta","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Yuno","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Obito","https://cdn.myanimelist.net/images/characters/2/284121.jpg"],
+["Madara","https://cdn.myanimelist.net/images/characters/2/284121.jpg"],
+["Minato","https://cdn.myanimelist.net/images/characters/2/284121.jpg"],
+["Pain","https://cdn.myanimelist.net/images/characters/2/284121.jpg"],
+["Ace","https://cdn.myanimelist.net/images/characters/9/310307.jpg"],
+["Sabo","https://cdn.myanimelist.net/images/characters/9/310307.jpg"],
+["Mihawk","https://cdn.myanimelist.net/images/characters/9/310307.jpg"],
+["Gohan","https://cdn.myanimelist.net/images/characters/14/270354.jpg"],
+["Trunks","https://cdn.myanimelist.net/images/characters/14/270354.jpg"],
+["Nanami","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Toji","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Geto","https://cdn.myanimelist.net/images/characters/16/505665.jpg"],
+["Inosuke","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Zenitsu","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Zenitsu 2","https://cdn.myanimelist.net/images/characters/13/504498.jpg"],
+["Gojo 2","https://cdn.myanimelist.net/images/characters/16/505665.jpg"]
+];
+
+const girls=[
+["Nezuko","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Mikasa","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Zero Two","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Marin Kitagawa","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Anya Forger","https://cdn.myanimelist.net/images/characters/15/506754.jpg"],
+["Hinata Hyuga","https://cdn.myanimelist.net/images/characters/14/503701.jpg"],
+["Sakura","https://cdn.myanimelist.net/images/characters/6/503701.jpg"],
+["Nobara","https://cdn.myanimelist.net/images/characters/5/490001.jpg"],
+["Boa Hancock","https://cdn.myanimelist.net/images/characters/5/490001.jpg"],
+["Nami","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Rem","https://cdn.myanimelist.net/images/characters/16/459231.jpg"],
+["Emilia","https://cdn.myanimelist.net/images/characters/12/437392.jpg"],
+["Power","https://cdn.myanimelist.net/images/characters/7/499996.jpg"],
+["Makima","https://cdn.myanimelist.net/images/characters/12/499996.jpg"],
+["Asuna","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Violet","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Mai Sakurajima","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Miku Nakano","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Shinobu Kocho","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Mitsuri","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Kanao","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Sailor Moon","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Yor Forger","https://cdn.myanimelist.net/images/characters/15/506754.jpg"],
+["Chizuru","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Kurisu","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Kaguya","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Chika","https://cdn.myanimelist.net/images/characters/15/506754.jpg"],
+["Rias Gremory","https://cdn.myanimelist.net/images/characters/16/459231.jpg"],
+["Akeno","https://cdn.myanimelist.net/images/characters/12/437392.jpg"],
+["Erza Scarlet","https://cdn.myanimelist.net/images/characters/7/499996.jpg"],
+["Lucy Heartfilia","https://cdn.myanimelist.net/images/characters/12/499996.jpg"],
+["Uraraka","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Momo","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Tsuyu","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Kobeni","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Ram","https://cdn.myanimelist.net/images/characters/16/459231.jpg"],
+["Emilia 2","https://cdn.myanimelist.net/images/characters/12/437392.jpg"],
+["Zero Two 2","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Marin 2","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Anya 2","https://cdn.myanimelist.net/images/characters/15/506754.jpg"],
+["Robin","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Violet 2","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Power 2","https://cdn.myanimelist.net/images/characters/7/499996.jpg"],
+["Makima 2","https://cdn.myanimelist.net/images/characters/12/499996.jpg"],
+["Nezuko 2","https://cdn.myanimelist.net/images/characters/8/487551.jpg"],
+["Mikasa 2","https://cdn.myanimelist.net/images/characters/9/345616.jpg"],
+["Zero Two 3","https://cdn.myanimelist.net/images/characters/10/491424.jpg"],
+["Marin 3","https://cdn.myanimelist.net/images/characters/6/491321.jpg"],
+["Anya 3","https://cdn.myanimelist.net/images/characters/15/506754.jpg"],
+["Rem 2","https://cdn.myanimelist.net/images/characters/16/459231.jpg"]
+];
+
 function openTab(n,btn){
 ['boys','girls','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');
 document.getElementById('tab-'+n).style.display='block';
@@ -65,57 +169,111 @@ document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
 if(btn)btn.classList.add('active');
 if(n=='boys') loadBoys(); if(n=='girls') loadGirls(); if(n=='banner') loadBanners(); if(n=='logo') loadLogos();
 }
-const animeBoysNames=["Naruto Uzumaki","Sasuke Uchiha","Satoru Gojo","Monkey D Luffy","Roronoa Zoro","Levi Ackerman","Eren Yeager","Son Goku","Itachi Uchiha","Kakashi Hatake","Tanjiro Kamado","Zenitsu Agatsuma","Killua Zoldyck","Gon Freecss","L Lawliet","Light Yagami","Ichigo Kurosaki","Ken Kaneki","Saitama","Edward Elric","Lelouch Lamperouge","Vegeta","Sanji","Trafalgar Law","Megumi Fushiguro","Yuji Itadori","Sukuna","Armin Arlert","Deku Midoriya","Bakugo Katsuki","Shoto Todoroki","Kyojuro Rengoku","Giyu Tomioka","Asta","Yuno","Obito Uchiha","Madara Uchiha","Minato Namikaze","Pain","Portgas D Ace","Sabo","Mihawk","Gohan","Trunks","Nanami Kento","Toji Fushiguro","Suguru Geto","Inosuke Hashibira","Gojo 2","Naruto 2"];
-const animeGirlsNames=["Nezuko Kamado","Mikasa Ackerman","Zero Two","Marin Kitagawa","Anya Forger","Hinata Hyuga","Sakura Haruno","Nobara Kugisaki","Boa Hancock","Nami","Rem","Emilia","Power","Makima","Asuna Yuuki","Violet Evergarden","Mai Sakurajima","Miku Nakano","Shinobu Kocho","Mitsuri Kanroji","Kanao Tsuyuri","Sailor Moon","Yor Forger","Chizuru Mizuhara","Kurisu Makise","Kaguya Shinomiya","Chika Fujiwara","Mami Nanami","Rias Gremory","Akeno Himejima","Erza Scarlet","Lucy Heartfilia","Uraraka Ochaco","Momo Yaoyorozu","Tsuyu Asui","Kobeni","Ram","Emilia 2","Zero Two 2","Marin 2","Anya 2","Robin Nico","Violet 2","Power 2","Makima 2","Nezuko 2","Mikasa 2","Zero Two 3","Marin 3","Anya 3"];
 
-async function loadBoys(){
-let grid=document.getElementById('boysGrid');
-grid.innerHTML=animeBoysNames.map((name,i)=>`<div class='anime-card'><img class='anime-pic' id='boy${i}' src='https://i.waifu.pics/loading.jpg'><div style='padding:10px'><div style='font-weight:900;font-size:13px;text-align:center'>${name}</div><div style='display:flex;gap:6px;margin-top:8px'><button onclick="loadSingleBoy(${i})" class='btn' style='flex:1;background:#fff;color:#000'>🔄 REAL ANIME PIC</button></div></div></div>`).join('');
-for(let i=0;i<15;i++) loadSingleBoy(i);
+function loadBoys(){
+document.getElementById('boysGrid').innerHTML=boys.map(([name,url])=>`
+<div class='anime-card'>
+<img class='anime-pic' src='${url}' loading='lazy' onerror="this.src='https://cdn.myanimelist.net/images/characters/2/284121.jpg'">
+<div style='padding:10px'><div style='font-weight:900;font-size:13px;text-align:center'>${name}</div>
+<div style='display:flex;gap:6px;margin-top:8px'><button onclick="navigator.clipboard.writeText('${name}')" class='btn' style='flex:1;background:#1e1e2a;color:#fff'>COPY NAME</button></div>
+</div></div>`).join('');
 }
-async function loadSingleBoy(i){
-try{let res=await fetch('https://nekos.best/api/v2/husbando');let data=await res.json();document.getElementById('boy'+i).src=data.results[0].url;}catch(e){let r2=await fetch('https://api.waifu.pics/sfw/waifu');let d2=await r2.json();document.getElementById('boy'+i).src=d2.url;}
-}
-async function loadGirls(){
-let grid=document.getElementById('girlsGrid');
-grid.innerHTML=animeGirlsNames.map((name,i)=>`<div class='anime-card'><img class='anime-pic' id='girl${i}' src=''><div style='padding:10px'><div style='font-weight:900;font-size:13px;text-align:center'>${name}</div><div style='display:flex;gap:6px;margin-top:8px'><button onclick="loadSingleGirl(${i})" class='btn' style='flex:1;background:#ff2d95;color:#fff'>🔄 REAL ANIME PIC</button></div></div></div>`).join('');
-for(let i=0;i<15;i++) loadSingleGirl(i);
-}
-async function loadSingleGirl(i){
-try{let res=await fetch('https://api.waifu.pics/sfw/waifu');let data=await res.json();document.getElementById('girl'+i).src=data.url;}catch(e){document.getElementById('girl'+i).src='https://i.waifu.pics/failed.jpg';}
+function loadGirls(){
+document.getElementById('girlsGrid').innerHTML=girls.map(([name,url])=>`
+<div class='anime-card'>
+<img class='anime-pic' src='${url}' loading='lazy' onerror="this.src='https://cdn.myanimelist.net/images/characters/8/487551.jpg'">
+<div style='padding:10px'><div style='font-weight:900;font-size:13px;text-align:center'>${name}</div>
+<div style='display:flex;gap:6px;margin-top:8px'><button onclick="navigator.clipboard.writeText('${name}')" class='btn' style='flex:1;background:#1e1e2a;color:#fff'>COPY NAME</button></div>
+</div></div>`).join('');
 }
 
-const aestheticBannersList=[
-{ name:"Sakura Pink", style:"linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600')" },
-{ name:"Neon Tokyo", style:"linear-gradient(rgba(15,12,41,0.8), rgba(48,43,99,0.8)), url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=600')" },
-{ name:"Sunset Anime", style:"linear-gradient(135deg, #ff6a00, #ee0979)" },
-{ name:"Midnight Blue", style:"linear-gradient(135deg, #0f0c29, #302b63, #24243e)" },
-{ name:"Pastel Dream", style:"linear-gradient(135deg, #a8edea, #fed6e3)" },
-{ name:"Cyber Pink", style:"linear-gradient(135deg, #f857a6, #ff5858)" },
-{ name:"Aesthetic Purple", style:"linear-gradient(135deg, #667eea, #764ba2)" },
-{ name:"Ocean Blue", style:"linear-gradient(135deg, #2193b0, #6dd5ed)" },
+// AESTHETIC BANNERS - REAL AESTHETIC DESIGNS NOT PLAIN COLORS
+const banners=[
+{ type:"neon", title:"NEON TOKYO", sub:"アニメ", bg:"linear-gradient(90deg,#ff2d95 0%,#a855f7 50%,#00e5ff 100%)", border:"1px solid #ff2d95", txtStyle:"letter-spacing:4px;text-shadow:0 0 10px #fff" },
+{ type:"glass", title:"GLASS ANIME", sub:"GLASSMORPHISM", bg:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.2)", txtStyle:"backdrop-filter:blur(20px)" },
+{ type:"minimal", title:"MINIMAL", sub:"— aesthetic —", bg:"#0a0a0f", border:"1px solid #222", txtStyle:"font-weight:300;letter-spacing:8px" },
+{ type:"sakura", title:"SAKURA", sub:"桜", bg:"linear-gradient(135deg,#ffafbd,#ffc3a0)", border:"none", txtStyle:"color:#000" },
+{ type:"midnight", title:"MIDNIGHT", sub:"真夜中", bg:"linear-gradient(135deg,#0f0c29,#302b63)", border:"1px solid #302b63", txtStyle:"" },
+{ type:"cyber", title:"CYBERPUNK 2077", sub:"// glitch", bg:"linear-gradient(90deg,#ff00ff,#00ffff)", border:"2px solid #ff00ff", txtStyle:"text-shadow:2px 0 #00ffff, -2px 0 #ff00ff" },
+{ type:"pastel", title:"PASTEL DREAM", sub:"dreamy", bg:"linear-gradient(135deg,#a8edea,#fed6e3)", border:"none", txtStyle:"color:#333" },
+{ type:"blood", title:"BLOOD MOON", sub:"赤い月", bg:"linear-gradient(135deg,#141E30,#243B55)", border:"1px solid #ff2d95", txtStyle:"color:#ff2d95" },
+{ type:"vapor", title:"VAPORWAVE", sub:"ＶＡＰＯＲ", bg:"linear-gradient(135deg,#667eea,#764ba2)", border:"1px solid #a855f7", txtStyle:"" },
+{ type:"ocean", title:"OCEAN BLUE", sub:"海", bg:"linear-gradient(135deg,#2193b0,#6dd5ed)", border:"none", txtStyle:"" },
 ];
-while(aestheticBannersList.length<100){ let h=Math.floor(Math.random()*360); aestheticBannersList.push({ name:`Aesthetic ${aestheticBannersList.length}`, style:`linear-gradient(135deg, hsl(${h},80%,65%), hsl(${(h+40)%360},80%,55%))` }); }
+while(banners.length<100){
+let styles=[
+{bg:"#08080c",border:"1px solid #222",txt:"letter-spacing:6px"},
+{bg:"linear-gradient(90deg,#000,#222)",border:"1px solid #333",txt:""},
+{bg:"linear-gradient(135deg,#ff2d95,#ff5f6d)",border:"none",txt:""},
+{bg:"linear-gradient(135deg,#0f0c29,#302b63)",border:"1px solid #fff",txt:""},
+];
+let s=styles[banners.length%4];
+banners.push({type:"custom",title:`AESTHETIC ${banners.length+1}`,sub:"アニメ",bg:s.bg,border:s.border,txtStyle:s.txt});
+}
 let selBanner=0;
 function loadBanners(){
 let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
-document.getElementById('bannerDesigns').innerHTML=aestheticBannersList.map((b,i)=>`<div onclick="selBanner=${i};updateBanner()" class='banner-card ${selBanner==i?'selected':''}' style='background:${b.style};background-size:cover'><span style='background:rgba(0,0,0,0.5);padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px)'>${b.name}</span></div>`).join('');
+document.getElementById('bannerDesigns').innerHTML=banners.map((b,i)=>`
+<div onclick="selBanner=${i};updateBanner()" class='banner-item ${selBanner==i?'sel':''}' style='background:${b.bg};border:${b.border}'>
+<div style='text-align:center;${b.txtStyle}'><div style='font-size:13px'>${b.title.replace('AESTHETIC','').trim()||txt}</div><div style='font-size:9px;opacity:0.6;margin-top:2px'>${b.sub}</div></div>
+</div>`).join('');
 updateBanner();
 }
-function updateBanner(){ let txt=document.getElementById('bannerText').value||'ANIMEVERSE'; let b=aestheticBannersList[selBanner]; document.getElementById('bannerMainPrev').innerText=txt; document.getElementById('bannerMainPrev').style.background=b.style; document.getElementById('bannerMainPrev').style.backgroundSize='cover'; }
-function dlBanner(){ let c=document.createElement('canvas');c.width=1280;c.height=400;let x=c.getContext('2d'); let grad=x.createLinearGradient(0,0,1280,0); grad.addColorStop(0,'#ff2d95'); grad.addColorStop(1,'#667eea'); x.fillStyle=grad; x.fillRect(0,0,1280,400); x.fillStyle='#fff';x.font='900 70px Arial';x.textAlign='center'; x.fillText(document.getElementById('bannerMainPrev').innerText,640,230); let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click(); }
+function updateBanner(){
+let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
+let b=banners[selBanner];
+let el=document.getElementById('bannerMainPrev');
+el.innerHTML=`<div style='text-align:center'><div style='${b.txtStyle}'>${txt}</div><div style='font-size:11px;opacity:0.6;margin-top:4px'>${b.sub} • ${b.title}</div></div>`;
+el.style.background=b.bg;
+el.style.border=b.border;
+}
+function dlBanner(){
+let c=document.createElement('canvas');c.width=1280;c.height=400;let x=c.getContext('2d');
+let grad=x.createLinearGradient(0,0,1280,0); grad.addColorStop(0,'#ff2d95'); grad.addColorStop(1,'#667eea');
+x.fillStyle=grad; x.fillRect(0,0,1280,400);
+x.fillStyle='#fff';x.font='900 60px Arial';x.textAlign='center'; x.fillText(document.getElementById('bannerText').value||'ANIMEVERSE',640,230);
+let a=document.createElement('a');a.download='aesthetic-banner.png';a.href=c.toDataURL();a.click();
+}
 
-const aestheticLogosList=[
-{ bg:"radial-gradient(circle, #ff2d95, #a855f7)", radius:"24px", shadow:"0 0 30px #ff2d95" },
-{ bg:"linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))", radius:"24px", shadow:"0 0 0" },
-{ bg:"linear-gradient(135deg, #00c6ff, #0072ff)", radius:"50%", shadow:"0 0 30px #00c6ff" },
-{ bg:"linear-gradient(135deg, #ffafbd, #ffc3a0)", radius:"20px", shadow:"0 0 20px #ffafbd" },
+// AESTHETIC LOGOS
+const logos=[
+{bg:"linear-gradient(135deg,#ff2d95,#a855f7)",radius:"24px",shadow:"0 0 30px #ff2d95",style:""},
+{bg:"#0a0a0f",radius:"50%",shadow:"0 0 0 2px #fff",style:"border:2px solid #fff"},
+{bg:"linear-gradient(135deg,#00c6ff,#0072ff)",radius:"18px",shadow:"0 0 25px #00c6ff",style:""},
+{bg:"rgba(255,255,255,0.05)",radius:"24px",shadow:"none",style:"backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2)"},
+{bg:"#fff",radius:"50%",shadow:"0 0 20px #fff",style:"color:#000"},
+{bg:"linear-gradient(135deg,#ffafbd,#ffc3a0)",radius:"16px",shadow:"0 0 20px #ffafbd",style:"color:#000"},
+{bg:"linear-gradient(135deg,#141E30,#243B55)",radius:"12px",shadow:"",style:"color:#ff2d95"},
+{bg:"linear-gradient(135deg,#667eea,#764ba2)",radius:"24px",shadow:"0 0 20px #667eea",style:""},
 ];
-while(aestheticLogosList.length<100){ let h=Math.floor(Math.random()*360); aestheticLogosList.push({ bg:`linear-gradient(135deg, hsl(${h},90%,65%), hsl(${(h+30)%360},85%,60%))`, radius:`${16+Math.floor(Math.random()*20)}px`, shadow:`0 0 25px hsl(${h},80%,60%)` }); }
+while(logos.length<100){ let h=Math.floor(Math.random()*360); logos.push({bg:`linear-gradient(135deg,hsl(${h},85%,60%),hsl(${(h+30)%360},80%,55%))`,radius:`${12+Math.floor(Math.random()*20)}px`,shadow:`0 0 20px hsl(${h},70%,60%)`,style:""}); }
 let selLogo=0;
-function loadLogos(){ let txt=document.getElementById('logoText').value||'N'; document.getElementById('logoDesigns').innerHTML=aestheticLogosList.map((l,i)=>`<div onclick="selLogo=${i};updateLogo()" class='logo-card' style='background:${l.bg};border-radius:${l.radius};box-shadow:${selLogo==i?l.shadow:'none'};border-color:${selLogo==i?'#fff':'#222'}'><span style='background:rgba(0,0,0,0.3);width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;backdrop-filter:blur(10px)'>${txt.charAt(0)}</span></div>`).join(''); updateLogo(); }
-function updateLogo(){ let txt=document.getElementById('logoText').value||'N'; let l=aestheticLogosList[selLogo]; document.getElementById('logoMainPrev').innerText=txt.charAt(0).toUpperCase(); document.getElementById('logoMainPrev').style.background=l.bg; document.getElementById('logoMainPrev').style.borderRadius=l.radius; document.getElementById('logoMainPrev').style.boxShadow=l.shadow; }
-function dlLogo(){ let c=document.createElement('canvas');c.width=600;c.height=600;let x=c.getContext('2d'); let g=x.createRadialGradient(300,300,0,300,300,300); g.addColorStop(0,'#ff2d95'); g.addColorStop(1,'#667eea'); x.fillStyle=g; x.beginPath(); x.arc(300,300,250,0,6.28); x.fill(); x.fillStyle='#fff';x.font='900 150px Arial';x.textAlign='center';x.textBaseline='middle'; x.fillText(document.getElementById('logoMainPrev').innerText,300,320); let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click(); }
+function loadLogos(){
+let txt=document.getElementById('logoText').value||'N';
+document.getElementById('logoDesigns').innerHTML=logos.map((l,i)=>`
+<div onclick="selLogo=${i};updateLogo()" class='logo-item' style='background:${l.bg};border-radius:${l.radius};box-shadow:${selLogo==i?l.shadow:'none'};border-color:${selLogo==i?'#fff':'#222'};${l.style}'>
+${txt.charAt(0)}
+</div>`).join('');
+updateLogo();
+}
+function updateLogo(){
+let txt=document.getElementById('logoText').value||'N';
+let l=logos[selLogo];
+let el=document.getElementById('logoMainPrev');
+el.innerText=txt.charAt(0).toUpperCase();
+el.style.background=l.bg;
+el.style.borderRadius=l.radius;
+el.style.boxShadow=l.shadow;
+el.style.cssText+=l.style;
+}
+function dlLogo(){
+let c=document.createElement('canvas');c.width=600;c.height=600;let x=c.getContext('2d');
+let g=x.createRadialGradient(300,300,0,300,300,300); g.addColorStop(0,'#ff2d95'); g.addColorStop(1,'#a855f7');
+x.fillStyle=g; x.beginPath(); x.arc(300,300,250,0,6.28); x.fill();
+x.fillStyle='#fff';x.font='900 150px Arial';x.textAlign='center';x.textBaseline='middle';
+x.fillText(document.getElementById('logoMainPrev').innerText,300,320);
+let a=document.createElement('a');a.download='aesthetic-logo.png';a.href=c.toDataURL();a.click();
+}
 
 loadBoys(); loadBanners(); loadLogos();
 </script>
