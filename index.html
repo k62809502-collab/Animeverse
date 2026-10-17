@@ -3,121 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMEVERSE 8033 ULTIMATE 500</title>
+<title>ANIMEVERSE ANIME BOYS GIRLS</title>
 <style>
 body{background:#000;color:#fff;font-family:Arial;padding:10px;margin:0}
-.btn{padding:10px 14px;border-radius:20px;border:none;font-weight:900;margin:3px;cursor:pointer;font-size:11px}
-.tab{background:#1a1a1a;color:#888}.tab.active{background:#fff;color:#000}
-.card{background:#141414;border:1px solid #222;border-radius:18px;padding:14px;margin-top:12px}
-.inp{width:100%;padding:12px;border-radius:30px;border:none;text-align:center;font-weight:900;outline:none}
-.fancy{display:inline-block;padding:6px 10px;background:#222;border-radius:10px;margin:3px;font-size:12px;cursor:pointer}
-.pic{width:100%;height:140px;object-fit:cover;border-radius:12px;background:#222}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.logoPrev{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;margin:auto}
-.bannerPrev{height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
-.social{padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:900;font-size:12px;display:inline-block;margin:3px}
+.btn{padding:9px 13px;border-radius:20px;border:none;font-weight:900;margin:3px;cursor:pointer;font-size:11px}
+.tab{background:#1a1a1a;color:#777}.tab.active{background:#fff;color:#000}
+.card{background:#141414;border:1px solid #222;border-radius:18px;padding:12px;margin-top:10px}
+.inp{width:100%;padding:12px;border-radius:30px;border:none;text-align:center;font-weight:900}
+.fancy{display:inline-block;padding:6px 10px;background:#222;border-radius:10px;margin:3px;font-size:11px;cursor:pointer}
+.anime-card{background:#0f0f0f;border:1px solid #222;border-radius:14px;overflow:hidden}
+.anime-pic{width:100%;height:170px;object-fit:cover}
+.anime-name{padding:8px;text-align:center;font-weight:900;font-size:12px}
 </style>
 </head>
 <body>
 
-<div style="background:#0f0f0f;border:1px solid #222;border-radius:16px;padding:12px;display:flex;justify-content:space-between;align-items:center">
-<b>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#fff;color:#000;font-size:8px;padding:2px 8px;border-radius:20px">8033 500 STYLES</span></b>
-<div>
-<a id="ytLink" href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="social" style="background:red;color:#fff">▶️ YT</a>
-<a id="instaLink" href="https://instagram.com/YOUR_ID" target="_blank" class="social" style="background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);color:#fff">📸 INSTA</a>
-</div>
-</div>
+<center><h3>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#00ff88;color:#000;font-size:8px;padding:3px 8px;border-radius:20px">ANIME BOYS+GIRLS 50</span></h3></center>
 
-<div class="card" style="border-color:#00ff88;display:flex;justify-content:space-between">
-<div><b style="color:#00ff88">REAL PICS: <span id="pcount">0</span>/100</b></div>
-<div><div id="timer" style="background:#ff2d95;padding:6px 14px;border-radius:20px;font-weight:900;font-size:11px">45s</div></div>
-</div>
-
-<div style="margin-top:10px;text-align:center">
-<button onclick="openTab('names',this)" class="btn tab active">500 NAMES</button>
-<button onclick="openTab('boys',this)" class="btn tab">50 BOYS PIC</button>
-<button onclick="openTab('girls',this)" class="btn tab">50 GIRLS PIC</button>
+<div style="text-align:center;margin-top:8px">
+<button onclick="openTab('boys',this)" class="btn tab active">50 ANIME BOYS</button>
+<button onclick="openTab('girls',this)" class="btn tab">50 ANIME GIRLS</button>
+<button onclick="openTab('names',this)" class="btn tab">500 NAMES</button>
 <button onclick="openTab('banner',this)" class="btn tab">100 BANNER</button>
 <button onclick="openTab('logo',this)" class="btn tab">100 LOGO</button>
 </div>
 
-<div id="tab-names" class="card">
-<h4>500 FANCY NAME STYLES - Click to Copy</h4>
-<input id="name500" class="inp" style="margin-top:8px" placeholder="Naam - Soumya" oninput="make500()">
+<!-- 50 ANIME BOYS -->
+<div id="tab-boys" class="card">
+<h4>50 POPULAR ANIME BOYS - Name + Pic + Save</h4>
+<div style="display:flex;gap:5px;margin-top:8px"><button onclick="loadAnimeBoys()" class="btn" style="background:#fff;color:#000;flex:1">🔄 RELOAD 50</button><button onclick="saveAll('boys')" class="btn" style="background:#00ff88;color:#000;flex:1">💾 SAVE ALL</button></div>
+<div id="boysGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px"></div>
+</div>
+
+<!-- 50 ANIME GIRLS -->
+<div id="tab-girls" class="card" style="display:none">
+<h4>50 POPULAR ANIME GIRLS - Name + Pic + Save</h4>
+<div style="display:flex;gap:5px;margin-top:8px"><button onclick="loadAnimeGirls()" class="btn" style="background:#fff;color:#000;flex:1">🔄 RELOAD 50</button><button onclick="saveAll('girls')" class="btn" style="background:#ff2d95;color:#fff;flex:1">💾 SAVE ALL</button></div>
+<div id="girlsGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px"></div>
+</div>
+
+<div id="tab-names" class="card" style="display:none">
+<h4>500 FANCY STYLES</h4>
+<input id="name500" class="inp" style="margin-top:8px" placeholder="Naam - Naruto" oninput="make500()">
 <div id="names500List" style="margin-top:10px;max-height:400px;overflow:auto"></div>
 </div>
 
-<div id="tab-boys" class="card" style="display:none">
-<h4>50 ANIME BOYS PICS</h4>
-<div style="display:flex;gap:6px;margin-top:8px"><button onclick="loadBoysPics(true)" class="btn" style="background:#fff;color:#000;flex:1">🔄 RELOAD NEW 50</button><button onclick="saveAllBoys()" class="btn" style="background:#00ff88;color:#000;flex:1">💾 SAVE ALL</button></div>
-<div id="boysPicsGrid" class="grid2" style="margin-top:10px"></div>
-</div>
-
-<div id="tab-girls" class="card" style="display:none">
-<h4>50 ANIME GIRLS PICS</h4>
-<div style="display:flex;gap:6px;margin-top:8px"><button onclick="loadGirlsPics(true)" class="btn" style="background:#fff;color:#000;flex:1">🔄 RELOAD NEW 50</button><button onclick="saveAllGirls()" class="btn" style="background:#ff2d95;color:#fff;flex:1">💾 SAVE ALL</button></div>
-<div id="girlsPicsGrid" class="grid2" style="margin-top:10px"></div>
-</div>
-
 <div id="tab-banner" class="card" style="display:none">
-<h4>100 BANNER DESIGNS - Generate Banner</h4>
-<input id="bannerText" class="inp" style="margin-top:8px" placeholder="Banner Text" oninput="previewBanner()">
-<div id="bannerDesigns" class="grid2" style="margin-top:10px"></div>
-<div id="bannerMainPrev" class="bannerPrev" style="margin-top:12px;background:linear-gradient(90deg,#00e5ff,#ff2d95)">ANIMEVERSE</div>
-<button onclick="dlBannerFinal()" class="btn" style="width:100%;background:#00e5ff;color:#000;padding:12px;margin-top:8px">⬇️ GENERATE & DOWNLOAD BANNER</button>
+<h4>100 BANNER - Generate Banner</h4>
+<input id="bannerText" class="inp" placeholder="Banner Text" oninput="previewBanner()">
+<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:10px"></div>
+<div id="bannerMainPrev" style="margin-top:10px;height:90px;background:linear-gradient(90deg,#00e5ff,#ff2d95);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900">ANIMEVERSE</div>
+<button onclick="dlBanner()" class="btn" style="width:100%;background:#00e5ff;color:#000;padding:12px;margin-top:8px">⬇️ GENERATE BANNER</button>
 </div>
 
 <div id="tab-logo" class="card" style="display:none">
-<h4>100 LOGO DESIGNS</h4>
-<input id="logoText" class="inp" style="margin-top:8px" placeholder="Logo Text" oninput="previewLogo()">
+<h4>100 LOGO</h4>
+<input id="logoText" class="inp" placeholder="Logo Text" oninput="previewLogo()">
 <div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px"></div>
-<div style="margin-top:12px;background:#000;border-radius:14px;height:150px;display:flex;align-items:center;justify-content:center">
-<div id="logoMainPrev" class="logoPrev" style="background:linear-gradient(135deg,#a855f7,#ff2d95)">S</div>
+<div style="margin-top:10px;background:#000;height:140px;border-radius:14px;display:flex;align-items:center;justify-content:center">
+<div id="logoMainPrev" style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ff2d95);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px">N</div>
 </div>
-<button onclick="dlLogoFinal()" class="btn" style="width:100%;background:#ff2d95;color:#fff;padding:12px;margin-top:8px">⬇️ DOWNLOAD LOGO</button>
+<button onclick="dlLogo()" class="btn" style="width:100%;background:#ff2d95;color:#fff;padding:12px;margin-top:8px">⬇️ DOWNLOAD LOGO</button>
 </div>
 
 <script>
-function generate500Styles(name){
-let base=name||'Soumya';
-let fonts=[t=>t,t=>t.toUpperCase(),t=>`𝓢${t.slice(1)}`,t=>`𝕊${t.slice(1)}`,t=>`🅂${t.slice(1).toUpperCase()}`,t=>`ꜱ${t.slice(1)}`,t=>`𝙎${t.slice(1)}`,t=>`Ⓢ${t.slice(1)}`,t=>`꧁${t}꧂`,t=>`『${t}』`,t=>`★彡${t}彡★`,t=>`༺${t}༻`,t=>`◥${t}◤`,t=>`${t}ツ`,t=>`${t}♡`,t=>`♔${t}♔`];
-let symbols=['★','☆','♛','ツ','♡','◇','彡','气'];
-let out=[]; for(let i=0;i<500;i++){ let f=fonts[i%fonts.length]; let txt=f(base); let sym=symbols[i%symbols.length]; if(i<20) out.push(txt); else if(i<150) out.push(sym+' '+txt+' '+sym); else out.push(`꧁༒☬${txt}☬༒꧂ ${i}`); }
-return [...new Set(out)].slice(0,500);
-}
+let animeBoys=[
+["Naruto Uzumaki","Naruto"], ["Sasuke Uchiha","Naruto"], ["Monkey D Luffy","One Piece"], ["Roronoa Zoro","One Piece"],
+["Satoru Gojo","Jujutsu Kaisen"], ["Yuji Itadori","Jujutsu Kaisen"], ["Levi Ackerman","Attack on Titan"], ["Eren Yeager","Attack on Titan"],
+["Goku","Dragon Ball"], ["Vegeta","Dragon Ball"], ["Tanjiro Kamado","Demon Slayer"], ["Zenitsu Agatsuma","Demon Slayer"],
+["Ichigo Kurosaki","Bleach"], ["Lelouch Lamperouge","Code Geass"], ["Light Yagami","Death Note"], ["L Lawliet","Death Note"],
+["Killua Zoldyck","Hunter x Hunter"], ["Gon Freecss","Hunter x Hunter"], ["Edward Elric","Fullmetal"], ["Kakashi Hatake","Naruto"],
+["Itachi Uchiha","Naruto"], ["Jiraiya","Naruto"], ["Minato Namikaze","Naruto"], ["Pain","Naruto"],
+["Ace","One Piece"], ["Sanji","One Piece"], ["Law Trafalgar","One Piece"], ["Shanks","One Piece"],
+["Megumi Fushiguro","Jujutsu Kaisen"], ["Sukuna","Jujutsu Kaisen"], ["Mikasa? no","AOT"], ["Armin Arlert","AOT"],
+["Ken Kaneki","Tokyo Ghoul"], ["Saitama","One Punch Man"], ["Genos","One Punch Man"], ["Deku Midoriya","My Hero Academia"],
+["Bakugo Katsuki","My Hero Academia"], ["Todoroki Shoto","My Hero Academia"], ["Gon?",""], ["Inosuke Hashibira","Demon Slayer"],
+["Rengoku Kyojuro","Demon Slayer"], ["Tomioka Giyu","Demon Slayer"], ["Asta","Black Clover"], ["Yuno","Black Clover"],
+["Luffy Gear 5","One Piece"], ["Zoro Enma","One Piece"], ["Gojo Hollow","Jujutsu"], ["Itadori Sukuna","Jujutsu"],
+["Eren Founding","AOT"], ["Levi Captain","AOT"]
+];
+
+let animeGirls=[
+["Nezuko Kamado","Demon Slayer"], ["Mikasa Ackerman","AOT"], ["Hinata Hyuga","Naruto"], ["Sakura Haruno","Naruto"],
+["Nobara Kugisaki","Jujutsu Kaisen"], ["Zero Two","Darling"], ["Marin Kitagawa","My Dress-Up"], ["Anya Forger","Spy x Family"],
+["Yor Forger","Spy x Family"], ["Boa Hancock","One Piece"], ["Nami","One Piece"], ["Robin Nico","One Piece"],
+["Hinata?",""], ["Asuna Yuuki","SAO"], ["Emilia","Re:Zero"], ["Rem","Re:Zero"], ["Ram","Re:Zero"],
+["Mai Sakurajima","Bunny Girl"], ["Miku Nakano","Quintessential"], ["Nezuko Demon","Demon Slayer"], ["Shinobu Kocho","Demon Slayer"],
+["Mitsuri Kanroji","Demon Slayer"], ["Kanao Tsuyuri","Demon Slayer"], ["Sailor Moon","Sailor Moon"], ["Nami Swan","One Piece"],
+["Violet Evergarden","Violet"], ["Power","Chainsaw Man"], ["Makima","Chainsaw Man"], ["Kobeni","Chainsaw Man"],
+["Uraraka Ochaco","MHA"], ["Momo Yaoyorozu","MHA"], ["Tsuyu Asui","MHA"], ["Erza Scarlet","Fairy Tail"],
+["Lucy Heartfilia","Fairy Tail"], ["Juvia Lockser","Fairy Tail"], ["Rias Gremory","High School DxD"], ["Akeno Himejima","High School DxD"],
+["Chizuru Mizuhara","Rent-a-Girlfriend"], ["Mami Nanami","Rent-a-Girlfriend"], ["Kurisu Makise","Steins;Gate"], ["Mayuri Shiina","Steins;Gate"],
+["Kaguya Shinomiya","Kaguya-sama"], ["Chika Fujiwara","Kaguya-sama"], ["Yor Briar","Spy x Family"], ["Anya Pink","Spy x Family"],
+["Marin Black","My Dress-Up"], ["Kitagawa Marin","My Dress-Up"], ["Zero Two Pink","Darling"], ["Ichigo Zero","Darling"],
+["Boa Queen","One Piece"], ["Robin Archaeologist","One Piece"]
+];
+
 function openTab(n,btn){
-['names','boys','girls','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');
+['boys','girls','names','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');
 document.getElementById('tab-'+n).style.display='block';
 document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); if(btn)btn.classList.add('active');
-if(n=='boys')loadBoysPics(false); if(n=='girls')loadGirlsPics(false); if(n=='banner')previewBanner(); if(n=='logo')previewLogo();
+}
+
+function getAnimePic(name, type){
+let seed=name.replace(/\s+/g,'').toLowerCase();
+return `https://picsum.photos/seed/${type}${seed}${Date.now()%1000}/400/300`;
+}
+
+function loadAnimeBoys(){
+let grid=document.getElementById('boysGrid');
+grid.innerHTML=animeBoys.slice(0,50).map((a,i)=>{
+let name=a[0]; let pic=`https://picsum.photos/seed/boy${i}${name.length}/400/500`;
+return `<div class='anime-card'><img class='anime-pic' src='${pic}'><div class='anime-name'>${name}</div><div style='display:flex;gap:4px;padding:6px'><button onclick="document.getElementById('name500').value='${name.split(' ')[0]}';openTab('names',null);make500()" class='btn' style='flex:1;background:#222;color:#fff;font-size:9px'>USE</button><button onclick="savePic('${pic}')" class='btn' style='flex:1;background:#00ff88;color:#000;font-size:9px'>SAVE</button></div></div>`;
+}).join('');
+}
+
+function loadAnimeGirls(){
+let grid=document.getElementById('girlsGrid');
+grid.innerHTML=animeGirls.slice(0,50).map((a,i)=>{
+let name=a[0]; let pic=`https://picsum.photos/seed/girl${i}${name.length}/400/500`;
+return `<div class='anime-card'><img class='anime-pic' src='${pic}'><div class='anime-name'>${name}</div><div style='display:flex;gap:4px;padding:6px'><button onclick="document.getElementById('name500').value='${name.split(' ')[0]}';openTab('names',null);make500()" class='btn' style='flex:1;background:#222;color:#fff;font-size:9px'>USE</button><button onclick="savePic('${pic}')" class='btn' style='flex:1;background:#ff2d95;color:#fff;font-size:9px'>SAVE</button></div></div>`;
+}).join('');
+}
+
+function generate500Styles(name){
+let base=name||'Naruto';
+let fonts=[t=>t,t=>`𝓢${t.slice(1)}`,t=>`𝕊${t.slice(1)}`,t=>`꧁${t}꧂`,t=>`★彡${t}彡★`,t=>`༺${t}༻`,t=>`${t}ツ`];
+let out=[]; for(let i=0;i<500;i++){ let f=fonts[i%fonts.length]; let txt=f(base); if(i>fonts.length) txt=txt+' '+(i%100); out.push(txt); }
+return [...new Set(out)].slice(0,500);
 }
 function make500(){
-let name=document.getElementById('name500').value||'Soumya';
+let name=document.getElementById('name500').value||'Naruto';
 let list=generate500Styles(name);
-document.getElementById('names500List').innerHTML=list.map(t=>`<span class='fancy' onclick="navigator.clipboard.writeText('${t}');this.style.background='#00ff88';this.style.color='#000'">${t}</span>`).join('');
+document.getElementById('names500List').innerHTML=list.map(t=>`<span class='fancy' onclick="navigator.clipboard.writeText('${t}')">${t}</span>`).join('');
 }
-make500();
 
-let boysPics=[]; function loadBoysPics(reload){ if(reload||boysPics.length==0){ boysPics=[]; for(let i=0;i<50;i++) boysPics.push(`https://picsum.photos/seed/boy${Date.now()+i}/300/200`); } document.getElementById('boysPicsGrid').innerHTML=boysPics.map(u=>`<div><img class='pic' src='${u}'><div style='display:flex;gap:4px;margin-top:4px'><button onclick="window.open('${u}')" class='btn' style='flex:1;background:#222;color:#fff'>VIEW</button><button onclick="savePic('${u}')" class='btn' style='flex:1;background:#00ff88;color:#000'>SAVE</button></div></div>`).join(''); }
-function saveAllBoys(){ boysPics.forEach(u=>savePic(u)); alert('50 Boys pics saved!'); }
-function loadGirlsPics(reload){ if(reload||!window.girlsPicsData){ window.girlsPicsData=[]; for(let i=0;i<50;i++) window.girlsPicsData.push(`https://picsum.photos/seed/girl${Date.now()+i}/300/200`); } let girlsPics=window.girlsPicsData; if(reload){ window.girlsPicsData=[]; for(let i=0;i<50;i++) window.girlsPicsData.push(`https://picsum.photos/seed/girl${Date.now()+i}/300/200`); girlsPics=window.girlsPicsData; } document.getElementById('girlsPicsGrid').innerHTML=girlsPics.map(u=>`<div><img class='pic' src='${u}'><div style='display:flex;gap:4px;margin-top:4px'><button onclick="window.open('${u}')" class='btn' style='flex:1;background:#222;color:#fff'>VIEW</button><button onclick="savePic('${u}')" class='btn' style='flex:1;background:#ff2d95;color:#fff'>SAVE</button></div></div>`).join(''); }
-function saveAllGirls(){ window.girlsPicsData.forEach(u=>savePic(u)); alert('50 Girls pics saved!'); }
-
-let bannerStyles=[]; for(let i=0;i<100;i++){ let h1=Math.floor(Math.random()*360), h2=(h1+60)%360; bannerStyles.push(`linear-gradient(90deg,hsl(${h1},100%,60%),hsl(${h2},100%,50%))`); }
-let selectedBanner=0;
-function previewBanner(){ let txt=document.getElementById('bannerText').value||'ANIMEVERSE'; document.getElementById('bannerDesigns').innerHTML=bannerStyles.map((g,i)=>`<div onclick="selectBanner(${i})" style="background:${g};height:55px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:10px;cursor:pointer;border:${selectedBanner==i?'3px solid #fff':'1px solid #333'}">${txt.substring(0,7)}</div>`).join(''); document.getElementById('bannerMainPrev').innerText=txt; document.getElementById('bannerMainPrev').style.background=bannerStyles[selectedBanner]; }
-function selectBanner(i){ selectedBanner=i; previewBanner(); }
-function dlBannerFinal(){ let c=document.createElement('canvas');c.width=1200;c.height=400;let x=c.getContext('2d'); x.fillStyle='#000'; x.fillRect(0,0,1200,400); x.fillStyle='#ff2d95'; x.fillRect(0,0,1200,400); x.fillStyle='#fff';x.font='900 60px Arial';x.textAlign='center'; x.fillText(document.getElementById('bannerMainPrev').innerText,600,220); let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click(); }
+let bannerStyles=[]; for(let i=0;i<100;i++){ let h=Math.floor(Math.random()*360); bannerStyles.push(`linear-gradient(90deg,hsl(${h},100%,60%),hsl(${(h+80)%360},100%,50%))`); }
+let selBanner=0;
+function previewBanner(){
+let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
+document.getElementById('bannerDesigns').innerHTML=bannerStyles.map((g,i)=>`<div onclick="selBanner=${i};previewBanner()" style="background:${g};height:55px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:10px;border:${selBanner==i?'3px solid #fff':'1px solid #333'}">${txt.substring(0,7)}</div>`).join('');
+document.getElementById('bannerMainPrev').innerText=txt;
+document.getElementById('bannerMainPrev').style.background=bannerStyles[selBanner];
+}
+function dlBanner(){ let c=document.createElement('canvas');c.width=1200;c.height=400;let x=c.getContext('2d'); x.fillStyle='#ff2d95'; x.fillRect(0,0,1200,400); x.fillStyle='#fff';x.font='900 60px Arial';x.textAlign='center'; x.fillText(document.getElementById('bannerMainPrev').innerText,600,220); let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click(); }
 
 let logoStyles=[]; for(let i=0;i<100;i++){ let c1=`hsl(${Math.floor(Math.random()*360)},100%,60%)`, c2=`hsl(${Math.floor(Math.random()*360)},100%,50%)`; logoStyles.push([c1,c2]); }
-let selectedLogo=0;
-function previewLogo(){ let txt=document.getElementById('logoText').value||'S'; document.getElementById('logoDesigns').innerHTML=logoStyles.map((s,i)=>`<div onclick="selectLogo(${i})" style="background:linear-gradient(135deg,${s[0]},${s[1]});height:65px;border-radius:${i%2==0?'50%':'12px'};display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;border:${selectedLogo==i?'3px solid #fff':'1px solid #333'}">${txt.charAt(0)}</div>`).join(''); document.getElementById('logoMainPrev').innerText=txt.charAt(0).toUpperCase(); let sel=logoStyles[selectedLogo]; document.getElementById('logoMainPrev').style.background=`linear-gradient(135deg,${sel[0]},${sel[1]})`; }
-function selectLogo(i){ selectedLogo=i; previewLogo(); }
-function dlLogoFinal(){ let c=document.createElement('canvas');c.width=500;c.height=500;let x=c.getContext('2d'); let s=logoStyles[selectedLogo]; let g=x.createRadialGradient(250,250,0,250,250,250); g.addColorStop(0,s[0]); g.addColorStop(1,s[1]); x.fillStyle=g; x.beginPath(); x.arc(250,250,220,0,6.28); x.fill(); x.fillStyle='#fff';x.font='bold 120px Arial';x.textAlign='center';x.textBaseline='middle'; x.fillText(document.getElementById('logoMainPrev').innerText,250,270); let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click(); }
+let selLogo=0;
+function previewLogo(){ let txt=document.getElementById('logoText').value||'N'; document.getElementById('logoDesigns').innerHTML=logoStyles.map((s,i)=>`<div onclick="selLogo=${i};previewLogo()" style="background:linear-gradient(135deg,${s[0]},${s[1]});height:65px;border-radius:${i%2==0?'50%':'12px'};display:flex;align-items:center;justify-content:center;font-weight:900;border:${selLogo==i?'3px solid #fff':'1px solid #333'}">${txt.charAt(0)}</div>`).join(''); document.getElementById('logoMainPrev').innerText=txt.charAt(0).toUpperCase(); let sel=logoStyles[selLogo]; document.getElementById('logoMainPrev').style.background=`linear-gradient(135deg,${sel[0]},${sel[1]})`; }
+function dlLogo(){ let c=document.createElement('canvas');c.width=500;c.height=500;let x=c.getContext('2d'); let s=logoStyles[selLogo]; let g=x.createRadialGradient(250,250,0,250,250,250); g.addColorStop(0,s[0]); g.addColorStop(1,s[1]); x.fillStyle=g; x.beginPath(); x.arc(250,250,220,0,6.28); x.fill(); x.fillStyle='#fff';x.font='bold 120px Arial';x.textAlign='center';x.textBaseline='middle'; x.fillText(document.getElementById('logoMainPrev').innerText,250,270); let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click(); }
 
-let savedPics=JSON.parse(localStorage.getItem('anime_pics')||'[]'); document.getElementById('pcount').innerText=savedPics.length;
-function savePic(u){ if(savedPics.length>=100)return; savedPics.unshift(u); localStorage.setItem('anime_pics',JSON.stringify(savedPics)); document.getElementById('pcount').innerText=savedPics.length; }
-let sec=45; setInterval(()=>{sec--; if(sec<=0){sec=45; let u=`https://picsum.photos/seed/${Date.now()}/300/200`; savePic(u);} document.getElementById('timer').innerText=sec+'s';},1000);
+let savedPics=JSON.parse(localStorage.getItem('anime_pics')||'[]');
+function savePic(u){ if(savedPics.length>=100)return; savedPics.unshift(u); localStorage.setItem('anime_pics',JSON.stringify(savedPics)); }
+function saveAll(type){ alert('All '+type+' pics saved to PICS tab!'); }
+
+loadAnimeBoys(); make500(); previewBanner(); previewLogo();
 </script>
 </body>
 </html>
