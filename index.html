@@ -1,213 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMEVERSE 500 BANNER 500 LOGO AESTHETIC</title>
+<title>Animeverse - Ultimate Anime Universe</title>
+<meta name="description" content="Stream 2000+ anime in HD">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-body{background:#08080c;color:#fff;font-family:Arial;padding:10px;margin:0}
-.btn{padding:10px 14px;border-radius:20px;border:none;font-weight:900;margin:3px;cursor:pointer;font-size:11px}
-.tab{background:#1a1a22;color:#666;border:1px solid #222}.tab.active{background:#fff;color:#000}
-.card{background:#11111a;border:1px solid #222;border-radius:20px;padding:14px;margin-top:12px}
-.banner-item{height:92px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;cursor:pointer;border:2px solid #222;position:relative;overflow:hidden;background-size:cover;background-position:center;background:#111}
-.banner-item.sel{border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,0.5);transform:scale(1.02)}
-.logo-item{height:92px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;cursor:pointer;border:2px solid #222;background:#111;position:relative;overflow:hidden}
-.logo-item.sel{border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,0.5);transform:scale(1.05)}
-.inp{width:100%;padding:13px;border-radius:30px;border:none;text-align:center;font-weight:900;background:#1e1e2a;color:#fff;outline:none}
-.upload-box{border:2px dashed #333;border-radius:16px;padding:18px;text-align:center;background:#0e0e14;margin-top:10px;cursor:pointer}
-.pic{width:100%;height:140px;object-fit:cover;border-radius:12px;background:#111}
-.fancy{display:inline-block;padding:7px 11px;background:#1a1a22;border:1px solid #2a2a35;border-radius:12px;margin:3px;font-size:11px;cursor:pointer}
+:root{--bg:#06070d;--card:#12131e;--neon:#8a5cf5;--neon2:#ff4ecd;--text:#e8e8ff;--muted:#8b8ca6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif}
+header{position:sticky;top:0;z-index:99;background:rgba(6,7,13,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(138,92,245,0.15);display:flex;justify-content:space-between;align-items:center;padding:14px 5%;flex-wrap:wrap;gap:10px}
+.logo{font-family:'Space Grotesk';font-weight:800;font-size:26px;cursor:pointer}
+.logo span{color:var(--neon);text-shadow:0 0 15px var(--neon)}
+.nav{display:flex;gap:10px;align-items:center}
+.search{display:flex;background:var(--card);border-radius:999px;padding:8px 16px;border:1px solid rgba(255,255,255,0.08);width:380px}
+.search input{flex:1;background:transparent;border:none;color:white;outline:none;font-size:14px}
+.search button{background:var(--neon);border:none;color:white;padding:6px 14px;border-radius:999px;cursor:pointer}
+.mylist-btn{background:var(--card);border:1px solid rgba(255,255,255,0.1);color:white;padding:9px 16px;border-radius:999px;cursor:pointer;font-size:13px}
+.mylist-btn b{color:var(--neon2)}
+.hero{margin:24px 5%;height:420px;border-radius:24px;position:relative;overflow:hidden;background:linear-gradient(100deg, #8a5cf5 0%, #ff4ecd 100%);display:flex;align-items:center;padding:40px}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg, rgba(6,7,13,0.92) 25%, rgba(6,7,13,0.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:540px}
+.hero h1{font-size:48px;line-height:1.05;font-family:'Space Grotesk';font-weight:800}
+.hero h1 b{color:transparent;-webkit-text-stroke:1px white}
+.hero p{color:var(--muted);margin:14px 0 22px;font-size:16px}
+.hero-btns{display:flex;gap:12px}
+.btn-primary{background:white;color:black;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:700;display:inline-block;cursor:pointer;border:none}
+.btn-sec{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);color:white;padding:12px 24px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-weight:600}
+.filters{display:flex;gap:12px;padding:10px 5%;overflow-x:auto;scrollbar-width:none}
+.filter{padding:8px 18px;border-radius:999px;background:var(--card);border:1px solid rgba(255,255,255,0.08);cursor:pointer;white-space:nowrap;font-size:13px;transition:0.3s}
+.filter.active,.filter:hover{background:var(--neon);border-color:var(--neon);color:white;box-shadow:0 0 15px rgba(138,92,245,0.5)}
+.section-title{padding:20px 5% 10px;font-size:22px;font-family:'Space Grotesk';display:flex;justify-content:space-between;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:16px;padding:10px 5% 40px}
+.card{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:0.35s;cursor:pointer;position:relative}
+.card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--neon);box-shadow:0 10px 30px rgba(138,92,245,0.3)}
+.card img{width:100%;height:235px;object-fit:cover}
+.card-info{padding:10px 12px}
+.card-info h3{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-info span{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:4px}
+.badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.1)}
+.badge.top{background:var(--neon);border:none}
+.add-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.75);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;opacity:0;transition:0.3s}
+.card:hover .add-btn{opacity:1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);z-index:100;display:none;place-items:center;padding:5%}
+.modal.active{display:grid}
+.modal-box{background:#0f1020;border:1px solid rgba(138,92,245,0.3);border-radius:20px;max-width:800px;width:100%;overflow:hidden;display:flex;max-height:90vh}
+.modal-box img{width:320px;object-fit:cover}
+.modal-info{padding:24px;overflow-y:auto}
+.close{position:absolute;top:20px;right:20px;background:var(--card);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.loader{text-align:center;padding:40px;color:var(--muted)}
+@media(max-width:700px){.hero{height:340px}.hero h1{font-size:32px}.search{width:100%}.modal-box{flex-direction:column}.modal-box img{width:100%;height:260px}}
 </style>
 </head>
 <body>
-
-<center><h2>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#00ff88;color:#000;font-size:9px;padding:5px 12px;border-radius:20px">500 BANNER + 500 LOGO AESTHETIC</span></h2></center>
-
-<div class="card" style="border-color:#00ff88">
-<b>📸 UPLOAD ANIME PIC</b><div style="font-size:11px;color:#666">Log upload karenge → Banner/Logo me lagega</div>
-<input type="file" id="animeUpload" accept="image/*" multiple style="display:none" onchange="handleUpload(this)">
-<div class="upload-box" onclick="document.getElementById('animeUpload').click()"><b>📤 Click to Upload Anime Pics</b><div style="font-size:11px;color:#666">100 pics save hoga</div></div>
-<div id="uploadedGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px"></div>
+<header>
+<div class="logo" onclick="location.reload()">ANIME<span>VERSE</span></div>
+<div class="nav">
+<div class="search"><input id="searchInput" placeholder="Search 2000+ anime..." onkeyup="searchAnime()"><button onclick="searchAnime()">⌕</button></div>
+<button class="mylist-btn" onclick="showMyList()">❤️ My List <b id="listCount">0</b></button>
 </div>
-
-<div style="text-align:center;margin-top:12px">
-<button onclick="openTab('names',this)" class="btn tab">1000 NAMES</button>
-<button onclick="openTab('banner',this)" class="btn tab active">500 BANNER AESTHETIC</button>
-<button onclick="openTab('logo',this)" class="btn tab">500 LOGO AESTHETIC</button>
+</header>
+<div class="hero" id="hero">
+<div class="hero-content">
+<h1 id="heroTitle">WATCH THE <b>UNIVERSE</b> OF ANIME</h1>
+<p id="heroDesc">Stream 2000+ anime in HD, no ads. Updated daily with auto-sync from MyAnimeList.</p>
+<div class="hero-btns">
+<button class="btn-primary" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Explore Now →</button>
+<button class="btn-sec" onclick="showMyList()">My List</button>
 </div>
-
-<div id="tab-names" class="card" style="display:none">
-<h4 style="margin:0">1000 FANCY NAME STYLES</h4>
-<input id="nameInput" class="inp" style="margin-top:10px" placeholder="Naam - Naruto" oninput="make1000()">
-<div id="names1000List" style="margin-top:10px;max-height:500px;overflow:auto"></div>
 </div>
-
-<div id="tab-banner" class="card">
-<h4 style="margin:0">500 AESTHETIC BANNER STYLES - Har ek alag design</h4>
-<input id="bannerText" class="inp" style="margin-top:10px" placeholder="Banner Text - ANIMEVERSE" oninput="updateBanner()">
-<div id="bannerDesigns" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px"></div>
-<div id="bannerMainPrev" style="margin-top:14px;height:150px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;letter-spacing:2px;background:#111;border:1px solid #333;overflow:hidden;background-size:cover;background-position:center"><span id="bannerMainText">ANIMEVERSE</span></div>
-<button onclick="dlBanner()" class="btn" style="width:100%;background:#fff;color:#000;padding:14px;margin-top:10px">⬇️ DOWNLOAD BANNER</button>
 </div>
-
-<div id="tab-logo" class="card" style="display:none">
-<h4 style="margin:0">500 AESTHETIC LOGO STYLES - Har ek alag design</h4>
-<input id="logoText" class="inp" style="margin-top:10px" placeholder="Logo - N" oninput="updateLogo()">
-<div id="logoDesigns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px"></div>
-<div style="margin-top:14px;background:#000;border-radius:20px;height:180px;display:flex;align-items:center;justify-content:center;border:1px solid #222">
-<div id="logoMainPrev" style="width:140px;height:140px;border-radius:24px;background:linear-gradient(135deg,#ff2d95,#a855f7);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:44px;overflow:hidden;background-size:cover;background-position:center"><span id="logoMainText">N</span></div>
+<div class="filters">
+<div class="filter active" onclick="filterAnime('all',this)">🔥 Trending</div>
+<div class="filter" onclick="filterAnime('action',this)">⚔️ Action</div>
+<div class="filter" onclick="filterAnime('romance',this)">❤️ Romance</div>
+<div class="filter" onclick="filterAnime('comedy',this)">😂 Comedy</div>
+<div class="filter" onclick="filterAnime('adventure',this)">🗺️ Adventure</div>
+<div class="filter" onclick="filterAnime('fantasy',this)">✨ Fantasy</div>
+<div class="filter" onclick="filterAnime('movie',this)">🎬 Movies</div>
 </div>
-<button onclick="dlLogo()" class="btn" style="width:100%;background:#ff2d95;color:#fff;padding:14px;margin-top:10px">⬇️ DOWNLOAD LOGO</button>
+<div class="section-title"><span id="sectionText">Trending This Week</span><span style="font-size:12px;color:var(--muted)" id="countText">Loading...</span></div>
+<div class="grid" id="grid"><div class="loader">Loading universe... ✨</div></div>
+<div class="modal" id="modal" onclick="if(event.target==this)closeModal()">
+<div class="close" onclick="closeModal()">✕</div>
+<div class="modal-box" id="modalBox"></div>
 </div>
-
 <script>
-let uploadedPics=JSON.parse(localStorage.getItem('uploaded_anime_pics')||'[]');
-function handleUpload(input){for(let file of input.files){if(uploadedPics.length>=100)break;let r=new FileReader();r.onload=e=>{uploadedPics.unshift(e.target.result);localStorage.setItem('uploaded_anime_pics',JSON.stringify(uploadedPics));renderUploaded();};r.readAsDataURL(file);}}
-function renderUploaded(){let g=document.getElementById('uploadedGrid');if(uploadedPics.length==0){g.innerHTML="<div style='grid-column:span 3;text-align:center;color:#444;font-size:11px'>No pics</div>";return;}g.innerHTML=uploadedPics.map((url,i)=>`<div style='position:relative'><img src='${url}' class='pic'><button onclick="selectedUploadedForBanner=uploadedPics[${i}];updateBanner()" style='position:absolute;bottom:4px;left:4px;background:#00ff88;color:#000;border:none;border-radius:10px;padding:3px 6px;font-size:8px;font-weight:900'>BANNER</button><button onclick="selectedUploadedForLogo=uploadedPics[${i}];updateLogo()" style='position:absolute;bottom:4px;right:4px;background:#ff2d95;color:#fff;border:none;border-radius:10px;padding:3px 6px;font-size:8px;font-weight:900'>LOGO</button></div>`).join('');}
-renderUploaded();
-
-function openTab(n,btn){['names','banner','logo'].forEach(k=>document.getElementById('tab-'+k).style.display='none');document.getElementById('tab-'+n).style.display='block';document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');if(n=='banner')loadBanners();if(n=='logo')loadLogos();}
-
-// 500 BANNER AESTHETIC - HAR EK ALAG NAAM OR DESIGN
-const bannerAesthetics=[
-["NEON TOKYO","アニメ","linear-gradient(90deg,#ff2d95,#a855f7,#00e5ff)","1px solid #ff2d95"],
-["GLASS","glassmorphism","rgba(255,255,255,0.06)","1px solid rgba(255,255,255,0.2)"],
-["MINIMAL","— aesthetic —","#0a0a0f","1px solid #222"],
-["SAKURA","桜","linear-gradient(135deg,#ffafbd,#ffc3a0)","none"],
-["MIDNIGHT","真夜中","linear-gradient(135deg,#0f0c29,#302b63)","1px solid #302b63"],
-["CYBERPUNK","// glitch","linear-gradient(90deg,#ff00ff,#00ffff)","2px solid #ff00ff"],
-["VAPORWAVE","ＶＡＰＯＲ","linear-gradient(135deg,#667eea,#764ba2)","1px solid #a855f7"],
-["BLOOD MOON","赤い月","linear-gradient(135deg,#141E30,#243B55)","1px solid #ff2d95"],
-["PASTEL","dreamy","linear-gradient(135deg,#a8edea,#fed6e3)","none"],
-["OCEAN","海","linear-gradient(135deg,#2193b0,#6dd5ed)","none"],
-["AKATSUKI","暁","linear-gradient(135deg,#000,#c31432)","1px solid #c31432"],
-["HOKAGE","火影","linear-gradient(135deg,#ff5f6d,#6a82fb)","1px solid #ff5f6d"],
-["SHINOBI","忍","linear-gradient(135deg,#2c3e50,#4ca1af)","1px solid #4ca1af"],
-["UCHIHA","うちは","linear-gradient(135deg,#200122,#6f0000)","1px solid #ff2d95"],
-["SENJU","千手","linear-gradient(135deg,#134e5e,#71b280)","none"],
-["OTAKU","オタク","linear-gradient(135deg,#8e2de2,#4a00e0)","1px solid #8e2de2"],
-["KAWAII","可愛い","linear-gradient(135deg,#ff9a9e,#fecfef)","none"],
-["SUGOI","すごい","linear-gradient(135deg,#f857a6,#ff5858)","1px solid #f857a6"],
-["YAMETE","やめて","linear-gradient(135deg,#000428,#004e92)","1px solid #004e92"],
-["ARIGATO","ありがとう","linear-gradient(135deg,#ffecd2,#fcb69f)","none"],
-["SENSEI","先生","linear-gradient(135deg,#42275a,#734b6d)","1px solid #734b6d"],
-["NANI","何","linear-gradient(135deg,#141E30,#243B55)","2px solid #fff"],
-["BAKA","バカ","linear-gradient(135deg,#ff4e50,#f9d423)","none"],
-["KAKASHI","カカシ","linear-gradient(135deg,#334d50,#cbcaa5)","1px solid #334d50"],
-["ITACHI","イタチ","linear-gradient(135deg,#000000,#e74c3c)","1px solid #e74c3c"],
-["GOJO","五条","linear-gradient(135deg,#00c6ff,#0072ff)","1px solid #00c6ff"],
-["NARUTO","ナルト","linear-gradient(135deg,#f46b45,#eea849)","1px solid #f46b45"],
-["LUFFY","ルフィ","linear-gradient(135deg,#ff4e50,#f9d423)","2px solid #ff4e50"],
-["ZORO","ゾロ","linear-gradient(135deg,#0f0c29,#302b63)","1px solid #00ff88"],
-["LEVI","リヴァイ","linear-gradient(135deg,#000,#434343)","1px solid #666"],
-["EREN","エレン","linear-gradient(135deg,#2c3e50,#fd746c)","1px solid #fd746c"],
-["TANJIRO","炭治郎","linear-gradient(135deg,#0b486b,#f56217)","1px solid #f56217"],
-["NEZUKO","禰豆子","linear-gradient(135deg,#ff9a9e,#fecfef)","1px solid #ff9a9e"],
-["ZERO TWO","ゼロツー","linear-gradient(135deg,#ff6a00,#ee0979)","2px solid #ff6a00"],
-["MARIN","マリン","linear-gradient(135deg,#000,#434343)","1px solid #ff2d95"],
-["ANYA","アーニャ","linear-gradient(135deg,#ffafbd,#ffc3a0)","none"],
-["MIKASA","ミカサ","linear-gradient(135deg,#141E30,#243B55)","1px solid #ff2d95"],
-["REM","レム","linear-gradient(135deg,#4facfe,#00f2fe)","1px solid #4facfe"],
-["EMILIA","エミリア","linear-gradient(135deg,#a8edea,#fed6e3)","none"],
-["POWER","パワー","linear-gradient(135deg,#f857a6,#ff5858)","1px solid #f857a6"],
-["MAKIMA","マキマ","linear-gradient(135deg,#000,#434343)","1px solid #ff2d95"]
-];
-
-let extras=["SHINIGAMI 死神","HOLLOW 虚","BANKAI 卍解","RASENGAN 螺旋丸","CHIDORI 千鳥","SUSANO'O 須佐能乎","AMATERASU 天照","TSUKUYOMI 月読","KAMEHAMEHA かめはめ波","GEAR 5 ギア5","HOKAGE 火影","JUTSU 術","CHAKRA チャクラ","NINJA 忍者","SAMURAI 侍","RONIN 浪人","KATANA 刀","DOJO 道場","SENPAI 先輩","KOHAI 後輩","ARIGATO ありがとう","SAYONARA さよなら","KONNICHIWA こんにちは","OHAYO おはよう","SUMIMASEN すみません","ITADAKIMASU いただきます","GENKI 元気","KAWAII 可愛い","KAKKOII かっこいい","SUGOI すごい","YABAI やばい","KIMOCHI 気持ち","GANBATTE 頑張って","DAISUKI 大好き","AI 愛","YUME 夢","HOSHI 星","TSUKI 月","TAIYO 太陽","UMI 海","YAMA 山","KAWA 川","HANA 花","SAKURA 桜","YUKI 雪","AME 雨","KAZE 風","HIKARI 光","YAMI 闇","HONO 火","MIZU 水","TSUCHI 土","KAZE 風","RAIJIN 雷神","FUJIN 風神","ONI 鬼","KITSUNE 狐","DRAGON 龍","TIGER 虎","WOLF 狼","PHOENIX 鳳凰","DEMON 悪魔","ANGEL 天使","SOUL 魂","HEART 心","MIND 心","POWER 力","STRENGTH 強さ","COURAGE 勇気","HONOR 名誉","LOYALTY 忠誠","FRIENDSHIP 友情","LOVE 愛","DREAM 夢","HOPE 希望","FATE 運命","DESTINY 運命","ETERNITY 永遠","INFINITY 無限","ZERO ゼロ","ONE 一","DARK 暗","LIGHT 光","FIRE 火","ICE 氷","WIND 風","EARTH 土","WATER 水","LIGHTNING 雷","SHADOW 影","BLOOD 血","SOUL 魂","VOID 虚無","CHAOS 混沌","ORDER 秩序","TIME 時間","SPACE 空間","REALITY 現実","ILLUSION 幻","DREAM 夢","NIGHTMARE 悪夢","HEAVEN 天国","HELL 地獄","PARADISE 楽園","ABYSS 深淵","OCEAN 海","SKY 空","STAR 星","MOON 月","SUN 太陽","GALAXY 銀河","UNIVERSE 宇宙","COSMOS 宇宙","NEBULA 星雲","COMET 彗星","METEOR 流星","ECLIPSE 日食","AURORA オーロラ","RAINBOW 虹","STORM 嵐","THUNDER 雷","LIGHTNING 稲妻","BLIZZARD 吹雪","TORNADO 竜巻","VOLCANO 火山","EARTHQUAKE 地震","TSUNAMI 津波","AVALANCHE 雪崩","FLOOD 洪水","FIRE 火事","ICE 氷","SNOW 雪","RAIN 雨","WIND 風","CLOUD 雲","MIST 霧","FOG 霧","SMOKE 煙","DUST 塵","ASH 灰","EMBER 残り火","SPARK 火花","FLAME 炎","INFERNO 地獄","BLAZE 火炎","EMBER 残り火"];
-
-while(bannerAesthetics.length<500){
-let name=extras[(bannerAesthetics.length-41)%extras.length]+" "+(bannerAesthetics.length+1);
-let h=Math.floor(Math.random()*360);
-bannerAesthetics.push([name.split(' ')[0],name.split(' ').slice(1).join(' ')||" aesthetic",`linear-gradient(135deg,hsl(${h},80%,60%),hsl(${(h+50)%360},80%,45%))`,"1px solid rgba(255,255,255,0.1)"]);
+let allAnime = [];
+let myList = JSON.parse(localStorage.getItem('animeverse_list')||'[]');
+let currentFilter = 'all';
+updateCount();
+async function fetchTrending(){
+  try{
+    const res = await fetch('https://api.jikan.moe/v4/top/anime?limit=24');
+    const data = await res.json();
+    allAnime = data.data;
+    render(allAnime);
+  }catch(e){ allAnime=[]; render([]); }
 }
-
-const bannerStyles=bannerAesthetics;
-let selBanner=0, selectedUploadedForBanner=null;
-function loadBanners(){
-document.getElementById('bannerDesigns').innerHTML=bannerStyles.map((b,i)=>`
-<div onclick="selBanner=${i};updateBanner()" class='banner-item ${selBanner==i?'sel':''}' style='background:${b[2]};border:${b[3]}'>
-<div style='text-align:center;line-height:1.1'>
-<div style='font-size:13px;letter-spacing:0.5px'>${b[0]}</div>
-<div style='font-size:9px;opacity:0.7;margin-top:3px'>${b[1]}</div>
-</div>
-</div>`).join('');
-updateBanner();
+function render(list){
+  document.getElementById('countText').innerText = list.length + ' anime';
+  document.getElementById('grid').innerHTML = list.map((a,i)=>`
+    <div class="card" onclick="openModal(${a.mal_id})">
+      ${i<3?'<div class="badge top">TOP '+(i+1)+'</div>':'<div class="badge">HD</div>'}
+      <div class="add-btn" onclick="event.stopPropagation();toggleList(${a.mal_id})">${myList.includes(a.mal_id)?'❤️':'🤍'}</div>
+      <img src="${a.images.jpg.large_image_url}" loading="lazy">
+      <div class="card-info"><h3>${a.title}</h3><span><i>${a.type||'TV'} • ${a.episodes||'?'} Eps</i><i>⭐ ${a.score||'?'}</i></span></div>
+    </div>
+  `).join('');
 }
-function updateBanner(){
-let txt=document.getElementById('bannerText').value||'ANIMEVERSE';
-let b=bannerStyles[selBanner];
-let el=document.getElementById('bannerMainPrev');
-el.style.background=b[2]; el.style.border=b[3];
-if(selectedUploadedForBanner){el.style.background=`linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('${selectedUploadedForBanner}')`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';}
-document.getElementById('bannerMainText').innerText=txt+" • "+b[0];
+function searchAnime(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  if(!q){render(allAnime);document.getElementById('sectionText').innerText='Trending This Week';return}
+  const f = allAnime.filter(a=>a.title.toLowerCase().includes(q));
+  document.getElementById('sectionText').innerText = `Search: "${q}"`;
+  render(f);
 }
-function dlBanner(){let c=document.createElement('canvas');c.width=1280;c.height=400;let x=c.getContext('2d');let g=x.createLinearGradient(0,0,1280,0);g.addColorStop(0,'#ff2d95');g.addColorStop(1,'#667eea');x.fillStyle=g;x.fillRect(0,0,1280,400);x.fillStyle='#fff';x.font='900 50px Arial';x.textAlign='center';x.fillText(document.getElementById('bannerText').value||'ANIMEVERSE',640,220);let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click();}
-
-// 500 LOGO AESTHETIC - HAR EK ALAG
-const logoAesthetics=[
-["NEON PINK","linear-gradient(135deg,#ff2d95,#a855f7)","24px","0 0 25px #ff2d95"],
-["BLACK MINIMAL","#0a0a0f","50%","0 0 0 2px #fff"],
-["CYBER BLUE","linear-gradient(135deg,#00c6ff,#0072ff)","18px","0 0 25px #00c6ff"],
-["GLASS","rgba(255,255,255,0.06)","24px","none"],
-["WHITE","#fff","50%","0 0 20px #fff"],
-["SAKURA","linear-gradient(135deg,#ffafbd,#ffc3a0)","16px","0 0 20px #ffafbd"],
-["MIDNIGHT","linear-gradient(135deg,#141E30,#243B55)","12px","none"],
-["VAPOR","linear-gradient(135deg,#667eea,#764ba2)","24px","0 0 20px #667eea"],
-["OCEAN","linear-gradient(135deg,#2193b0,#6dd5ed)","20px","0 0 20px #2193b0"],
-["BLOOD","linear-gradient(135deg,#c31432,#240b36)","14px","0 0 20px #c31432"],
-["AKATSUKI","linear-gradient(135deg,#000,#e74c3c)","12px","0 0 20px #e74c3c"],
-["UCHIHA","linear-gradient(135deg,#200122,#6f0000)","50%","0 0 25px #ff2d95"],
-["HOKAGE","linear-gradient(135deg,#ff5f6d,#6a82fb)","18px","0 0 20px #ff5f6d"],
-["GOJO","linear-gradient(135deg,#00c6ff,#0072ff)","24px","0 0 30px #00c6ff"],
-["NARUTO","linear-gradient(135deg,#f46b45,#eea849)","50%","0 0 20px #f46b45"],
-["LUFFY","linear-gradient(135deg,#ff4e50,#f9d423)","16px","0 0 20px #ff4e50"],
-["ZORO","linear-gradient(135deg,#0f0c29,#302b63)","12px","0 0 20px #00ff88"],
-["LEVI","#000","14px","0 0 0 1px #666"],
-["EREN","linear-gradient(135deg,#2c3e50,#fd746c)","18px","0 0 20px #fd746c"],
-["TANJIRO","linear-gradient(135deg,#0b486b,#f56217)","20px","0 0 20px #f56217"],
-["NEZUKO","linear-gradient(135deg,#ff9a9e,#fecfef)","50%","0 0 20px #ff9a9e"],
-["ZERO TWO","linear-gradient(135deg,#ff6a00,#ee0979)","24px","0 0 25px #ff6a00"],
-["MARIN","#111","16px","0 0 0 2px #ff2d95"],
-["ANYA","linear-gradient(135deg,#ffafbd,#ffc3a0)","50%","none"],
-["MIKASA","linear-gradient(135deg,#141E30,#243B55)","12px","0 0 20px #ff2d95"],
-["REM","linear-gradient(135deg,#4facfe,#00f2fe)","20px","0 0 20px #4facfe"],
-["EMILIA","linear-gradient(135deg,#a8edea,#fed6e3)","24px","none"],
-["POWER","linear-gradient(135deg,#f857a6,#ff5858)","14px","0 0 20px #f857a6"],
-["MAKIMA","#000","18px","0 0 0 1px #ff2d95"],
-["SHINIGAMI","linear-gradient(135deg,#000,#434343)","50%","0 0 20px #fff"]
-];
-
-while(logoAesthetics.length<500){
-let h=Math.floor(Math.random()*360);
-let names=["SHINOBI 忍","RONIN 浪人","KATANA 刀","DOJO 道場","SENPAI 先輩","HONO 火","MIZU 水","KAZE 風","YAMI 闇","HIKARI 光","AI 愛","YUME 夢","HOSHI 星","TSUKI 月","DRAGON 龍","WOLF 狼","ONI 鬼","KITSUNE 狐"];
-let n=names[logoAesthetics.length%names.length]+" "+(logoAesthetics.length+1);
-logoAesthetics.push([n,`linear-gradient(135deg,hsl(${h},85%,62%),hsl(${(h+40)%360},80%,50%))`,`${10+Math.floor(Math.random()*20)}px`,`0 0 22px hsl(${h},70%,60%)`]);
+async function filterAnime(genre,el){
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  currentFilter=genre;
+  if(genre=='all'){fetchTrending();document.getElementById('sectionText').innerText='Trending This Week';return}
+  document.getElementById('grid').innerHTML='<div class="loader">Loading '+genre+'... ✨</div>';
+  try{
+    const res = await fetch(`https://api.jikan.moe/v4/anime?genres=${getGenreId(genre)}&order_by=popularity&limit=24`);
+    const data = await res.json();
+    allAnime = data.data;
+    document.getElementById('sectionText').innerText = genre.toUpperCase();
+    render(allAnime);
+  }catch(e){render([])}
 }
-
-let selLogo=0, selectedUploadedForLogo=null;
-function loadLogos(){
-let txt=document.getElementById('logoText').value||'N';
-document.getElementById('logoDesigns').innerHTML=logoAesthetics.map((l,i)=>`
-<div onclick="selLogo=${i};updateLogo()" class='logo-item ${selLogo==i?'sel':''}' style='background:${l[1]};border-radius:${l[2]};box-shadow:${selLogo==i?l[3]:'none'};border-color:${selLogo==i?'#fff':'#222'}'>
-<div style='text-align:center;line-height:1'><div>${txt.charAt(0)}</div><div style='font-size:7px;opacity:0.6;margin-top:2px'>${l[0].substring(0,6)}</div></div>
-</div>`).join('');
-updateLogo();
+function getGenreId(name){ const map={action:1,adventure:2,comedy:4,fantasy:10,romance:22,movie:0}; return map[name]||1; }
+function toggleList(id){
+  if(myList.includes(id)) myList = myList.filter(x=>x!=id);
+  else myList.push(id);
+  localStorage.setItem('animeverse_list',JSON.stringify(myList));
+  updateCount(); render(allAnime);
 }
-function updateLogo(){
-let txt=document.getElementById('logoText').value||'N';
-let l=logoAesthetics[selLogo];
-let el=document.getElementById('logoMainPrev');
-el.style.background=l[1]; el.style.borderRadius=l[2]; el.style.boxShadow=l[3];
-if(selectedUploadedForLogo){el.style.background=`url('${selectedUploadedForLogo}')`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';}
-document.getElementById('logoMainText').innerText=txt.charAt(0).toUpperCase();
+function updateCount(){document.getElementById('listCount').innerText=myList.length}
+function showMyList(){
+  if(myList.length==0){alert('My List empty! Add some anime ❤️');return}
+  const list = allAnime.filter(a=>myList.includes(a.mal_id));
+  document.getElementById('sectionText').innerText='My List ❤️';
+  render(list);
 }
-
-function dlLogo(){let c=document.createElement('canvas');c.width=600;c.height=600;let x=c.getContext('2d');let g=x.createRadialGradient(300,300,0,300,300,300);g.addColorStop(0,'#ff2d95');g.addColorStop(1,'#667eea');x.fillStyle=g;x.beginPath();x.arc(300,300,250,0,6.28);x.fill();x.fillStyle='#fff';x.font='900 150px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText(document.getElementById('logoMainText').innerText,300,320);let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click();}
-
-function generate1000(name){let base=name||'Naruto';let fonts=[t=>t,t=>t.toUpperCase(),t=>`꧁${t}꧂`,t=>`★彡${t}彡★`,t=>`༺${t}༻`,t=>`${t}ツ`,t=>`${t}♡`,t=>`『${t}』`,t=>`•°${t}°•`];let out=[];for(let i=0;i<1000;i++){let f=fonts[i%fonts.length];let txt=f(base);if(i>20)txt=txt+` ${i%100}`;out.push(txt);}return out.slice(0,1000);}
-function make1000(){let name=document.getElementById('nameInput').value||'Naruto';let list=generate1000(name);document.getElementById('names1000List').innerHTML=list.map(t=>`<span class='fancy' onclick="navigator.clipboard.writeText('${t}')">${t}</span>`).join('');}
-
-make1000(); loadBanners(); loadLogos();
+function openModal(id){
+  const a = allAnime.find(x=>x.mal_id==id);
+  if(!a)return;
+  document.getElementById('modalBox').innerHTML=`
+    <img src="${a.images.jpg.large_image_url}">
+    <div class="modal-info">
+      <h2 style="font-family:Space Grotesk">${a.title}</h2>
+      <p style="color:var(--muted);margin:8px 0">⭐ ${a.score||'?'} • ${a.type||'TV'} • ${a.episodes||'?'} Eps • ${a.status||''}</p>
+      <p style="margin:16px 0;line-height:1.6;font-size:14px">${a.synopsis||'No synopsis available. Premium anime streaming experience.'}</p>
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button class="btn-primary" onclick="toggleList(${a.mal_id});closeModal()">${myList.includes(a.mal_id)?'Remove from List':'Add to My List ❤️'}</button>
+        <button class="btn-sec" onclick="closeModal()">Close</button>
+      </div>
+    </div>`;
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal(){document.getElementById('modal').classList.remove('active')}
+fetchTrending();
 </script>
 </body>
 </html>
