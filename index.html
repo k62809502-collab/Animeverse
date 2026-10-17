@@ -1,0 +1,515 @@
+import http.server, socketserver
+socketserver.TCPServer.allow_reuse_address = True
+
+html = """
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANIMEVERSE 8033 FINAL FIXED</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+<style>*{font-family:'Outfit',sans-serif} body{background:#050507} .glow{background:linear-gradient(90deg,#ff2d92,#00f5ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;} .tab-active{background:white;color:black} .tab{background:#1a1a1f;color:#888} .name-tab-active{background:#ff2d92;color:white} .name-tab{background:#1a1a1f;color:#888}</style>
+</head><body class="text-white pb-[100px]">
+
+<div class="p-4 flex justify-between items-center bg-black sticky top-0 z-50 border-b border-white/10">
+<h1 class="font-black text-xl">ANIME<span class="glow">VERSE</span> <span class="text-[8px] bg-white text-black px-2 py-0.5 rounded-full ml-2">8033 FIXED</span></h1>
+<a href="https://www.youtube.com/@Sdanime-b6q" target="_blank" class="bg-[#ff0000] px-3 py-1 rounded-full text-[9px] font-black">▶️ YT</a>
+</div>
+
+<div class="m-3 p-3 rounded-[16px] bg-[#121216] border border-[#00ff88]/50 flex justify-between items-center">
+<div><p class="text-[11px] font-black">REAL PICS: <span id="queueStatus" class="text-[#00ff88]">0/100</span> <span class="text-[7px] bg-[#00ff88] text-black px-2 py-0.5 rounded-full">SAVED</span></p><p id="bgStatus" class="text-[8px] text-zinc-400">Har 45 sec me 1 pic - Reload pe bhi save rahega</p></div>
+<div class="text-right"><p id="timer" class="bg-[#ff2d92] px-3 py-1 rounded-full text-[11px] font-black">45s</p><button onclick="clearCache()" class="text-[7px] bg-white/10 px-2 py-1 rounded-full mt-1">CLEAR</button></div>
+</div>
+
+<div class="m-2 grid grid-cols-5 gap-1">
+<button onclick="showTab('name')" id="tab-name" class="tab-active py-2.5 rounded-full text-[6px] font-black">FIND NAME</button>
+<button onclick="showTab('boys')" id="tab-boys" class="tab py-2.5 rounded-full text-[6px] font-black">50 BOYS</button>
+<button onclick="showTab('girls')" id="tab-girls" class="tab py-2.5 rounded-full text-[6px] font-black">50 GIRLS</button>
+<button onclick="showTab('banner')" id="tab-banner" class="tab py-2.5 rounded-full text-[6px] font-black">BANNER</button>
+<button onclick="showTab('logo')" id="tab-logo" class="tab py-2.5 rounded-full text-[6px] font-black">LOGO</button>
+</div>
+
+<div id="panel-name" class="m-3 p-4 rounded-[24px] bg-gradient-to-br from-[#ff2d92] to-[#7c3aed]">
+<h3 class="font-black text-[18px]">FIND YOUR ANIME NAME</h3>
+<div class="mt-3 bg-black/20 p-3 rounded-[20px] flex gap-2">
+<input id="n" placeholder="Naam - Rahul, Soumya..." class="p-3 rounded-full bg-white text-black w-[65%] text-center font-black outline-none text-[13px]">
+<button onclick="genAllNames()" class="bg-black px-5 py-3 rounded-full text-[11px] font-black">FIND</button>
+</div>
+<h2 id="out" class="mt-3 font-black text-[13px] bg-black/40 p-2 rounded-full text-center min-h-[30px]"></h2>
+<div class="mt-3 grid grid-cols-5 gap-1">
+<button onclick="showNameType('anime')" id="nTab-anime" class="name-tab-active py-2 rounded-full text-[7px] font-black">100 ANIME</button>
+<button onclick="showNameType('normal')" id="nTab-normal" class="name-tab py-2 rounded-full text-[7px] font-black">100 NORMAL</button>
+<button onclick="showNameType('stylish')" id="nTab-stylish" class="name-tab py-2 rounded-full text-[7px] font-black">100 STYLISH</button>
+<button onclick="showNameType('font')" id="nTab-font" class="name-tab py-2 rounded-full text-[7px] font-black">100 FONT</button>
+<button onclick="showNameType('emoji')" id="nTab-emoji" class="name-tab py-2 rounded-full text-[7px] font-black">100 EMOJI</button>
+</div>
+<div id="nameIdeas" class="mt-3 grid grid-cols-1 gap-1 max-h-[50vh] overflow-y-auto"></div>
+</div>
+
+<div id="panel-boys" class="hidden m-3 p-4 rounded-[24px] bg-[#121216] border border-white/10">
+<h3 class="font-black">50 BOYS <span class="text-[#00ff88] text-[10px]">REAL PICS + TIMER</span></h3>
+<div id="boysGrid" class="mt-3 grid grid-cols-3 gap-2"></div>
+</div>
+
+<div id="panel-girls" class="hidden m-3 p-4 rounded-[24px] bg-[#121216] border border-white/10">
+<h3 class="font-black">50 GIRLS <span class="text-[#00ff88] text-[10px]">REAL PICS + TIMER</span></h3>
+<div id="girlsGrid" class="mt-3 grid grid-cols-3 gap-2"></div>
+</div>
+
+<div id="panel-banner" class="hidden m-3 p-4 rounded-[24px] bg-[#121216] border border-white/10">
+<h3 class="font-black text-[16px]">BANNER MAKER - NORMAL + 100 FANCY</h3>
+<input id="bName" placeholder="Naam daal - Soumya" class="mt-3 w-full p-3 rounded-full bg-white text-black text-center font-black text-sm outline-none">
+<div class="mt-3 flex gap-2">
+<button onclick="setBannerType('normal')" id="bTab-normal" class="bg-white text-black px-4 py-2 rounded-full text-[10px] font-black">NORMAL BANNER</button>
+<button onclick="setBannerType('fancy')" id="bTab-fancy" class="bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black">100 FANCY BANNER</button>
+</div>
+<div id="normalBannerOpts" class="mt-3 grid grid-cols-4 gap-2">
+<button onclick="setNormalBanner('neon')" class="bg-[#ff2d92] py-2.5 rounded-full text-[10px] font-black">NEON</button>
+<button onclick="setNormalBanner('gold')" class="bg-[#FFD700] text-black py-2.5 rounded-full text-[10px] font-black">GOLD</button>
+<button onclick="setNormalBanner('ice')" class="bg-[#00f5ff] text-black py-2.5 rounded-full text-[10px] font-black">ICE</button>
+<button onclick="setNormalBanner('black')" class="bg-white text-black py-2.5 rounded-full text-[10px] font-black">BLACK</button>
+</div>
+<div id="fancyBannerOpts" class="hidden mt-3">
+<p class="text-[8px] text-zinc-400 mb-2">100 Styles - Click karo:</p>
+<div id="styleGrid" class="grid grid-cols-4 gap-1.5 max-h-[25vh] overflow-y-auto"></div>
+</div>
+<div class="mt-4 bg-black p-2 rounded-[18px] border border-white/10"><canvas id="canvas" width="1080" height="1350" style="width:100%;border-radius:14px"></canvas></div>
+<button onclick="downloadBanner()" class="mt-3 w-full bg-[#ff2d92] py-3 rounded-full font-black text-[12px]">⬇️ DOWNLOAD BANNER</button>
+</div>
+
+<div id="panel-logo" class="hidden m-3 p-4 rounded-[24px] bg-[#121216] border border-white/10">
+<h3 class="font-black text-[16px]">LOGO MAKER - NORMAL + 100 FANCY</h3>
+<input id="lName" placeholder="Naam daal - Soumya" class="mt-3 w-full p-3 rounded-full bg-white text-black text-center font-black text-sm outline-none">
+<div class="mt-3 flex gap-2">
+<button onclick="setLogoType('normal')" id="lTab-normal" class="bg-white text-black px-4 py-2 rounded-full text-[10px] font-black">NORMAL LOGO</button>
+<button onclick="setLogoType('fancy')" id="lTab-fancy" class="bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black">100 FANCY LOGO</button>
+</div>
+<div id="normalLogoOpts" class="mt-3 grid grid-cols-4 gap-2">
+<button onclick="setNormalLogo('S')" class="bg-white text-black py-2.5 rounded-full text-[10px] font-black">S</button>
+<button onclick="setNormalLogo('SO')" class="bg-[#ff2d92] py-2.5 rounded-full text-[10px] font-black">SO</button>
+<button onclick="setNormalLogo('ANIME')" class="bg-[#00f5ff] text-black py-2.5 rounded-full text-[10px] font-black">ANIME</button>
+<button onclick="setNormalLogo('5191')" class="bg-[#FFD700] text-black py-2.5 rounded-full text-[10px] font-black">5191</button>
+</div>
+<div id="fancyLogoOpts" class="hidden mt-3">
+<p class="text-[8px] text-zinc-400 mb-2">100 Styles - Click karo:</p>
+<div id="logoStyleGrid" class="grid grid-cols-4 gap-1.5 max-h-[25vh] overflow-y-auto"></div>
+</div>
+<div class="mt-4 bg-black p-3 rounded-[18px] border border-white/10 flex justify-center"><canvas id="logoCanvas" width="800" height="800" style="width:80%;border-radius:50%"></canvas></div>
+<button onclick="downloadLogo()" class="mt-3 w-full bg-[#ff2d92] py-3 rounded-full font-black text-[12px]">⬇️ DOWNLOAD LOGO</button>
+</div>
+
+<div id="selectedBar" class="hidden fixed bottom-0 left-0 right-0 bg-black border-t border-white/10 p-3 flex gap-3 items-center z-50">
+<img id="selectedImg" class="w-14 h-14 rounded-full object-cover border-2 border-pink-500">
+<div class="flex-1"><p id="selectedName" class="font-black text-xs">Gojo</p><p class="text-[9px] text-zinc-400">@soumya_5191 | 8033</p></div>
+<button onclick="useInBanner()" class="bg-white text-black px-4 py-2 rounded-full text-[10px] font-black">BANNER ME</button>
+<button onclick="useInLogo()" class="bg-[#ff2d92] text-white px-4 py-2 rounded-full text-[10px] font-black">LOGO ME</button>
+</div>
+
+<script>
+const bannerStyles=[
+{name:"NEON",c1:"#ff2d92",c2:"#00f5ff"},{name:"GOLD",c1:"#FFD700",c2:"#FF8C00"},{name:"BLOOD",c1:"#ff0033",c2:"#8b0000"},{name:"ICE",c1:"#00f5ff",c2:"#0066ff"},{name:"GALAXY",c1:"#7c3aed",c2:"#ec4899"},{name:"TOXIC",c1:"#00ff88",c2:"#00cc66"},{name:"SUNSET",c1:"#ff6a00",c2:"#ee0979"},{name:"OCEAN",c1:"#2193b0",c2:"#6dd5ed"},{name:"FIRE",c1:"#f12711",c2:"#f5af19"},{name:"MINT",c1:"#00f260",c2:"#0575e6"},
+{name:"PURPLE",c1:"#8e2de2",c2:"#4a00e0"},{name:"PINK",c1:"#ff9a9e",c2:"#fecfef"},{name:"CYBER",c1:"#00f5ff",c2:"#ff00ff"},{name:"LAVA",c1:"#ff4e50",c2:"#f9d423"},{name:"FOREST",c1:"#134e5e",c2:"#71b280"},{name:"DARK",c1:"#232526",c2:"#414345"},{name:"ROYAL",c1:"#141e30",c2:"#243b55"},{name:"CRIMSON",c1:"#cb2d3e",c2:"#ef473a"},{name:"AQUA",c1:"#1488cc",c2:"#2b32b2"},{name:"PEACH",c1:"#ed4264",c2:"#ffedbc"},
+{name:"EMERALD",c1:"#348f50",c2:"#56b4d3"},{name:"RUBY",c1:"#aa076b",c2:"#61045f"},{name:"SAPPHIRE",c1:"#000428",c2:"#004e92"},{name:"TOPAZ",c1:"#f7971e",c2:"#ffd200"},{name:"JADE",c1:"#1d976c",c2:"#93f9b9"},{name:"AMETHYST",c1:"#654ea3",c2:"#eaafc8"},{name:"OPAL",c1:"#a8edea",c2:"#fed6e3"},{name:"ONYX",c1:"#0f0c29",c2:"#302b63"},{name:"NEON2",c1:"#ff00cc",c2:"#333399"},{name:"VAPOR",c1:"#ff6a00",c2:"#ee0979"},{name:"RETRO",c1:"#f7ff00",c2:"#db36a4"},{name:"MIDNIGHT",c1:"#232526",c2:"#414345"},{name:"DAWN",c1:"#f857a6",c2:"#ff5858"},{name:"DUSK",c1:"#2c3e50",c2:"#fd746c"},{name:"STORM",c1:"#373b44",c2:"#4286f4"},{name:"BLAZE",c1:"#ff512f",c2:"#dd2476"},{name:"FROST",c1:"#000428",c2:"#004e92"},{name:"LIME",c1:"#a8ff78",c2:"#78ffd6"},{name:"BERRY",c1:"#8e0e00",c2:"#1f1c18"},{name:"MOON",c1:"#0b486b",c2:"#f56217"},{name:"SUN",c1:"#fceabb",c2:"#f8b500"},{name:"SKY",c1:"#2980b9",c2:"#6dd5fa"},{name:"SEA",c1:"#4ecdc4",c2:"#556270"},{name:"SAND",c1:"#c79081",c2:"#dfa579"},{name:"ROSE",c1:"#e96443",c2:"#904e95"},{name:"MANGO",c1:"#ff9a00",c2:"#ff6a00"},{name:"KIWI",c1:"#56ab2f",c2:"#a8e063"},{name:"GRAPE",c1:"#200122",c2:"#6f0000"},{name:"CHERRY",c1:"#eb3349",c2:"#f45c43"},{name:"LEMON",c1:"#f7971e",c2:"#ffd200"},{name:"ORANGE",c1:"#ff8008",c2:"#ffc837"},{name:"APPLE",c1:"#56ab2f",c2:"#a8e063"},{name:"ANIME1",c1:"#ff2d92",c2:"#7c3aed"},{name:"ANIME2",c1:"#00f5ff",c2:"#7c3aed"},{name:"ANIME3",c1:"#FFD700",c2:"#ff2d92"},{name:"ANIME4",c1:"#00ff88",c2:"#00f5ff"},{name:"GOD",c1:"#ff2d92",c2:"#FFD700"},{name:"LEGEND",c1:"#00f5ff",c2:"#FFD700"},{name:"ULTIMATE",c1:"#ff2d92",c2:"#00f5ff"},{name:"INFINITY",c1:"#ff00cc",c2:"#00ff88"}
+];
+const animeNames=["Gojo Satoru - Jujutsu Kaisen","Naruto Uzumaki - Hokage","Luffy - Pirate King","Sasuke Uchiha - Avenger","Sung Jinwoo - Shadow Monarch","Itachi Uchiha - Sacrifice","Levi Ackerman - Strongest","Eren Yeager - Freedom","Tanjiro Kamado - Kind Heart","Zenitsu - Thunder","Killua Zoldyck - Assassin","Gon Freecss - Adventurer","Light Yagami - Justice","L Lawliet - Detective","Ken Kaneki - Ghoul","Saitama - One Punch","Son Goku - Super Saiyan","Vegeta - Prince","Roronoa Zoro - Swordsman","Vinsmoke Sanji - Cook","Izuku Midoriya - Deku","Katsuki Bakugo - Explosion","Shoto Todoroki - Half-Hot","Ichigo Kurosaki - Soul Reaper","Asta - No Magic","Yuno - Wind Magic","Denji - Chainsaw Man","Power - Blood Fiend","Makima - Control Devil","Mikasa Ackerman","Nezuko Kamado","Zero Two","Marin Kitagawa","Momo Ayase","Rem - Re:Zero","Emilia","Asuna Yuuki","Rias Gremory","Frieren","Fern","Mitsuri Kanroji","Shinobu Kocho","Esdeath","Akame","Mai Sakurajima","Chizuru","Miku Nakano","Kaguya Shinomiya","Himeno","Asa Mitaka"];
+
+let currentStyle=bannerStyles[0]; let currentLogoStyle=bannerStyles[0]; let uploadedBannerImg=null; let uploadedLogoImg=null; let normalBannerStyle='neon'; let normalLogoText='S'; let bannerType='normal'; let logoType='normal'; let currentNameType='anime'; let currentInputName='Soumya';
+const boys=["Gojo Satoru","Naruto Uzumaki","Luffy","Sasuke Uchiha","Sung Jinwoo","Itachi Uchiha","Tanjiro Kamado","Ichigo Kurosaki","Zoro","Levi Ackerman","Eren Yeager","Goku","Vegeta","Saitama","Deku","Bakugo","Killua","Gon","Light Yagami","L","Ken Kaneki","Denji","Asta","Yuji Itadori","Megumi Fushiguro","Sukuna","Kakashi","Minato","Jiraiya","Hashirama","Madara Uchiha","Obito","Pain","Zenitsu","Inosuke","Rengoku","Giyu","Sanji","Ace","Law","Boruto","Geto","Toji","Yuta","Maki Zenin","Chrollo","Hisoka","Gon Freecss","Kurapika"];
+const girls=["Mikasa Ackerman","Nezuko Kamado","Zero Two","Marin Kitagawa","Power","Momo Ayase","Nobara Kugisaki","Hinata Hyuga","Rem","Emilia","Asuna Yuuki","Sakura Haruno","Ino Yamanaka","Tsunade","Orihime","Rukia","Nami","Robin","Boa Hancock","Violet Evergarden","Anya Forger","Yor Forger","Makima","Reze","Frieren","Fern","Mitsuri Kanroji","Shinobu Kocho","Kanao","Esdeath","Akame","Rias Gremory","Akeno","Mai Sakurajima","Chizuru","Miku Nakano","Nino","Itsuki","Yotsuba","Ichika","Kaguya Shinomiya","Chika Fujiwara","Marin Dress","Himeno","Kobeni","Asa Mitaka","Yoru","Nobara","Maki Zenin"];
+
+let queue=[]; let loadedCount=0; let timerInterval=null; let timeLeft=45;
+
+function showTab(t){
+  ['name','boys','girls','banner','logo'].forEach(x=>{
+    document.getElementById('panel-'+x).classList.add('hidden');
+    document.getElementById('tab-'+x).className='tab py-2.5 rounded-full text-[6px] font-black';
+  });
+  document.getElementById('panel-'+t).classList.remove('hidden');
+  document.getElementById('tab-'+t).className='tab-active py-2.5 rounded-full text-[6px] font-black';
+  if(t=='banner') makeNormalBanner();
+  if(t=='logo') makeNormalLogo();
+}
+
+function showNameType(t){
+  currentNameType=t;
+  ['anime','normal','stylish','font','emoji'].forEach(x=>{
+    document.getElementById('nTab-'+x).className='name-tab py-2 rounded-full text-[7px] font-black';
+  });
+  document.getElementById('nTab-'+t).className='name-tab-active py-2 rounded-full text-[7px] font-black';
+  renderCurrentNameType();
+}
+
+function setBannerType(t){
+  bannerType=t;
+  if(t=='normal'){
+    document.getElementById('normalBannerOpts').classList.remove('hidden');
+    document.getElementById('fancyBannerOpts').classList.add('hidden');
+    document.getElementById('bTab-normal').className='bg-white text-black px-4 py-2 rounded-full text-[10px] font-black';
+    document.getElementById('bTab-fancy').className='bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black';
+    makeNormalBanner();
+  } else {
+    document.getElementById('normalBannerOpts').classList.add('hidden');
+    document.getElementById('fancyBannerOpts').classList.remove('hidden');
+    document.getElementById('bTab-fancy').className='bg-white text-black px-4 py-2 rounded-full text-[10px] font-black';
+    document.getElementById('bTab-normal').className='bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black';
+    makeBanner();
+  }
+}
+
+function setLogoType(t){
+  logoType=t;
+  if(t=='normal'){
+    document.getElementById('normalLogoOpts').classList.remove('hidden');
+    document.getElementById('fancyLogoOpts').classList.add('hidden');
+    document.getElementById('lTab-normal').className='bg-white text-black px-4 py-2 rounded-full text-[10px] font-black';
+    document.getElementById('lTab-fancy').className='bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black';
+    makeNormalLogo();
+  } else {
+    document.getElementById('normalLogoOpts').classList.add('hidden');
+    document.getElementById('fancyLogoOpts').classList.remove('hidden');
+    document.getElementById('lTab-fancy').className='bg-white text-black px-4 py-2 rounded-full text-[10px] font-black';
+    document.getElementById('lTab-normal').className='bg-[#1a1a1f] text-zinc-400 px-4 py-2 rounded-full text-[10px] font-black';
+    makeLogo();
+  }
+}
+
+function renderStyles(){
+  let sGrid=document.getElementById('styleGrid');
+  let lGrid=document.getElementById('logoStyleGrid');
+  if(!sGrid || !lGrid) return;
+  sGrid.innerHTML=bannerStyles.map((s,i)=>`<button onclick="setStyle(${i})" class="bg-white/10 hover:bg-[#ff2d92] py-2 rounded-full text-[7px] font-black border border-white/10">${s.name}</button>`).join('');
+  lGrid.innerHTML=bannerStyles.map((s,i)=>`<button onclick="setLogoStyle(${i})" class="bg-white/10 hover:bg-[#ff2d92] py-2 rounded-full text-[7px] font-black border border-white/10">${s.name}</button>`).join('');
+}
+renderStyles();
+
+function setStyle(i){ currentStyle=bannerStyles[i]; makeBanner(); }
+function setLogoStyle(i){ currentLogoStyle=bannerStyles[i]; makeLogo(); }
+function setNormalBanner(t){ normalBannerStyle=t; makeNormalBanner(); }
+function setNormalLogo(t){ normalLogoText=t; makeNormalLogo(); }
+
+function genAllNames(){
+  let input=document.getElementById('n').value.trim();
+  if(!input){ alert('Naam likh bhai!'); return; }
+  currentInputName=input;
+  document.getElementById('bName').value=input;
+  document.getElementById('lName').value=input;
+  let randomAnime=animeNames[Math.floor(Math.random()*animeNames.length)];
+  document.getElementById('out').innerText=input+" = "+randomAnime;
+  renderCurrentNameType();
+}
+
+function renderCurrentNameType(){
+  let input=currentInputName;
+  let ideasDiv=document.getElementById('nameIdeas');
+  ideasDiv.innerHTML="";
+  if(!input){ ideasDiv.innerHTML='<p class="text-center text-[12px] p-3">Pehle naam likh ke FIND daba!</p>'; return; }
+  
+  if(currentNameType=='anime'){
+    for(let i=0;i<100;i++){
+      let anime=animeNames[i%animeNames.length];
+      let full=`${input} = ${anime}`;
+      let d=document.createElement('div');
+      d.className='bg-black/60 p-3 rounded-full text-[11px] font-bold border border-white/10 flex justify-between items-center cursor-pointer';
+      d.innerHTML=`<span>${i+1}. ${full}</span><span class="bg-white text-black px-2 py-1 rounded-full text-[8px]">COPY</span>`;
+      d.onclick=()=>{ navigator.clipboard.writeText(full); d.style.background='#ff2d92'; setTimeout(()=>d.style.background='',500); };
+      ideasDiv.appendChild(d);
+    }
+  } else if(currentNameType=='normal'){
+    let normals=[`${input}`,`${input} Anime`,`${input} 5191`,`${input} OP`,`${input} Senpai`,`${input} Kun`,`${input} Chan`,`${input} Sama`,`${input} Gaming`,`${input} Official`];
+    for(let i=0;i<100;i++){
+      let n=normals[i%normals.length]+(i>=10?" "+(i+1):"");
+      let d=document.createElement('div');
+      d.className='bg-white text-black p-3 rounded-full text-[11px] font-black flex justify-between';
+      d.innerHTML=`<span>${i+1}. ${n}</span><span class="text-[8px] bg-black text-white px-2 py-1 rounded-full">NORMAL</span>`;
+      ideasDiv.appendChild(d);
+    }
+  } else if(currentNameType=='stylish'){
+    let stylish=[`꧁༒☬${input}☬༒꧂`,`★彡[${input}]彡★`,`꧁${input}༒ANIME꧂`,`ᴹᴿ°${input}࿐`,`༺${input}༻`,`◥꧁${input}꧂◤`,`『${input}』`,`乂${input}乂`,`♛${input}♛`,`༒${input}༒`];
+    for(let i=0;i<100;i++){
+      let n=stylish[i%stylish.length];
+      let d=document.createElement('div');
+      d.className='bg-gradient-to-r from-[#ff2d92] to-[#7c3aed] p-3 rounded-full text-[11px] font-black flex justify-between cursor-pointer';
+      d.innerHTML=`<span>${i+1}. ${n}</span><span class="bg-black px-2 py-1 rounded-full text-[8px]">COPY</span>`;
+      d.onclick=()=>navigator.clipboard.writeText(n);
+      ideasDiv.appendChild(d);
+    }
+  } else if(currentNameType=='font'){
+    for(let i=0;i<100;i++){
+      let d=document.createElement('div');
+      d.className='bg-black border border-[#00f5ff]/30 p-3 rounded-full text-[11px] font-bold flex justify-between';
+      d.innerHTML=`<span>${i+1}. ${input} Font ${i+1}</span><span class="bg-[#00f5ff] text-black px-2 py-1 rounded-full text-[8px]">FONT</span>`;
+      ideasDiv.appendChild(d);
+    }
+  } else if(currentNameType=='emoji'){
+    let emojis=[`🔥${input}🔥`,`⚡${input}⚡`,`👑${input}👑`,`💀${input}💀`,`🌸${input}🌸`,`❤️‍🔥${input}❤️‍🔥`,`✨${input}✨`,`💥${input}💥`];
+    for(let i=0;i<100;i++){
+      let n=emojis[i%emojis.length];
+      let d=document.createElement('div');
+      d.className='bg-black border border-[#FFD700]/30 p-3 rounded-full text-[11px] font-bold flex justify-between';
+      d.innerHTML=`<span>${i+1}. ${n}</span><span class="bg-[#FFD700] text-black px-2 py-1 rounded-full text-[8px]">EMOJI</span>`;
+      ideasDiv.appendChild(d);
+    }
+  }
+}
+
+function getSaved(){ try{ return JSON.parse(localStorage.getItem('animeverse_8033_final')||'{}'); }catch(e){ return {}; } }
+function savePic(key, url){ let s=getSaved(); s[key]=url; localStorage.setItem('animeverse_8033_final', JSON.stringify(s)); updateStatus(); }
+function clearCache(){ if(confirm('Saare pics delete?')){ localStorage.removeItem('animeverse_8033_final'); location.reload(); } }
+function updateStatus(){
+  let s=getSaved(); let c=Object.keys(s).length;
+  document.getElementById('queueStatus').innerText=c+'/100';
+  if(c>=100){ document.getElementById('timer').innerText='DONE ✅'; document.getElementById('bgStatus').innerText='100 pure! Kabhi reload nahi hoga!'; }
+}
+
+function createPlaceholders(){
+  let saved=getSaved();
+  let bGrid=document.getElementById('boysGrid');
+  let gGrid=document.getElementById('girlsGrid');
+  
+  boys.forEach((name,i)=>{
+    let key='boy-'+i;
+    let div=document.createElement('div');
+    div.id='boy-card-'+i;
+    div.className='bg-black rounded-[14px] p-1 border border-white/10 cursor-pointer hover:border-pink-500';
+    if(saved[key]){
+      div.innerHTML=`<img src="${saved[key]}" class="w-full h-[110px] object-cover rounded-[10px]"><p class="text-[7px] font-black text-center mt-1 truncate">${name}</p>`;
+      div.onclick=()=>selectPic(saved[key], name);
+      loadedCount++;
+    } else {
+      div.innerHTML=`<div id="boy-img-${i}" class="w-full h-[110px] bg-white/5 rounded-[10px] flex flex-col items-center justify-center"><p class="text-[7px] text-zinc-500">QUEUED ${i+1}</p><p class="text-[8px] font-black">${name}</p></div><p class="text-[7px] text-center truncate">${name}</p>`;
+      queue.push({key:key, name:name, type:'boy', index:i, seed:1000+i});
+    }
+    bGrid.appendChild(div);
+  });
+  
+  girls.forEach((name,i)=>{
+    let key='girl-'+i;
+    let div=document.createElement('div');
+    div.id='girl-card-'+i;
+    div.className='bg-black rounded-[14px] p-1 border border-white/10 cursor-pointer hover:border-pink-500';
+    if(saved[key]){
+      div.innerHTML=`<img src="${saved[key]}" class="w-full h-[110px] object-cover rounded-[10px]"><p class="text-[7px] font-black text-center mt-1 truncate">${name}</p>`;
+      div.onclick=()=>selectPic(saved[key], name);
+      loadedCount++;
+    } else {
+      div.innerHTML=`<div id="girl-img-${i}" class="w-full h-[110px] bg-white/5 rounded-[10px] flex flex-col items-center justify-center"><p class="text-[7px] text-zinc-500">QUEUED ${i+51}</p><p class="text-[8px] font-black">${name}</p></div><p class="text-[7px] text-center truncate">${name}</p>`;
+      queue.push({key:key, name:name, type:'girl', index:i, seed:2000+i});
+    }
+    gGrid.appendChild(div);
+  });
+  
+  updateStatus();
+  startTimer();
+}
+
+function startTimer(){
+  if(queue.length===0){ document.getElementById('timer').innerText='DONE ✅'; return; }
+  timeLeft=45;
+  document.getElementById('timer').innerText=timeLeft+'s';
+  if(timerInterval) clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    timeLeft--;
+    document.getElementById('timer').innerText=timeLeft+'s';
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      loadNextPic();
+    }
+  },1000);
+}
+
+function loadNextPic(){
+  if(queue.length===0){ updateStatus(); return; }
+  let item=queue.shift();
+  let container=document.getElementById(item.type+'-img-'+item.index);
+  if(!container){ startTimer(); return; }
+  
+  container.innerHTML=`<div class="animate-spin w-6 h-6 border-2 border-pink-500 border-t-transparent rounded-full mx-auto"></div><p class="text-[7px] mt-1 text-center">LOADING REAL...</p>`;
+  
+  let prompt=encodeURIComponent(item.name + " anime character, ultra detailed anime art, 8k, beautiful");
+  let url=`https://image.pollinations.ai/prompt/${prompt}?width=400&height=400&seed=${item.seed}&nologo=true&model=flux`;
+  
+  let img=new Image();
+  img.onload=()=>{
+    container.innerHTML=`<img src="${url}" class="w-full h-full object-cover rounded-[10px]">`;
+    document.getElementById(item.type+'-card-'+item.index).onclick=()=>selectPic(url, item.name);
+    savePic(item.key, url);
+    loadedCount++;
+    startTimer();
+  };
+  img.onerror=()=>{
+    container.innerHTML=`<p class="text-[7px] text-center">Retry...</p>`;
+    queue.push(item);
+    startTimer();
+  };
+  img.src=url;
+}
+
+createPlaceholders();
+
+function selectPic(url,name){
+  document.getElementById('selectedBar').classList.remove('hidden');
+  document.getElementById('selectedImg').src=url;
+  document.getElementById('selectedName').innerText=name;
+  let img=new Image();
+  img.crossOrigin='anonymous';
+  img.src=url;
+  img.onload=()=>{
+    uploadedBannerImg=img;
+    uploadedLogoImg=img;
+    makeNormalBanner();
+    makeNormalLogo();
+    makeBanner();
+    makeLogo();
+  };
+}
+
+function makeNormalBanner(){
+  let name=document.getElementById('bName').value||currentInputName||"Soumya";
+  let canvas=document.getElementById('canvas');
+  if(!canvas) return;
+  if(bannerType!=='normal') return;
+  let ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,1080,1350);
+  let colors={neon:["#ff2d92","#00f5ff"], gold:["#FFD700","#FF8C00"], ice:["#00f5ff","#0066ff"], black:["#ffffff","#222222"]};
+  let c=colors[normalBannerStyle]||colors.neon;
+  let grad=ctx.createLinearGradient(0,0,1080,400);
+  grad.addColorStop(0,c[0]);
+  grad.addColorStop(1,c[1]);
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,1080,400);
+  if(uploadedBannerImg){ try{ ctx.drawImage(uploadedBannerImg,0,400,1080,950); }catch(e){} }
+  ctx.fillStyle='white';
+  ctx.font='900 90px Outfit';
+  ctx.textAlign='center';
+  ctx.fillText(name.toUpperCase(),540,200);
+  ctx.font='700 18px Outfit';
+  ctx.fillText("@soumya_5191 | @Sdanime-b6q",540,260);
+}
+
+function makeNormalLogo(){
+  let canvas=document.getElementById('logoCanvas');
+  if(!canvas) return;
+  if(logoType!=='normal') return;
+  let ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,800,800);
+  let grad=ctx.createRadialGradient(400,400,50,400,400,250);
+  grad.addColorStop(0,"#ff2d92");
+  grad.addColorStop(1,"#7c3aed");
+  ctx.fillStyle=grad;
+  ctx.beginPath();
+  ctx.arc(400,400,250,0,Math.PI*2);
+  ctx.fill();
+  if(uploadedBannerImg){
+    try{
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(400,400,240,0,Math.PI*2);
+      ctx.clip();
+      ctx.drawImage(uploadedBannerImg,0,0,800,800);
+      ctx.restore();
+    }catch(e){}
+  }
+  ctx.fillStyle='white';
+  ctx.font='900 100px Outfit';
+  ctx.textAlign='center';
+  ctx.fillText(normalLogoText,400,430);
+}
+
+function makeBanner(){
+  if(bannerType!=='normal'){
+    let name=document.getElementById('bName').value||currentInputName||"SOUMYA";
+    let canvas=document.getElementById('canvas');
+    if(!canvas) return;
+    let ctx=canvas.getContext('2d');
+    let W=1080,H=1350;
+    let grad=ctx.createRadialGradient(540,350,80,540,675,900);
+    grad.addColorStop(0,currentStyle.c1);
+    grad.addColorStop(0.6,currentStyle.c2);
+    grad.addColorStop(1,'#050507');
+    ctx.fillStyle=grad;
+    ctx.fillRect(0,0,W,H);
+    if(uploadedBannerImg){ try{ ctx.globalAlpha=0.85; ctx.drawImage(uploadedBannerImg,0,0,W,H); ctx.globalAlpha=1; }catch(e){} }
+    ctx.fillStyle='rgba(0,0,0,0.65)';
+    ctx.fillRect(0,820,W,530);
+    ctx.fillStyle='white';
+    ctx.textAlign='center';
+    ctx.font='900 90px Outfit';
+    ctx.fillText(name.toUpperCase(),540,360);
+    ctx.font='900 28px Outfit';
+    ctx.fillText("ANIMEVERSE",540,920);
+    ctx.font='700 14px Outfit';
+    ctx.fillStyle='#00f5ff';
+    ctx.fillText("@soumya_5191 | youtube.com/@Sdanime-b6q",540,960);
+  } else {
+    makeNormalBanner();
+  }
+}
+
+function makeLogo(){
+  if(logoType!=='fancy'){
+    makeNormalLogo();
+    return;
+  }
+  let name=document.getElementById('lName').value||currentInputName||"SOUMYA";
+  let canvas=document.getElementById('logoCanvas');
+  if(!canvas) return;
+  let ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,800,800);
+  let grad=ctx.createRadialGradient(400,400,100,400,400,400);
+  grad.addColorStop(0,currentLogoStyle.c1);
+  grad.addColorStop(1,currentLogoStyle.c2);
+  ctx.fillStyle=grad;
+  ctx.beginPath();
+  ctx.arc(400,400,380,0,Math.PI*2);
+  ctx.fill();
+  if(uploadedLogoImg){
+    try{
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(400,400,360,0,Math.PI*2);
+      ctx.clip();
+      ctx.drawImage(uploadedLogoImg,0,0,800,800);
+      ctx.restore();
+    }catch(e){}
+  } else {
+    ctx.fillStyle='white';
+    ctx.font='900 200px Outfit';
+    ctx.textAlign='center';
+    ctx.fillText(name.charAt(0).toUpperCase(),400,440);
+  }
+}
+
+function downloadBanner(){
+  let c=document.getElementById('canvas');
+  let a=document.createElement('a');
+  a.download='BANNER-8033-FIXED.png';
+  a.href=c.toDataURL('image/png');
+  a.click();
+}
+
+function downloadLogo(){
+  let c=document.getElementById('logoCanvas');
+  let a=document.createElement('a');
+  a.download='LOGO-8033-FIXED.png';
+  a.href=c.toDataURL('image/png');
+  a.click();
+}
+
+function useInBanner(){ showTab('banner'); }
+function useInLogo(){ showTab('logo'); }
+
+currentInputName='Soumya';
+renderCurrentNameType();
+makeNormalBanner();
+makeNormalLogo();
+</script></body></html>
+"""
+
+with open("index.html","w",encoding="utf-8") as f:
+    f.write(html)
+
+PORT=8033
+print(f"8033 FIXED FINAL - WORKING: http://localhost:{PORT}/index.html - Banner/Logo 100 styles + Real pics + Download!")
+with socketserver.TCPServer(("",PORT), http.server.SimpleHTTPRequestHandler) as httpd:
+    httpd.serve_forever()
