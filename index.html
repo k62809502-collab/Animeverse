@@ -1,89 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANIMEVERSE - 8033 FIXED FINAL</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>ANIMEVERSE FINAL</title>
 </head>
-<body style="background:#000;color:#fff;padding:12px;font-family:Arial">
-<div style="display:flex;justify-content:space-between;align-items:center;background:#0f0f0f;border:1px solid #222;border-radius:16px;padding:12px">
-<b>ANIME<span style="color:#ff2d95">VERSE</span> <span style="background:#fff;color:#000;padding:2px 10px;border-radius:20px;font-size:10px;margin-left:6px">8033 FIXED</span></b>
-<span style="background:red;padding:5px 12px;border-radius:20px;font-size:12px">YT</span>
+<body style="background:black;color:white;font-family:Arial;padding:10px">
+
+<h1 style="text-align:center">ANIME<span style="color:#ff2d95">VERSE</span> - 8033 FIXED</h1>
+
+<!-- BUTTONS - YEH 100% CLICK HONGE -->
+<div style="text-align:center;margin-top:20px">
+<button onclick="show('find')" style="padding:12px 18px;margin:5px;border-radius:20px;border:none;background:white;color:black;font-weight:bold">FIND NAME</button>
+<button onclick="show('boys')" style="padding:12px 18px;margin:5px;border-radius:20px;border:none;background:#333;color:white;font-weight:bold">50 BOYS</button>
+<button onclick="show('girls')" style="padding:12px 18px;margin:5px;border-radius:20px;border:none;background:#333;color:white;font-weight:bold">50 GIRLS</button>
+<button onclick="show('banner')" style="padding:12px 18px;margin:5px;border-radius:20px;border:none;background:#333;color:white;font-weight:bold">BANNER</button>
+<button onclick="show('logo')" style="padding:12px 18px;margin:5px;border-radius:20px;border:none;background:#ff2d95;color:white;font-weight:bold">LOGO</button>
 </div>
 
-<div style="margin-top:12px;background:#0f0f0f;border:1px solid #00ff88;border-radius:16px;padding:14px;display:flex;justify-content:space-between">
-<div><b style="color:#00ff88">REAL PICS: <span id="picCount">0</span>/100</b><div style="font-size:11px;color:#aaa">Har 45 sec me 1 pic</div></div>
-<div style="text-align:center"><div id="timer" style="background:#ff2d95;padding:8px 18px;border-radius:20px;font-weight:900">45s</div><button onclick="localStorage.setItem('anime_pics_count','0');document.getElementById('picCount').innerText='0'" style="margin-top:6px;background:#222;color:#fff;border:none;padding:4px 10px;border-radius:10px;font-size:10px">CLEAR</button></div>
+<!-- LOGO BOX -->
+<div id="logoBox" style="margin-top:20px;background:#141414;padding:20px;border-radius:20px;text-align:center">
+<h2>LOGO MAKER</h2>
+<input id="nameIn" oninput="update()" placeholder="Naam likh - Soumya" style="width:90%;padding:14px;border-radius:30px;text-align:center;font-weight:bold;margin-top:10px;border:none">
+<div id="logoCircle" style="margin:20px auto;width:150px;height:150px;border-radius:50%;background:#ff2d95;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:bold">S</div>
+<button onclick="download()" style="width:100%;padding:14px;border-radius:20px;border:none;background:#ff2d95;color:white;font-weight:bold">DOWNLOAD LOGO</button>
 </div>
 
-<div style="display:flex;gap:8px;overflow:auto;margin-top:14px">
-<button onclick="showTab('find',this)" class="tbtn" style="background:#1a1a1a;color:#888;border:none;padding:10px 16px;border-radius:20px;font-weight:800;white-space:nowrap">FIND NAME</button>
-<button onclick="showTab('boys',this)" class="tbtn" style="background:#1a1a1a;color:#888;border:none;padding:10px 16px;border-radius:20px;font-weight:800;white-space:nowrap">50 BOYS</button>
-<button onclick="showTab('girls',this)" class="tbtn" style="background:#1a1a1a;color:#888;border:none;padding:10px 16px;border-radius:20px;font-weight:800;white-space:nowrap">50 GIRLS</button>
-<button onclick="showTab('banner',this)" class="tbtn" style="background:#1a1a1a;color:#888;border:none;padding:10px 16px;border-radius:20px;font-weight:800;white-space:nowrap">BANNER</button>
-<button onclick="showTab('logo',this)" class="tbtn" style="background:#fff;color:#000;border:none;padding:10px 16px;border-radius:20px;font-weight:800;white-space:nowrap">LOGO</button>
+<div id="findBox" style="display:none;margin-top:20px;background:#141414;padding:20px;border-radius:20px;text-align:center">
+<h2>FIND NAME</h2><input id="findIn" style="width:90%;padding:12px;border-radius:20px;text-align:center;margin-top:10px" placeholder="Name"><br><button onclick="alert('Found: '+document.getElementById('findIn').value)" style="margin-top:10px;padding:12px 20px;border-radius:20px;background:white;color:black;font-weight:bold;border:none">SEARCH</button>
 </div>
 
-<div id="sec-logo" style="margin-top:14px;background:#141414;border:1px solid #222;border-radius:20px;padding:18px">
-<h2 style="font-weight:900">LOGO MAKER - NORMAL + 100 FANCY</h2>
-<input id="nameInput" oninput="updateLogo()" placeholder="Naam daal - Soumya" style="margin-top:12px;width:100%;background:#fff;color:#000;text-align:center;font-weight:900;padding:14px;border-radius:30px;border:none;outline:none">
-<div style="display:flex;gap:8px;margin-top:12px"><button onclick="setMode('normal',this)" id="m1" style="flex:1;background:#fff;color:#000;border:none;padding:12px;border-radius:20px;font-weight:900">NORMAL LOGO</button><button onclick="setMode('fancy',this)" id="m2" style="flex:1;background:#2a2a2a;color:#fff;border:none;padding:12px;border-radius:20px;font-weight:900">100 FANCY LOGO</button></div>
-<div style="display:flex;gap:8px;margin-top:12px;text-align:center;font-weight:900"><div id="p1" style="flex:1;background:#fff;color:#000;padding:10px;border-radius:20px">S</div><div id="p2" style="flex:1;background:#ff2d95;padding:10px;border-radius:20px">SO</div><div id="p3" style="flex:1;background:#00e5ff;color:#000;padding:10px;border-radius:20px">ANIME</div><div id="p4" style="flex:1;background:#ffcc00;color:#000;padding:10px;border-radius:20px">5191</div></div>
-<div style="margin-top:14px;background:#000;border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center"><div id="logoPrev" style="width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ff2d95);display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:900">S</div></div>
-<button onclick="downloadLogo()" style="margin-top:14px;width:100%;background:#ff2d95;color:#fff;border:none;padding:14px;border-radius:20px;font-weight:900">⬇️ DOWNLOAD LOGO</button>
-</div>
+<div id="boysBox" style="display:none;margin-top:20px;background:#141414;padding:20px;border-radius:20px"><h2>50 BOYS</h2><div style="margin-top:10px">Aryan, Rohan, Kabir, Vihaan, Arjun, Samar, Aarav, Krish, Dev, Rudra, Aditya, Ansh, Dhruv, Ishaan, Yash, Vivaan, Om, Ved, Harsh, Kunal, Manav, Raj, Sahil, Varun, Aman</div></div>
 
-<div id="sec-find" style="display:none;margin-top:14px;background:#141414;border-radius:20px;padding:18px;text-align:center"><h3>FIND NAME</h3><input id="findInput" placeholder="Name search" style="margin-top:10px;width:100%;padding:12px;border-radius:20px;text-align:center"><button onclick="alert('Found '+document.getElementById('findInput').value)" style="margin-top:10px;width:100%;background:#fff;color:#000;padding:12px;border-radius:20px;font-weight:900;border:none">SEARCH</button></div>
-<div id="sec-boys" style="display:none;margin-top:14px;background:#141414;border-radius:20px;padding:18px"><h3>50 BOYS</h3><div id="boysList" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;font-size:12px"></div></div>
-<div id="sec-girls" style="display:none;margin-top:14px;background:#141414;border-radius:20px;padding:18px"><h3>50 GIRLS</h3><div id="girlsList" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;font-size:12px"></div></div>
-<div id="sec-banner" style="display:none;margin-top:14px;background:#141414;border-radius:20px;padding:18px;text-align:center"><h3>BANNER</h3><div id="bannerPrev" style="margin-top:12px;height:100px;background:linear-gradient(90deg,#00e5ff,#ff2d95);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px">ANIMEVERSE</div><button onclick="downloadBanner()" style="margin-top:12px;width:100%;background:#00e5ff;color:#000;padding:12px;border-radius:20px;font-weight:900;border:none">DOWNLOAD BANNER</button></div>
+<div id="girlsBox" style="display:none;margin-top:20px;background:#141414;padding:20px;border-radius:20px"><h2>50 GIRLS</h2><div style="margin-top:10px">Soumya, Ananya, Diya, Ishita, Kavya, Myra, Navya, Pari, Riya, Siya, Tara, Zara, Avni, Divya, Khushi, Lavanya, Mahika, Prisha, Saanvi, Tanisha, Vaani, Zoya, Aarohi, Bhavya, Kiara</div></div>
+
+<div id="bannerBox" style="display:none;margin-top:20px;background:#141414;padding:20px;border-radius:20px;text-align:center"><h2>BANNER</h2><div id="banner" style="margin-top:15px;height:80px;background:linear-gradient(90deg,cyan,pink);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:20px">ANIMEVERSE</div></div>
 
 <script>
-let mode='normal';
-function showTab(name,btn){
-document.getElementById('sec-logo').style.display='none';
-document.getElementById('sec-find').style.display='none';
-document.getElementById('sec-boys').style.display='none';
-document.getElementById('sec-girls').style.display='none';
-document.getElementById('sec-banner').style.display='none';
-document.getElementById('sec-'+name).style.display='block';
-document.querySelectorAll('.tbtn').forEach(b=>{b.style.background='#1a1a1a';b.style.color='#888'});
-btn.style.background='#fff';btn.style.color='#000';
-if(name==='boys'){let boys=["Aryan","Rohan","Kabir","Vihaan","Arjun","Samar","Reyansh","Aarav","Krish","Dev","Rudra","Atharva","Aditya","Ansh","Dhruv","Ishaan","Laksh","Naksh","Pranav","Siddharth","Yash","Vivaan","Om","Ved","Harsh","Kunal","Manav","Neil","Ojas","Parth","Raj","Sahil","Tanish","Uday","Varun","Yug","Aman","Bhavesh","Chirag","Darsh","Eklavya","Farhan","Gautam","Hardik","Jay","Kartik","Luv","Moksh","Naman"];document.getElementById('boysList').innerHTML=boys.map(n=>`<div style='background:#222;padding:6px;border-radius:20px;text-align:center'>${n}</div>`).join('')}
-if(name==='girls'){let girls=["Soumya","Ananya","Diya","Ishita","Kavya","Myra","Navya","Pari","Riya","Siya","Tara","Urvi","Zara","Aadhya","Avni","Divya","Esha","Fatima","Gauri","Harini","Ira","Jhanvi","Khushi","Lavanya","Mahika","Naira","Ojasvi","Prisha","Qirat","Ritika","Saanvi","Tanisha","Upasana","Vaani","Wamika","Xara","Yashvi","Zoya","Aarohi","Bhavya","Charvi","Devika","Elina","Falguni","Gungun","Hiya","Inaya","Jiya","Kiara"];document.getElementById('girlsList').innerHTML=girls.map(n=>`<div style='background:#222;padding:6px;border-radius:20px;text-align:center'>${n}</div>`).join('')}
+function show(name){
+document.getElementById('logoBox').style.display='none';
+document.getElementById('findBox').style.display='none';
+document.getElementById('boysBox').style.display='none';
+document.getElementById('girlsBox').style.display='none';
+document.getElementById('bannerBox').style.display='none';
+document.getElementById(name+'Box').style.display='block';
 }
-function setMode(m,btn){
-mode=m;
-document.getElementById('m1').style.background=m==='normal'?'#fff':'#2a2a2a';
-document.getElementById('m1').style.color=m==='normal'?'#000':'#fff';
-document.getElementById('m2').style.background=m==='fancy'?'#fff':'#2a2a2a';
-document.getElementById('m2').style.color=m==='fancy'?'#000':'#fff';
-updateLogo();
+function update(){
+let n=document.getElementById('nameIn').value||'S';
+document.getElementById('logoCircle').innerText=n.charAt(0).toUpperCase();
+document.getElementById('banner').innerText=n.toUpperCase();
 }
-function updateLogo(){
-let n=document.getElementById('nameInput').value||'S';
-document.getElementById('p1').innerText=n.charAt(0).toUpperCase();
-document.getElementById('p2').innerText=n.substring(0,2).toUpperCase()||'SO';
-document.getElementById('logoPrev').innerText=n.charAt(0).toUpperCase();
-document.getElementById('bannerPrev').innerText=n.toUpperCase()||'ANIMEVERSE';
-if(mode==='fancy'){let f=['𝕊','𝓢','🅂','𝙎','𝐒','𝑺'];document.getElementById('logoPrev').innerText=f[Math.floor(Math.random()*f.length)];}
-}
-function downloadLogo(){
-let c=document.createElement('canvas');c.width=500;c.height=500;let ctx=c.getContext('2d');
-let g=ctx.createRadialGradient(250,250,0,250,250,250);g.addColorStop(0,'#ff2d95');g.addColorStop(1,'#a855f7');
-ctx.fillStyle=g;ctx.beginPath();ctx.arc(250,250,200,0,Math.PI*2);ctx.fill();
-ctx.fillStyle='#fff';ctx.font='bold 120px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(document.getElementById('logoPrev').innerText,250,270);
+function download(){
+let c=document.createElement('canvas');c.width=500;c.height=500;
+let ctx=c.getContext('2d');ctx.fillStyle='#ff2d95';ctx.beginPath();ctx.arc(250,250,200,0,6.28);ctx.fill();
+ctx.fillStyle='white';ctx.font='bold 150px Arial';ctx.textAlign='center';ctx.fillText(document.getElementById('logoCircle').innerText,250,290);
 let a=document.createElement('a');a.download='logo.png';a.href=c.toDataURL();a.click();
 }
-function downloadBanner(){
-let c=document.createElement('canvas');c.width=1200;c.height=400;let ctx=c.getContext('2d');
-let g=ctx.createLinearGradient(0,0,1200,0);g.addColorStop(0,'#00e5ff');g.addColorStop(1,'#ff2d95');
-ctx.fillStyle=g;ctx.fillRect(0,0,1200,400);ctx.fillStyle='#fff';ctx.font='900 70px Arial';ctx.textAlign='center';ctx.fillText(document.getElementById('bannerPrev').innerText,600,220);
-let a=document.createElement('a');a.download='banner.png';a.href=c.toDataURL();a.click();
-}
-let cnt=parseInt(localStorage.getItem('anime_pics_count')||'0');document.getElementById('picCount').innerText=cnt;
-let sec=45;setInterval(()=>{sec--;if(sec<=0){sec=45;cnt=Math.min(100,cnt+1);localStorage.setItem('anime_pics_count',cnt);document.getElementById('picCount').innerText=cnt;}document.getElementById('timer').innerText=sec+'s';},1000);
 </script>
+
 </body>
 </html>
