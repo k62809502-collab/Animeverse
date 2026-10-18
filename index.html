@@ -1,120 +1,97 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soumya Studio - Fixed</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Audiowide&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<title>Soumya - 1000 Real Fonts</title>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#06070d;color:#e8e8ff;font-family:Outfit,sans-serif}
-header{position:sticky;top:0;z-index:99;background:rgba(6,7,13,0.98);backdrop-filter:blur(20px);border-bottom:1px solid #8a5cf522;padding:12px 4%;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
-.logo{font-family:Space Grotesk;font-size:20px;font-weight:800}.logo span{color:#8a5cf5}
+body{background:#07080f;color:#fff;font-family:Arial,sans-serif}
+header{position:sticky;top:0;z-index:99;background:#07080f;border-bottom:1px solid #ffffff15;padding:10px 4%;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.logo{font-family:'Audiowide';font-size:20px}.logo span{color:#ff0055}
 .top{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.top input{background:#12131e;border:1px solid #ffffff22;color:#fff;padding:11px 14px;border-radius:999px;width:150px}
-.btn{background:linear-gradient(90deg,#8a5cf5,#ff4ecd);border:none;color:#fff;padding:11px 18px;border-radius:999px;cursor:pointer;font-weight:700}
-.btn2{background:#12131e;border:1px solid #ffffff22;color:#fff;padding:11px 14px;border-radius:999px;cursor:pointer}
-.upload{background:#12131e;border:1px dashed #ffffff44;padding:11px 14px;border-radius:999px;cursor:pointer;font-size:12px}.upload input{display:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:10px 4%}
-.card{background:#12131e;border-radius:12px;min-height:90px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px;position:relative;overflow:hidden;border:1px solid #ffffff11;cursor:pointer;transition:0.2s}
-.card:hover{transform:translateY(-4px);border-color:#8a5cf5}
-.card .txt{font-size:17px;text-align:center;word-break:break-all;z-index:2}
-.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25}
-.banner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;padding:10px 4%}
-.banner{height:140px;border-radius:12px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;border:1px solid #ffffff11;cursor:pointer;transition:0.2s}
-.banner:hover{transform:scale(1.02);border-color:#00f5ff}
-.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.6}
-.banner .bt{font-family:Audiowide;font-size:20px;z-index:2;text-shadow:0 2px 10px #000}
-.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;padding:10px 4%}
-.logo-card{aspect-ratio:1;background:#12131e;border-radius:12px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;border:1px solid #ffffff11;cursor:pointer}
-.logo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5}
-.logo-card .lt{font-family:Audiowide;text-align:center;z-index:2}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#8a5cf5,#ff4ecd);color:#fff;padding:12px 20px;border-radius:999px;display:none;z-index:999}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.9);backdrop-filter:blur(15px);z-index:1000;display:none;place-items:center;padding:20px}.modal.active{display:grid}
-.mbox{background:#12131e;border:1px solid #8a5cf533;border-radius:20px;padding:20px;max-width:500px;width:100%;text-align:center}
-.action-btn{background:rgba(0,0,0,0.8);border:1px solid #ffffff33;color:#fff;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;cursor:pointer;z-index:5}
-.card-actions{position:absolute;bottom:5px;right:5px;display:flex;gap:4px;z-index:4}
+.top input{background:#151725;border:1px solid #ffffff22;color:#fff;padding:10px 14px;border-radius:999px;width:140px;outline:none}
+.btn{background:linear-gradient(90deg,#ff0055,#ff6a00);border:none;color:#fff;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
+.btn2{background:#151725;border:1px solid #ffffff22;color:#fff;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:13px}
+.upload{background:#151725;border:1px dashed #ffffff33;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:12px}.upload input{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px;padding:10px 4%}
+.card{background:#151725;border-radius:10px;min-height:80px;display:grid;place-items:center;padding:8px;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer}
+.card:hover{border-color:#ff0055;transform:translateY(-2px)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3}
+.card .txt{position:relative;z-index:2;font-size:16px;text-align:center;word-break:break-all}
+.banner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;padding:10px 4%}
+.banner{height:115px;border-radius:10px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5}
+.banner .bt{position:relative;z-index:2;font-family:Audiowide;font-size:18px;text-shadow:0 2px 6px #000;text-align:center}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px;padding:10px 4%}
+.logo-card{aspect-ratio:1;background:#151725;border-radius:10px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer}
+.logo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4}
+.logo-card .lt{position:relative;z-index:2;font-family:Audiowide;text-align:center;font-size:14px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ff0055;color:#fff;padding:10px 18px;border-radius:999px;display:none;z-index:999;font-size:13px}
 </style></head><body>
 <header>
-<div class="logo">ANIME<span>VERSE</span> + SOUMYA</div>
+<div class="logo">FONT <span>STUDIO</span></div>
 <div class="top">
-<input id="nameInput" value="Soumya" placeholder="Name likho...">
-<label class="upload">📸 Photo<input type="file" accept="image/*" onchange="loadPhoto(event)"></label>
-<button class="btn" onclick="genAll()">✨ Generate 1000</button>
+<input id="nameInput" value="Soumya" placeholder="Name likho">
+<label class="upload">📸 Photo<input type="file" id="photo" accept="image/*"></label>
+<button class="btn" onclick="genAll()">✨ Generate 1000 Fonts</button>
 <button class="btn2" onclick="genBanners()">🎨 Banner/Logo 500</button>
 </div>
 </header>
-
-<div style="margin:12px 4%;background:linear-gradient(135deg,#1a0a2e,#3d0a3d);border-radius:16px;padding:18px;border:1px solid #8a5cf522">
-<h1 style="font-family:Space Grotesk">FIXED CLICK VERSION</h1>
-<p style="color:#8b8ca6;font-size:12px">Ab banner/logo pe click 100% kaam karega! Click = Copy + Preview popup.</p>
-</div>
-
-<div style="padding:10px 4%;font-weight:700;display:flex;justify-content:space-between"><span>🔥 1000 Fonts</span><span style="font-size:11px;color:#8b8ca6;cursor:pointer" onclick="copyAll()">📋 Copy All</span></div>
+<div style="padding:8px 4%;font-weight:700">🔥 1000 Real Stylish Fonts - Tere File Wale</div>
 <div class="grid" id="g1"></div>
-<div style="padding:10px 4%;font-weight:700">🎨 500 Banners</div>
+<div style="padding:8px 4%;font-weight:700">🎨 500 Banners</div>
 <div class="banner-grid" id="g2"></div>
-<div style="padding:10px 4%;font-weight:700">🔰 500 Logos</div>
+<div style="padding:8px 4%;font-weight:700">🔰 500 Logos</div>
 <div class="logo-grid" id="g3"></div>
 <div class="toast" id="toast"></div>
-<div class="modal" id="modal" onclick="closeModal()"><div class="mbox" id="mbox" onclick="event.stopPropagation()"></div></div>
-
 <script>
-const wrappers = [
-['꧁༒','༒꧂'],['亗 ',' 亗'],['『','』ツ'],['★彡[',']彡★'],['𓆩','𓆪'],['♛ ',' ♛'],['⚡','⚡'],['乂 ',' 乂'],['么','么'],['☠︎︎ ',' ☠︎︎'],['♡ ',' ♡'],['✿ ',' ✿'],['᭄','࿐'],['꧁ঔৣ','ঔৣ꧂'],['【','】'],['◥','◤'],['★','★'],['彡','彡'],['༺','༻'],['ツ','ツ'],['♜ ',' ♜'],['☯ ',' ☯'],['✧','✧'],['⫷','⫸'],['×͜× ',' ×͜×'],['乛','乛'],['☬','☬'],['♠ ',' ♠'],['༒ ',' ༒'],['◈ ',' ◈'],['•','•'],['ꜰꜰ ',''],['꧁','꧂'],['🔥 ',' 🔥'],['💀 ',' 💀'],['👑 ',' 👑'],['⚔️ ',' ⚔️']
-];
-const bgs=['linear-gradient(135deg,#ff0055,#ff6a00)','linear-gradient(135deg,#00f5ff,#0066ff)','linear-gradient(135deg,#ffcc00,#ff3300)','linear-gradient(135deg,#00ff88,#00ccff)','linear-gradient(135deg,#8a5cf5,#ff4ecd)','linear-gradient(135deg,#1a1a1a,#3a3a3a)','linear-gradient(135deg,#1a0a2e,#ff0055)'];
-let curName="Soumya";let pic=null;
-function loadPhoto(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=x=>{pic=x.target.result;genAll();};r.readAsDataURL(f);}
-function showToast(m){const t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',2000);}
-function copyText(t){navigator.clipboard.writeText(t).then(()=>showToast('Copied: '+t)).catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();showToast('Copied: '+t);});}
-function openPreview(text,bg){const m=document.getElementById('modal');const b=document.getElementById('mbox');b.innerHTML='<div style="font-size:12px;color:#8b8ca6">PREVIEW</div><div style="background:'+bg+';padding:30px;border-radius:12px;font-size:28px;margin:12px 0;word-break:break-all">'+(pic?'<img src="'+pic+'" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:10px">':'')+'<div>'+text+'</div></div><button class="btn" onclick="closeModal()">Close</button>';m.classList.add('active');}
-function closeModal(){document.getElementById('modal').classList.remove('active');}
-function genAll(){curName=document.getElementById('nameInput').value.trim()||"Soumya";genFonts();genBanners();}
+let cur="Soumya";let pic=null;
+const wrappers=[["꧁༒","༒꧂"],["亗 "," 亗"],["『","』ツ"],["★彡[","]彡★"],["𓆩","𓆪"],["♛ "," ♛"],["⚡","⚡"],["乂 "," 乂"],["么","么"],["☠︎︎ "," ☠︎︎"],["♡ "," ♡"],["✿ "," ✿"],["᭄","࿐"],["꧁ঔৣ","ঔৣ꧂"],["【","】"],["◥","◤"],["★","★"],["彡","彡"],["༺","༻"],["ツ","ツ"],["♜ "," ♜"],["☯ "," ☯"],["✧","✧"],["⫷","⫸"],["×͜× "," ×͜×"],["乛","乛"],["☬","☬"],["♠ "," ♠"],["༒ "," ༒"],["◈ "," ◈"],["•","•"],["🔥 "," 🔥"],["👑 "," 👑"]];
+const fontStyles={
+"bold":{"A":"𝐀","B":"𝐁","C":"𝐂","D":"𝐃","E":"𝐄","F":"𝐅","G":"𝐆","H":"𝐇","I":"𝐈","J":"𝐉","K":"𝐊","L":"𝐋","M":"𝐌","N":"𝐍","O":"𝐎","P":"𝐏","Q":"𝐐","R":"𝐑","S":"𝐒","T":"𝐓","U":"𝐔","V":"𝐕","W":"𝐖","X":"𝐗","Y":"𝐘","Z":"𝐙","a":"𝐚","b":"𝐛","c":"𝐜","d":"𝐝","e":"𝐞","f":"𝐟","g":"𝐠","h":"𝐡","i":"𝐢","j":"𝐣","k":"𝐤","l":"𝐥","m":"𝐦","n":"𝐧","o":"𝐨","p":"𝐩","q":"𝐪","r":"𝐫","s":"𝐬","t":"𝐭","u":"𝐮","v":"𝐯","w":"𝐰","x":"𝐱","y":"𝐲","z":"𝐳"},
+"italic":{"A":"𝐴","B":"𝐵","C":"𝐶","D":"𝐷","E":"𝐸","F":"𝐹","G":"𝐺","H":"𝐻","I":"𝐼","J":"𝐽","K":"𝐾","L":"𝐿","M":"𝑀","N":"𝑁","O":"𝑂","P":"𝑃","Q":"𝑄","R":"𝑅","S":"𝑆","T":"𝑇","U":"𝑈","V":"𝑉","W":"𝑊","X":"𝑋","Y":"𝑌","Z":"𝑍","a":"𝑎","b":"𝑏","c":"𝑐","d":"𝑑","e":"𝑒","f":"𝑓","g":"𝑔","h":"ℎ","i":"𝑖","j":"𝑗","k":"𝑘","l":"𝑙","m":"𝑚","n":"𝑛","o":"𝑜","p":"𝑝","q":"𝑞","r":"𝑟","s":"𝑠","t":"𝑡","u":"𝑢","v":"𝑣","w":"𝑤","x":"𝑥","y":"𝑦","z":"𝑧"},
+"script":{"A":"𝓐","B":"𝓑","C":"𝓒","D":"𝓓","E":"𝓔","F":"𝓕","G":"𝓖","H":"𝓗","I":"𝓘","J":"𝓙","K":"𝓚","L":"𝓛","M":"𝓜","N":"𝓝","O":"𝓞","P":"𝓟","Q":"𝓠","R":"𝓡","S":"𝓢","T":"𝓣","U":"𝓤","V":"𝓥","W":"𝓦","X":"𝓧","Y":"𝓨","Z":"𝓩","a":"𝓪","b":"𝓫","c":"𝓬","d":"𝓭","e":"𝓮","f":"𝓯","g":"𝓰","h":"𝓱","i":"𝓲","j":"𝓳","k":"𝓴","l":"𝓵","m":"𝓶","n":"𝓷","o":"𝓸","p":"𝓹","q":"𝓺","r":"𝓻","s":"𝓼","t":"𝓽","u":"𝓾","v":"𝓿","w":"𝔀","x":"𝔁","y":"𝔂","z":"𝔃"},
+"fraktur":{"A":"𝔄","B":"𝔅","C":"ℭ","D":"𝔇","E":"𝔈","F":"𝔉","G":"𝔊","H":"ℌ","I":"ℑ","J":"𝔍","K":"𝔎","L":"𝔏","M":"𝔐","N":"𝔑","O":"𝔒","P":"𝔓","Q":"𝔔","R":"𝔕","S":"𝔖","T":"𝔗","U":"𝔘","V":"𝔙","W":"𝔚","X":"𝔛","Y":"𝔜","Z":"𝔝","a":"𝔞","b":"𝔟","c":"𝔠","d":"𝔡","e":"𝔢","f":"𝔣","g":"𝔤","h":"𝔥","i":"𝔦","j":"𝔧","k":"𝔨","l":"𝔩","m":"𝔪","n":"𝔫","o":"𝔬","p":"𝔭","q":"𝔮","r":"𝔯","s":"𝔰","t":"𝔱","u":"𝔲","v":"𝔳","w":"𝔴","x":"𝔵","y":"𝔶","z":"𝔷"},
+"double":{"A":"𝔸","B":"𝔹","C":"ℂ","D":"𝔻","E":"𝔼","F":"𝔽","G":"𝔾","H":"ℍ","I":"𝕀","J":"𝕁","K":"𝕂","L":"𝕃","M":"𝕄","N":"ℕ","O":"𝕆","P":"ℙ","Q":"ℚ","R":"ℝ","S":"𝕊","T":"𝕋","U":"𝕌","V":"𝕍","W":"𝕎","X":"𝕏","Y":"𝕐","Z":"ℤ","a":"𝕒","b":"𝕓","c":"𝕔","d":"𝕕","e":"𝕖","f":"𝕗","g":"𝕘","h":"𝕙","i":"𝕚","j":"𝕛","k":"𝕜","l":"𝕝","m":"𝕞","n":"𝕟","o":"𝕠","p":"𝕡","q":"𝕢","r":"𝕣","s":"𝕤","t":"𝕥","u":"𝕦","v":"𝕧","w":"𝕨","x":"𝕩","y":"𝕪","z":"𝕫"},
+"mono":{"A":"𝙰","B":"𝙱","C":"𝙲","D":"𝙳","E":"𝙴","F":"𝙵","G":"𝙶","H":"𝙷","I":"𝙸","J":"𝙹","K":"𝙺","L":"𝙻","M":"𝙼","N":"𝙽","O":"𝙾","P":"𝙿","Q":"𝚀","R":"𝚁","S":"𝚂","T":"𝚃","U":"𝚄","V":"𝚅","W":"𝚆","X":"𝚇","Y":"𝚈","Z":"𝚉","a":"𝚊","b":"𝚋","c":"𝚌","d":"𝚍","e":"𝚎","f":"𝚏","g":"𝚐","h":"𝚑","i":"𝚒","j":"𝚓","k":"𝚔","l":"𝚕","m":"𝚖","n":"𝚗","o":"𝚘","p":"𝚙","q":"𝚚","r":"𝚛","s":"𝚜","t":"𝚝","u":"𝚞","v":"𝚟","w":"𝚠","x":"𝚡","y":"𝚢","z":"𝚣"},
+"black":{"A":"𝖠","B":"𝖡","C":"𝖢","D":"𝖣","E":"𝖤","F":"𝖥","G":"𝖦","H":"𝖧","I":"𝖨","J":"𝖩","K":"𝖪","L":"𝖫","M":"𝖬","N":"𝖭","O":"𝖮","P":"𝖯","Q":"𝖰","R":"𝖱","S":"𝖲","T":"𝖳","U":"𝖴","V":"𝖵","W":"𝖶","X":"𝖷","Y":"𝖸","Z":"𝖹","a":"𝖺","b":"𝖻","c":"𝖼","d":"𝖽","e":"𝖾","f":"𝖿","g":"𝗀","h":"𝗁","i":"𝗂","j":"𝗃","k":"𝗄","l":"𝗅","m":"𝗆","n":"𝗇","o":"𝗈","p":"𝗉","q":"𝗊","r":"𝗋","s":"𝗌","t":"𝗍","u":"𝗎","v":"𝗏","w":"𝗐","x":"𝗑","y":"𝗒","z":"𝗓"}
+};
+const styleKeys=Object.keys(fontStyles);
+const bgs=['linear-gradient(135deg,#ff0055,#ff6a00)','linear-gradient(135deg,#00f5ff,#0066ff)','linear-gradient(135deg,#ffcc00,#ff3300)','linear-gradient(135deg,#00ff88,#00ccff)','linear-gradient(135deg,#8a5cf5,#ff4ecd)','linear-gradient(135deg,#1a1a1a,#3a3a3a)'];
+function toStyle(str,style){let map=fontStyles[style];if(!map)return str;return str.split('').map(ch=>map[ch]||ch).join('');}
+function showToast(t){let x=document.getElementById('toast');x.innerText=t;x.style.display='block';setTimeout(()=>x.style.display='none',1500);}
+document.getElementById('photo').addEventListener('change',function(e){
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=function(ev){let img=new Image();img.onload=function(){let c=document.createElement('canvas');let max=400;let w=img.width,h=img.height;if(w>max){h*=max/w;w=max;}if(h>max){w*=max/h;h=max;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);pic=c.toDataURL('image/jpeg',0.6);genAll();showToast('Photo lag gayi! Smooth hai');};img.src=ev.target.result;};r.readAsDataURL(f);
+});
+function genAll(){cur=document.getElementById('nameInput').value||"Soumya";genFonts();genBanners();}
 function genFonts(){
-  const g=document.getElementById('g1');g.innerHTML='';
+  let g=document.getElementById('g1');g.innerHTML='';
   for(let i=0;i<1000;i++){
+    let style=styleKeys[i%styleKeys.length];
     let w=wrappers[i%wrappers.length];
-    let styled=w[0]+curName+w[1];
+    let styledName=toStyle(cur,style);
+    let txt=w[0]+styledName+w[1];
     let bg=bgs[i%bgs.length];
-    let card=document.createElement('div');card.className='card';card.style.background=bg;
-    let txt=document.createElement('div');txt.className='txt';txt.innerText=styled;
-    card.appendChild(txt);
-    if(pic){let img=document.createElement('img');img.src=pic;card.appendChild(img);}
-    let actions=document.createElement('div');actions.className='card-actions';
-    let cb=document.createElement('div');cb.className='action-btn';cb.innerText='📋';cb.onclick=(e)=>{e.stopPropagation();copyText(styled);};
-    let vb=document.createElement('div');vb.className='action-btn';vb.innerText='👁️';vb.onclick=(e)=>{e.stopPropagation();openPreview(styled,bg);};
-    actions.appendChild(cb);actions.appendChild(vb);card.appendChild(actions);
-    card.onclick=()=>{copyText(styled);openPreview(styled,bg);};
-    g.appendChild(card);
+    let d=document.createElement('div');d.className='card';d.style.background=bg;
+    d.innerHTML=(pic?`<img src="${pic}" loading="lazy">`:'')+`<div class="txt">${txt}</div>`;
+    d.onclick=((t)=>()=>{navigator.clipboard.writeText(t);showToast('Copied: '+t);})(txt);
+    g.appendChild(d);
   }
 }
 function genBanners(){
-  const g2=document.getElementById('g2');const g3=document.getElementById('g3');g2.innerHTML='';g3.innerHTML='';
+  let g2=document.getElementById('g2');let g3=document.getElementById('g3');g2.innerHTML='';g3.innerHTML='';
   for(let i=0;i<500;i++){
-    let bg=bgs[i%bgs.length];
-    let w=wrappers[i%wrappers.length];
-    let txt=w[0]+curName+w[1];
+    let bg=bgs[i%bgs.length];let w=wrappers[i%wrappers.length];
+    let style=styleKeys[i%styleKeys.length];
+    let styledName=toStyle(cur,style);
+    let txt=w[0]+styledName+w[1];
     let b=document.createElement('div');b.className='banner';b.style.background=bg;
-    if(pic){let img=document.createElement('img');img.src=pic;b.appendChild(img);}
-    let bt=document.createElement('div');bt.className='bt';bt.innerText=txt;b.appendChild(bt);
-    let btns=document.createElement('div');btns.className='card-actions';btns.style.bottom='8px';btns.style.right='8px';
-    let c1=document.createElement('div');c1.className='action-btn';c1.innerText='📋';c1.onclick=(e)=>{e.stopPropagation();copyText(txt);};
-    let c2=document.createElement('div');c2.className='action-btn';c2.innerText='👁️';c2.onclick=(e)=>{e.stopPropagation();openPreview(txt,bg);};
-    btns.appendChild(c1);btns.appendChild(c2);b.appendChild(btns);
-    b.onclick=()=>{copyText(txt);openPreview(txt,bg);};
-    g2.appendChild(b);
+    b.innerHTML=(pic?`<img src="${pic}" loading="lazy">`:'')+`<div class="bt">${txt}</div>`;
+    b.onclick=((t)=>()=>{navigator.clipboard.writeText(t);showToast('Copied: '+t);})(txt);g2.appendChild(b);
     let l=document.createElement('div');l.className='logo-card';l.style.background=bg;
-    if(pic){let img=document.createElement('img');img.src=pic;l.appendChild(img);}
-    let lt=document.createElement('div');lt.className='lt';lt.innerHTML=txt.charAt(0).toUpperCase()+'<br><small style="font-size:9px">'+curName+'</small>';l.appendChild(lt);
-    let lb=document.createElement('div');lb.className='card-actions';
-    let lc=document.createElement('div');lc.className='action-btn';lc.innerText='📋';lc.onclick=(e)=>{e.stopPropagation();copyText(txt);};
-    lb.appendChild(lc);l.appendChild(lb);
-    l.onclick=()=>{copyText(txt);openPreview(txt,bg);};
-    g3.appendChild(l);
+    l.innerHTML=(pic?`<img src="${pic}" loading="lazy">`:'')+`<div class="lt">${styledName.charAt(0)}<br><small style="font-size:9px">${cur}</small></div>`;
+    l.onclick=((t)=>()=>{navigator.clipboard.writeText(t);showToast('Copied: '+t);})(txt);g3.appendChild(l);
   }
-}
-function copyAll(){
-  let all='';
-  for(let i=0;i<1000;i++){let w=wrappers[i%wrappers.length];all+=w[0]+curName+w[1]+'\\n';}
-  copyText(all);showToast('1000 Copied!');
 }
 genAll();
 </script></body></html>
