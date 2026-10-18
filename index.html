@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FINAL FIX - Banner Logo Click 100%</title>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<title>Soumya - Photo + Banner Logo Fixed</title>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@800&family=Righteous&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#07080f;color:#fff;font-family:Arial,sans-serif}
 header{position:sticky;top:0;z-index:99;background:#07080f;border-bottom:1px solid #ffffff15;padding:10px 4%;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
 .logo{font-family:'Audiowide';font-size:20px}.logo span{color:#ff0055}
 .top{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.top input{background:#151725;border:1px solid #ffffff22;color:#fff;padding:10px 14px;border-radius:999px;width:140px;outline:none}
+.top input{background:#151725;border:1px solid #ffffff22;color:#fff;padding:10px 14px;border-radius:999px;width:130px;outline:none}
 .btn{background:linear-gradient(90deg,#ff0055,#ff6a00);border:none;color:#fff;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
-.btn2{background:#151725;border:1px solid #ffffff22;color:#fff;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:13px}
-.upload{background:#151725;border:1px dashed #ffffff33;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:12px}.upload input{display:none}
+.upload{background:linear-gradient(90deg,#00f5ff,#0066ff);border:none;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:700;color:#fff}.upload input{display:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;padding:10px 4%}
 .card{background:#151725;border-radius:10px;min-height:80px;display:grid;place-items:center;padding:8px;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer}
-.card:hover{border-color:#ff0055}
-.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;pointer-events:none}
-.card .txt{position:relative;z-index:1;font-size:16px;text-align:center;word-break:break-all;pointer-events:none}
-.banner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:10px 4%}
-.banner{height:130px;border-radius:12px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer;background:#151725}
-.banner:hover{border-color:#00f5ff}
-.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;pointer-events:none}
-.banner .bt{position:relative;z-index:1;font-family:Audiowide;font-size:18px;text-shadow:0 2px 6px #000;text-align:center;pointer-events:none}
-.banner .copybtn{position:absolute;top:8px;right:8px;z-index:10;background:#ff0055;color:#fff;border:none;padding:6px 12px;border-radius:999px;font-size:11px;cursor:pointer;font-weight:700;pointer-events:auto}
-.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:10px;padding:10px 4%}
-.logo-card{aspect-ratio:1;background:#151725;border-radius:12px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #ffffff0d;cursor:pointer}
-.logo-card:hover{border-color:#ff4ecd}
-.logo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;pointer-events:none}
-.logo-card .lt{position:relative;z-index:1;font-family:Audiowide;text-align:center;font-size:14px;pointer-events:none}
-.logo-card .copybtn{position:absolute;bottom:8px;right:8px;z-index:10;background:#8a5cf5;color:#fff;border:none;padding:5px 10px;border-radius:999px;font-size:10px;cursor:pointer;font-weight:700;pointer-events:auto}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ff0055;color:#fff;padding:12px 20px;border-radius:999px;display:none;z-index:9999;font-size:13px;font-weight:700}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;pointer-events:none}
+.card .txt{position:relative;z-index:1;font-size:16px;text-align:center;pointer-events:none}
+.card .copybtn{position:absolute;top:5px;right:5px;z-index:10;background:#ff0055;color:#fff;border:none;padding:4px 8px;border-radius:999px;font-size:9px;cursor:pointer}
+.banner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;padding:10px 4%}
+.banner{height:160px;border-radius:16px;display:flex;align-items:center;position:relative;overflow:hidden;border:1px solid #ffffff15;cursor:pointer;background:#151725}
+.banner .bg{position:absolute;inset:0;object-fit:cover;opacity:0.7;pointer-events:none;width:100%;height:100%}
+.banner .overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.8),rgba(0,0,0,0.2));pointer-events:none;z-index:1}
+.banner .content{position:relative;z-index:2;display:flex;align-items:center;gap:12px;padding:12px;width:100%}
+.banner .pic{width:80px;height:80px;border-radius:12px;object-fit:cover;border:2px solid #fff;flex-shrink:0}
+.banner .text .name{font-family:'Orbitron';font-size:20px;font-weight:800;text-shadow:0 2px 8px #000}
+.banner .text .tag{font-size:11px;opacity:0.8;margin-top:2px}
+.banner .copybtn{position:absolute;top:10px;right:10px;z-index:10;background:#ff0055;color:#fff;border:none;padding:6px 12px;border-radius:999px;font-size:11px;cursor:pointer;font-weight:700}
+.banner.type2 .content{flex-direction:row-reverse;text-align:right}
+.banner.type3 .content{flex-direction:column;text-align:center}.banner.type3 .pic{width:60px;height:60px;border-radius:50%}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;padding:10px 4%}
+.logo-card{aspect-ratio:1;border-radius:20px;display:grid;place-items:center;position:relative;overflow:hidden;border:2px solid #ffffff15;cursor:pointer;background:#151725}
+.logo-card.circle{border-radius:50%}
+.logo-card .bg{position:absolute;inset:0;object-fit:cover;opacity:0.6;pointer-events:none;width:100%;height:100%}
+.logo-card .overlay{position:absolute;inset:0;background:radial-gradient(circle,rgba(0,0,0,0.2),rgba(0,0,0,0.8));pointer-events:none;z-index:1}
+.logo-card .lt{position:relative;z-index:2;text-align:center}
+.logo-card .lt .letter{font-family:'Orbitron';font-size:36px;font-weight:900;text-shadow:0 2px 10px #000}
+.logo-card .copybtn{position:absolute;bottom:6px;right:6px;z-index:10;background:rgba(0,0,0,0.8);color:#fff;border:1px solid #ffffff33;padding:4px 8px;border-radius:999px;font-size:9px;cursor:pointer}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ff0055;color:#fff;padding:12px 22px;border-radius:999px;display:none;z-index:9999;font-size:13px;font-weight:700}
+.no-photo{display:grid;place-items:center;background:linear-gradient(135deg,#ff0055,#ff6a00);font-weight:900}
 </style></head><body>
 <header>
 <div class="logo">FONT <span>STUDIO</span></div>
 <div class="top">
 <input id="nameInput" value="Soumya" placeholder="Name likho">
-<label class="upload">📸 Photo<input type="file" id="photo" accept="image/*"></label>
+<label class="upload">📸 Photo Lagao<input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(event)"></label>
 <button class="btn" onclick="genAll()">✨ Generate 1000 Fonts</button>
-<button class="btn2" onclick="genBanners()">🎨 Banner/Logo 500</button>
 </div>
 </header>
-<div style="padding:8px 4%;font-weight:700">🔥 1000 Fonts - Click to Copy (Working)</div>
+<div style="padding:8px 4%;font-weight:700;display:flex;justify-content:space-between"><span>🔥 1000 Fonts</span><span id="photoStatus" style="font-size:11px;color:#00f5ff">📸 Photo nahi lagi - Lagao!</span></div>
 <div class="grid" id="g1"></div>
-<div style="padding:8px 4%;font-weight:700">🎨 500 Banners - COPY BUTTON SE COPY KARO (100% Working)</div>
+<div style="padding:12px 4% 0;font-weight:700;font-size:16px">🎨 500 BANNERS - Photo ke saath</div>
+<p style="padding:0 4% 8px;color:#ffffff66;font-size:11px">Ye banner hai - alag design!</p>
 <div class="banner-grid" id="g2"></div>
-<div style="padding:8px 4%;font-weight:700">🔰 500 Logos - COPY BUTTON SE COPY KARO (100% Working)</div>
+<div style="padding:12px 4% 0;font-weight:700;font-size:16px">🔰 500 LOGOS - Photo ke saath</div>
 <div class="logo-grid" id="g3"></div>
 <div class="toast" id="toast"></div>
 <script>
 let cur="Soumya";let pic=null;
-const wrappers=[["꧁༒","༒꧂"],["亗 "," 亗"],["『","』ツ"],["★彡[","]彡★"],["𓆩","𓆪"],["♛ "," ♛"],["⚡","⚡"],["乂 "," 乂"],["么","么"],["☠︎︎ "," ☠︎︎"],["♡ "," ♡"],["✿ "," ✿"],["᭄","࿐"],["꧁ঔৣ","ঔৣ꧂"],["【","】"],["◥","◤"],["★","★"],["彡","彡"],["༺","༻"],["ツ","ツ"]];
+const wrappers=[["꧁༒","༒꧂"],["亗 "," 亗"],["『","』ツ"],["★彡[","]彡★"],["𓆩","𓆪"],["♛ "," ♛"],["⚡","⚡"],["乂 "," 乂"]];
 const fontStyles={"bold":{"A":"𝐀","B":"𝐁","C":"𝐂","D":"𝐃","E":"𝐄","F":"𝐅","G":"𝐆","H":"𝐇","I":"𝐈","J":"𝐉","K":"𝐊","L":"𝐋","M":"𝐌","N":"𝐍","O":"𝐎","P":"𝐏","Q":"𝐐","R":"𝐑","S":"𝐒","T":"𝐓","U":"𝐔","V":"𝐕","W":"𝐖","X":"𝐗","Y":"𝐘","Z":"𝐙","a":"𝐚","b":"𝐛","c":"𝐜","d":"𝐝","e":"𝐞","f":"𝐟","g":"𝐠","h":"𝐡","i":"𝐢","j":"𝐣","k":"𝐤","l":"𝐥","m":"𝐦","n":"𝐧","o":"𝐨","p":"𝐩","q":"𝐪","r":"𝐫","s":"𝐬","t":"𝐭","u":"𝐮","v":"𝐯","w":"𝐰","x":"𝐱","y":"𝐲","z":"𝐳"},"script":{"A":"𝓐","B":"𝓑","C":"𝓒","D":"𝓓","E":"𝓔","F":"𝓕","G":"𝓖","H":"𝓗","I":"𝓘","J":"𝓙","K":"𝓚","L":"𝓛","M":"𝓜","N":"𝓝","O":"𝓞","P":"𝓟","Q":"𝓠","R":"𝓡","S":"𝓢","T":"𝓣","U":"𝓤","V":"𝓥","W":"𝓦","X":"𝓧","Y":"𝓨","Z":"𝓩"}};
 const styleKeys=Object.keys(fontStyles);
-const bgs=['linear-gradient(135deg,#ff0055,#ff6a00)','linear-gradient(135deg,#00f5ff,#0066ff)','linear-gradient(135deg,#ffcc00,#ff3300)','linear-gradient(135deg,#00ff88,#00ccff)','linear-gradient(135deg,#8a5cf5,#ff4ecd)'];
+const bgs=['linear-gradient(135deg,#ff0055,#ff6a00)','linear-gradient(135deg,#00f5ff,#0066ff)','linear-gradient(135deg,#ffcc00,#ff3300)','linear-gradient(135deg,#00ff88,#00ccff)'];
 function toStyle(s,st){let m=fontStyles[st];if(!m)return s;return s.split('').map(c=>m[c]||c).join('');}
-function showToast(t){let x=document.getElementById('toast');x.innerText=t;x.style.display='block';setTimeout(()=>x.style.display='none',2000);}
-document.getElementById('photo').addEventListener('change',function(e){
-  const f=e.target.files[0];if(!f)return;const r=new FileReader();
-  r.onload=function(ev){let img=new Image();img.onload=function(){let c=document.createElement('canvas');let max=350;let w=img.width,h=img.height;if(w>max){h*=max/w;w=max;}if(h>max){w*=max/h;h=max;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);pic=c.toDataURL('image/jpeg',0.6);genAll();showToast('Photo lag gayi!');};img.src=ev.target.result;};r.readAsDataURL(f);
-});
+function showToast(t){let x=document.getElementById('toast');x.innerText=t;x.style.display='block';setTimeout(()=>x.style.display='none',2500);}
+function handlePhoto(e){
+  const f=e.target.files[0];if(!f){showToast('Photo select nahi hui');return;}
+  const r=new FileReader();
+  r.onload=function(ev){
+    let img=new Image();
+    img.onload=function(){
+      let c=document.createElement('canvas');let max=500;let w=img.width,h=img.height;
+      if(w>max){h*=max/w;w=max;}if(h>max){w*=max/h;h=max;}
+      c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+      pic=c.toDataURL('image/jpeg',0.7);
+      document.getElementById('photoStatus').innerText='✅ Photo lag gayi! '+Math.round(f.size/1024)+'KB';
+      document.getElementById('photoStatus').style.color='#00ff88';
+      genAll();showToast('✅ Photo lag gayi! Ab banner/logo me dikhegi');
+    };img.src=ev.target.result;
+  };r.readAsDataURL(f);
+}
 function genAll(){cur=document.getElementById('nameInput').value||"Soumya";genFonts();genBanners();}
 function genFonts(){
   let g=document.getElementById('g1');g.innerHTML='';
@@ -66,7 +85,7 @@ function genFonts(){
     let style=styleKeys[i%styleKeys.length];let w=wrappers[i%wrappers.length];
     let styled=toStyle(cur,style);let txt=w[0]+styled+w[1];let bg=bgs[i%bgs.length];
     let d=document.createElement('div');d.className='card';d.style.background=bg;
-    d.innerHTML=(pic?`<img src="${pic}">`:'')+`<div class="txt">${txt}</div><button class="copybtn" style="position:absolute;top:5px;right:5px;z-index:10;background:#ff0055;color:#fff;border:none;padding:4px 8px;border-radius:999px;font-size:9px;cursor:pointer">📋 COPY</button>`;
+    d.innerHTML=(pic?`<img src="${pic}">`:'')+`<div class="txt">${txt}</div><button class="copybtn">📋 COPY</button>`;
     let btn=d.querySelector('.copybtn');btn.onclick=(e)=>{e.stopPropagation();navigator.clipboard.writeText(txt);showToast('Copied: '+txt);};
     d.onclick=()=>{navigator.clipboard.writeText(txt);showToast('Copied: '+txt);};g.appendChild(d);
   }
@@ -76,12 +95,17 @@ function genBanners(){
   for(let i=0;i<500;i++){
     let bg=bgs[i%bgs.length];let w=wrappers[i%wrappers.length];let style=styleKeys[i%styleKeys.length];
     let styled=toStyle(cur,style);let txt=w[0]+styled+w[1];
-    let b=document.createElement('div');b.className='banner';b.style.background=bg;
-    b.innerHTML=(pic?`<img src="${pic}">`:'')+`<div class="bt">${txt}</div><button class="copybtn">📋 COPY</button>`;
+    let b=document.createElement('div');b.className='banner '+(i%2?'type2':'');b.style.background=bg;
+    if(pic){
+      b.innerHTML=`<img class="bg" src="${pic}"><div class="overlay"></div><div class="content"><img class="pic" src="${pic}"><div class="text"><div class="name">${txt}</div><div class="tag">🔥 GAMER • ${cur.toUpperCase()}</div></div></div><button class="copybtn">📋 COPY</button>`;
+    }else{
+      b.innerHTML=`<div class="content"><div class="pic no-photo">?</div><div class="text"><div class="name">${txt}</div><div class="tag">📸 Photo lagao upar se!</div></div></div><button class="copybtn">📋 COPY</button>`;
+    }
     let btn=b.querySelector('.copybtn');btn.onclick=(e)=>{e.stopPropagation();navigator.clipboard.writeText(txt);showToast('Copied Banner: '+txt);};
     b.onclick=()=>{navigator.clipboard.writeText(txt);showToast('Copied Banner: '+txt);};g2.appendChild(b);
-    let l=document.createElement('div');l.className='logo-card';l.style.background=bg;
-    l.innerHTML=(pic?`<img src="${pic}">`:'')+`<div class="lt">${styled.charAt(0)}<br><small style="font-size:9px">${cur}</small></div><button class="copybtn">📋</button>`;
+    let l=document.createElement('div');l.className='logo-card '+(i%3==0?'circle':'');l.style.background=bg;
+    if(pic){l.innerHTML=`<img class="bg" src="${pic}"><div class="overlay"></div><div class="lt"><div class="letter">${styled.charAt(0).toUpperCase()}</div><small>${cur}</small></div><button class="copybtn">📋</button>`;}
+    else{l.innerHTML=`<div class="lt"><div class="letter">${styled.charAt(0).toUpperCase()}</div><small>${cur}</small></div><button class="copybtn">📋</button>`;}
     let btn2=l.querySelector('.copybtn');btn2.onclick=(e)=>{e.stopPropagation();navigator.clipboard.writeText(txt);showToast('Copied Logo: '+txt);};
     l.onclick=()=>{navigator.clipboard.writeText(txt);showToast('Copied Logo: '+txt);};g3.appendChild(l);
   }
